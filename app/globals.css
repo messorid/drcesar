@@ -129,3 +129,54 @@ body {
   width: 100%;
   overflow-x: hidden;
 }
+
+/* =========================
+   Loader animations
+   ========================= */
+
+@layer utilities {
+  @keyframes fadeScale {
+    0% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes slideDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-12px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideUp {
+    0% {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-scale {
+    animation: fadeScale 0.45s ease-out forwards;
+  }
+
+  .animate-slide-down {
+    animation: slideDown 0.45s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.45s ease-out forwards;
+  }
+}

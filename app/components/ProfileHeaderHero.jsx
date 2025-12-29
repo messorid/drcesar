@@ -1,25 +1,23 @@
-import Image from "next/image"
 import Link from "next/link"
 
 export default function ProfileHeaderHero() {
   const whatsappMessage =
-    "Hola Dr Cesar Rosales, deseo informacion para agendar una consulta."
+    "Hola Dr. César Rosales, deseo información para agendar una consulta."
 
   return (
     <section className="relative min-h-screen w-full overflow-hidden">
-      {/* Imagen de fondo optimizada */}
-      <Image
-        src="/images/background.JPG"
-        alt="Dr Cesar Rosales cirujano plastico"
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover"
-        style={{ objectPosition: "center 20%" }}
+      {/* Video de fondo */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover"
+        src="/videos/hero-background.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
       />
 
-      {/* Overlay oscuro elegante */}
-      <div className="absolute inset-0 bg-black/75" />
+      {/* Overlay oscuro */}
+      <div className="absolute inset-0 bg-black/80" />
 
       {/* Contenido */}
       <div
@@ -33,55 +31,56 @@ export default function ProfileHeaderHero() {
           items-center
           justify-center
           text-center
-          gap-6
-          sm:gap-7
-          md:gap-8
         "
       >
         {/* Nombre */}
-        <h1 className="text-2xl sm:text-3xl md:text-5xl font-semibold tracking-tight text-white">
-          Dr Cesar Rosales
+        <h1 className="text-2xl sm:text-3xl md:text-5xl font-semibold tracking-tight text-white mt-4">
+          Dr. César Rosales
         </h1>
 
-        {/* Especialidad */}
-        <p className="text-sm sm:text-base md:text-xl text-slate-200">
-          Cirujano Plastico
+        {/* Subtítulo */}
+        <p className="text-lg sm:text-xl md:text-2xl font-medium text-white mt-2">
+          Cirujano Plástico
         </p>
 
-        {/* Texto principal */}
-        <p className="max-w-xl text-base sm:text-lg md:text-xl leading-relaxed text-slate-100">
-          Retiro de biopolimeros y reconstruccion <br />
-          Contorno corporal, Lipo HD y cirugia mamaria
+        {/* Servicios */}
+        <p className="max-w-xl text-base sm:text-lg md:text-xl leading-relaxed text-slate-100 mt-6">
+          Retiro de Biopolímeros y Reconstrucción <br />
+          Contorno Corporal, Lipo HD y Cirugía Mamaria
         </p>
 
         {/* CTA */}
-        <p className="text-sm sm:text-base text-slate-300">
-          Agenda tu consulta o aclara tus dudas con el especialista.
+        <p className="text-sm sm:text-base text-slate-300 mt-4">
+          Agenda tu consulta o aclara tus dudas con un especialista.
         </p>
 
         {/* Botones */}
-        <div className="w-full max-w-sm flex flex-col gap-4 pt-4">
+        <div className="w-full max-w-sm flex flex-col gap-4 mt-8">
           <Link
             href={`https://wa.me/584245846191?text=${encodeURIComponent(
               whatsappMessage
             )}`}
             className="rounded-2xl bg-green-600 py-4 text-white font-semibold hover:bg-green-700 transition"
           >
-            WhatsApp para consulta
+            WhatsApp para Consulta
           </Link>
 
           <Link
-            href="tel:+584245846191"
+            href="https://www.instagram.com/drcesarrosales"
+            target="_blank"
             className="rounded-2xl bg-white/90 py-4 text-slate-900 font-semibold hover:bg-white transition"
           >
-            Llamada directa
+            Sígueme en Instagram
           </Link>
         </div>
 
         {/* Ubicaciones */}
-        <p className="text-xs sm:text-sm text-slate-300 pt-2">
-          Barinas · Caracas · San Cristobal
-        </p>
+        <Link
+          href="/ubicaciones"
+          className="text-sm text-slate-300 underline underline-offset-4 hover:text-white transition mt-6"
+        >
+          Ver Ubicaciones
+        </Link>
       </div>
     </section>
   )
