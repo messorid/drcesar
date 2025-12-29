@@ -5,7 +5,7 @@ export default function ProfileHeader() {
     <header className="flex flex-col items-center text-center gap-4 fade-in">
       {/* Foto de perfil */}
       <Image
-        src="/images/dr-cesar-rosales-profile.jpg"
+        src="/images/dr-cesar-rosales-profile.JPG"
         alt="Dr Cesar Rosales cirujano plastico"
         width={112}
         height={112}
