@@ -73,14 +73,30 @@ export default function ProfileHeaderHero() {
             Sígueme en Instagram
           </Link>
         </div>
+{/* Ubicaciones */}
+<Link
+  href="/ubicaciones"
+  className="
+    mt-6
+    inline-flex
+    items-center
+    justify-center
+    rounded-full
+    px-6
+    py-2.5
+    text-sm
+    font-medium
+    text-white
+    bg-gradient-to-r from-sky-500 via-blue-600 to-indigo-600
+    hover:from-sky-400 hover:via-blue-500 hover:to-indigo-500
+    transition-all
+    duration-300
+    shadow-md
+  "
+>
+  Ver Ubicaciones
+</Link>
 
-        {/* Ubicaciones */}
-        <Link
-          href="/ubicaciones"
-          className="text-sm text-slate-300 underline underline-offset-4 hover:text-white transition mt-6"
-        >
-          Ver Ubicaciones
-        </Link>
       </div>
     </section>
   )
