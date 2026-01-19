@@ -4,7 +4,7 @@ import Link from "next/link"
 
 export default function StickyWhatsappCTA() {
   const whatsappMessage =
-    "Hola Dr Cesar Rosales, deseo informacion sobre el tratamiento con Mounjaro"
+    "Hola Dr Cesar Rosales, deseo informacion sobre la consulta"
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50">
