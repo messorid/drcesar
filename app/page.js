@@ -1,3 +1,4 @@
+import StickyWhatsappCTA from "./mounjaro/components/StickyWhatsappCTA"
 import PageLoader from "./components/PageLoader"
 import ProfileHeaderHero from "./components/ProfileHeaderHero"
 
@@ -6,6 +7,8 @@ export default function HomePage() {
     <>
       <PageLoader />
       <ProfileHeaderHero />
+            <StickyWhatsappCTA />
+
     </>
   )
 }

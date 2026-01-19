@@ -48,6 +48,9 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+
   background-color: var(--background);
   color: var(--foreground);
 
@@ -62,11 +65,10 @@ body {
   transition:
     background-color 0.35s ease,
     color 0.35s ease;
-  
 }
 
 /* =================================================
-   Contenedor principal (Link in Bio)
+   Contenedor principal
    ================================================= */
 .container {
   max-width: 420px;
@@ -75,7 +77,7 @@ body {
 }
 
 /* =================================================
-   Tipografía Apple style
+   Tipografía base (NO forzar colores)
    ================================================= */
 h1,
 h2,
@@ -83,11 +85,6 @@ h3,
 h4 {
   font-weight: 600;
   letter-spacing: -0.02em;
-  color: var(--text-primary);
-}
-
-p {
-  color: var(--text-secondary);
 }
 
 /* =================================================
@@ -98,7 +95,7 @@ p {
 }
 
 /* =================================================
-   Superficies (cards, botones claros)
+   Superficies (cards, secciones claras)
    ================================================= */
 .surface {
   background-color: var(--surface);
@@ -123,17 +120,9 @@ p {
   }
 }
 
-
-html,
-body {
-  width: 100%;
-  overflow-x: hidden;
-}
-
-/* =========================
-   Loader animations
-   ========================= */
-
+/* =================================================
+   Utilidades personalizadas
+   ================================================= */
 @layer utilities {
   @keyframes fadeScale {
     0% {
