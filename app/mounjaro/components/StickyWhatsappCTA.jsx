@@ -9,7 +9,7 @@ export default function StickyWhatsappCTA() {
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50">
       <Link
-        href={`https://wa.me/584242913148?text=${encodeURIComponent(
+        href={`https://wa.me/584245846191?text=${encodeURIComponent(
           whatsappMessage
         )}`}
         className="
