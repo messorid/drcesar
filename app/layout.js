@@ -1,6 +1,10 @@
 import { Geist, Geist_Mono } from "next/font/google"
 import "./globals.css"
 import Script from "next/script"
+import StickyWhatsappCTA from "./mounjaro/components/StickyWhatsappCTA"
+import Footer from "./components/Footer"
+import MedicalSchema from "./components/MedicalSchema"
+import Navbar from "./components/Navbar"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,15 +17,18 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata = {
-  title: "Dr Cesar Rosales | Cirujano Plastico",
+  title: "Dr Cesar Rosales | Cirujano Plastico en Barinas y Caracas",
   description:
-    "Cirujano plastico especializado en retiro de biopolimeros, reconstruccion y contorno corporal. Agenda tu consulta.",
-
+    "Dr Cesar Rosales, cirujano plastico especializado en retiro de biopolimeros, reconstruccion, BBL, Lipo HD y cirugia mamaria. Atencion en Barinas y Caracas.",
+  metadataBase: new URL("https://www.drcesarrosales.com"),
+  alternates: {
+    canonical: "https://www.drcesarrosales.com",
+  },
   openGraph: {
     title: "Dr Cesar Rosales | Cirujano Plastico",
     description:
-      "Retiro de biopolimeros, reconstruccion y cirugia plastica con enfoque medico y seguro.",
-    url: "https://drcesarrosales.com",
+      "Cirugia plastica con enfoque medico, estetico y seguro. Atencion en Barinas y Caracas.",
+    url: "https://www.drcesarrosales.com",
     siteName: "Dr Cesar Rosales",
     images: [
       {
@@ -34,7 +41,6 @@ export const metadata = {
     locale: "es_VE",
     type: "website",
   },
-
   twitter: {
     card: "summary_large_image",
     title: "Dr Cesar Rosales | Cirujano Plastico",
@@ -44,11 +50,10 @@ export const metadata = {
   },
 }
 
-
 export default function RootLayout({ children }) {
   return (
     <html lang="es" className="dark">
-       <head>
+      <head>
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-FQ04BE4QDX"
@@ -63,10 +68,22 @@ export default function RootLayout({ children }) {
           `}
         </Script>
       </head>
+
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white`}
       >
-        {children}      </body>
+        {/* Schema medico global */}
+        <MedicalSchema />
+        <Navbar/>
+        {/* Contenido */}
+        {children}
+
+        {/* Sticky WhatsApp */}
+        <StickyWhatsappCTA />
+
+        {/* Footer legal */}
+        <Footer />
+      </body>
     </html>
   )
 }

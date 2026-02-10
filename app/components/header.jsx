@@ -21,21 +21,32 @@ export default function Header() {
       <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/60 to-black/95" />
 
       {/* Contenido */}
-      <div className="relative z-10 flex h-full w-full items-center">
-        <div className="mx-auto max-w-7xl px-6">
+      <div className="relative z-10 flex h-full w-full items-start md:items-center">
+        <div
+          className="
+            mx-auto max-w-7xl px-6
+            pt-32
+            md:pt-0
+            md:-mt-20
+          "
+        >
+          {/* Badge */}
           <span className="mb-4 inline-block rounded-full bg-white/10 px-4 py-1 text-sm text-slate-300 backdrop-blur">
             Cirujano Plastico Certificado
           </span>
 
+          {/* Titulo */}
           <h1 className="max-w-3xl text-4xl font-semibold leading-tight text-white md:text-6xl">
             Dr Cesar Rosales
           </h1>
 
+          {/* Descripcion */}
           <p className="mt-6 max-w-xl text-base text-slate-300 md:text-lg">
             Cirugia plastica con enfoque en seguridad, precision y resultados
             naturales. Atencion personalizada para cada paciente.
           </p>
 
+          {/* Acciones */}
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <Link
               href={`https://wa.me/?text=${encodeURIComponent(
