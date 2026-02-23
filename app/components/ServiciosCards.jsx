@@ -18,7 +18,7 @@ const servicios = [
   },
   {
     title: "Retiro de Biopolímeros y Reconstrucción",
-    image: "/images/servicios/biopolimeros1.jpeg",
+    image: "/images/servicios/Biopolimeros1.jpeg",
   },
 ]
 
