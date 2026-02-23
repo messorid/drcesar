@@ -5,7 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 
 export default function HeaderHero() {
-  const text = "Cirujano Plástico en Barinas y Caracas"
+  const text = "Cirujano Plástico en Caracas y Barinas"
   const [typedText, setTypedText] = useState("")
   const [index, setIndex] = useState(0)
 

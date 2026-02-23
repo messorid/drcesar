@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-
+import BeforeAfterPro from "../components/BeforeAfterPro"
 export const metadata = {
   title: "Retiro de Biopolimeros en Caracas | Dr Cesar Rosales",
   description:
@@ -27,7 +27,7 @@ export default function RetiroBiopolimerosCaracasPage() {
   return (
     <main className="w-full bg-black text-white overflow-hidden">
 
-      {/* HERO CON PARALLAX */}
+      {/* HERO */}
       <section className="relative h-[90vh] flex items-center justify-center text-center">
         
         <div className="absolute inset-0">
@@ -70,11 +70,34 @@ export default function RetiroBiopolimerosCaracasPage() {
         </div>
       </section>
 
-      {/* CONTENIDO */}
+      {/* BEFORE AFTER SECTION */}
+      <section className="py-24 bg-neutral-950">
+        <div className="max-w-6xl mx-auto px-6">
+
+          <h2 className="text-3xl font-semibold text-center mb-16">
+            Antes y Despues del Retiro de Biopolimeros
+          </h2>
+
+          <BeforeAfterPro
+            beforeImage="/images/servicios/biopolimeros.jpg"
+            afterImage="/images/servicios/Biopolimeros1.jpeg"
+            altBefore="Antes retiro de biopolimeros"
+            altAfter="Despues retiro de biopolimeros"
+            labelBefore="Antes"
+            labelAfter="Despues"
+            watermarkText="Dr Cesar Rosales"
+            accentClass="bg-sky-400"
+            autoplay={true}
+            autoplayMs={1400}
+          />
+
+        </div>
+      </section>
+
+      {/* CONTENIDO SEO */}
       <section id="informacion" className="px-6 py-24">
         <div className="mx-auto max-w-6xl space-y-20">
 
-          {/* BLOQUE 1 */}
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             
             <div>
@@ -85,67 +108,24 @@ export default function RetiroBiopolimerosCaracasPage() {
               <p className="mt-6 text-white/70 leading-relaxed">
                 El retiro de biopolimeros en Caracas es un procedimiento
                 quirurgico complejo que requiere experiencia en cirugia plastica
-                y reconstruccion de tejidos. Cada paciente necesita una
-                evaluacion personalizada para determinar el plan adecuado.
+                y reconstruccion de tejidos.
               </p>
 
               <p className="mt-4 text-white/70 leading-relaxed">
-                El objetivo es retirar la mayor cantidad posible del material
-                infiltrado, disminuir inflamacion y prevenir complicaciones
-                futuras.
+                Cada paciente necesita una evaluacion personalizada para
+                determinar el plan adecuado y reducir riesgos.
               </p>
             </div>
 
             <div className="relative w-full h-[400px]">
               <Image
-                src="/images/servicios/biopolimeros1.jpeg"
+                src="/images/servicios/Biopolimeros1.jpeg"
                 alt="Cirugia de retiro de biopolimeros en Caracas"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover rounded-xl"
               />
             </div>
-          </div>
-
-          {/* BLOQUE 2 */}
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            
-            <div className="relative w-full h-[400px] order-2 lg:order-1">
-              <Image
-                src="/images/servicios/biopolimeros.jpg"
-                alt="Especialista en retiro de biopolimeros en Caracas Venezuela"
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover rounded-xl"
-              />
-            </div>
-
-            <div className="order-1 lg:order-2">
-              <h2 className="text-2xl font-semibold">
-                Consulta especializada en Caracas
-              </h2>
-
-              <p className="mt-6 text-white/70 leading-relaxed">
-                Durante la consulta se realiza una evaluacion clinica completa,
-                revision de estudios previos y explicacion detallada de riesgos
-                y expectativas reales del procedimiento.
-              </p>
-
-              <p className="mt-4 text-white/70 leading-relaxed">
-                La prioridad es la seguridad del paciente y el acompanamiento
-                medico antes, durante y despues de la cirugia.
-              </p>
-            </div>
-          </div>
-
-          {/* CTA FINAL */}
-          <div className="text-center pt-10">
-            <Link
-              href="https://wa.me/584245846191"
-              className="inline-block px-10 py-4 bg-white text-black text-sm font-medium hover:bg-neutral-200 transition"
-            >
-              Solicitar evaluacion medica en Caracas
-            </Link>
           </div>
 
         </div>
