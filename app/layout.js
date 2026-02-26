@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata = {
-  title: "Dr Cesar Rosales | Cirujano Plastico en Barinas y Caracas",
+  title: "Dr Cesar Rosales | Cirujano Plastico en  Caracas y Barinas",
   description:
     "Dr Cesar Rosales, cirujano plastico especializado en retiro de biopolimeros, reconstruccion, BBL, Lipo HD y cirugia mamaria. Atencion en Barinas y Caracas.",
   metadataBase: new URL("https://www.drcesarrosales.com"),
