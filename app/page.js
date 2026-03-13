@@ -40,7 +40,7 @@ export const metadata = {
         url: "/og-dr-cesar-rosales.jpg",
         width: 1200,
         height: 630,
-        alt: "Dr Cesar Rosales Cirujano Plastico en Barinas",
+        alt: "Dr Cesar Rosales Cirujano Plastico en Caracas",
       },
     ],
   },
