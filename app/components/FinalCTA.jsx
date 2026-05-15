@@ -1,53 +1,77 @@
 "use client"
 
 import { motion } from "framer-motion"
+import WhatsappLink from "./WhatsappLink"
 
 export default function FinalCTA() {
+  const whatsappUrl =
+    "https://wa.me/584245846191?text=" +
+    encodeURIComponent(
+      "Hola Dr César Rosales, deseo agendar una consulta con un especialista"
+    )
+
   return (
-    <section className="relative w-full bg-black py-28 px-6 overflow-hidden">
-      {/* Glow central */}
+    <section className="relative w-full bg-ink py-32 px-6 overflow-hidden">
+      {/* Resplandor dorado */}
       <div className="pointer-events-none absolute inset-0 flex justify-center items-center">
-        <div className="h-[360px] w-[360px] rounded-full bg-white/5 blur-3xl" />
+        <div className="h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,_rgba(201,169,106,0.12),_transparent_70%)] blur-2xl" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-4xl text-center">
-        {/* Título */}
-        <motion.h2
-          initial={{ opacity: 0, y: 40 }}
+      <div className="relative z-10 mx-auto max-w-3xl text-center">
+        <motion.span
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white"
+          className="eyebrow"
         >
-          Agenda tu consulta con un especialista
+          Tu Transformación Comienza Aquí
+        </motion.span>
+
+        <motion.h2
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          viewport={{ once: true }}
+          className="mt-7 text-4xl sm:text-5xl lg:text-7xl text-cream leading-[1.08]"
+        >
+          Agenda tu consulta con un{" "}
+          <span className="gold-text">especialista</span>
         </motion.h2>
 
-        {/* Texto */}
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.25 }}
           viewport={{ once: true }}
-          className="mt-8 text-sm sm:text-base lg:text-lg text-white/70 leading-relaxed"
+          className="mt-8 text-base sm:text-lg text-sand leading-relaxed max-w-2xl mx-auto"
         >
-          Recibe una evaluación médica personalizada, aclara tus dudas y
-          conoce las opciones de tratamiento más adecuadas para tu caso.
-          Nuestro equipo te orientará durante todo el proceso.
+          Recibe una evaluación médica personalizada, aclara tus dudas y conoce
+          las opciones de tratamiento más adecuadas para tu caso. Atención en
+          Barinas y Caracas.
         </motion.p>
 
-        {/* Refuerzo WhatsApp */}
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.35 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
-          className="mt-12"
+          className="mt-12 flex justify-center"
         >
-          <p className="text-sm sm:text-base text-white/60">
-            Escríbenos directamente por WhatsApp para consultar disponibilidad
-            en Barinas o Caracas.
-          </p>
+          <WhatsappLink href={whatsappUrl} className="btn-gold">
+            Agendar por WhatsApp
+          </WhatsappLink>
         </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.55 }}
+          viewport={{ once: true }}
+          className="mt-8 text-xs uppercase tracking-[0.28em] text-stone"
+        >
+          Respuesta personalizada · Atención profesional
+        </motion.p>
       </div>
     </section>
   )

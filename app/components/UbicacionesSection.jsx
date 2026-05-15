@@ -26,82 +26,69 @@ export default function UbicacionesSection() {
   const [openId, setOpenId] = useState("caracas")
 
   return (
-    <section className="relative w-full bg-black py-24 px-6 overflow-hidden">
-      {/* Glow decorativo */}
-      <div className="pointer-events-none absolute inset-0 flex justify-center">
-        <div className="h-[300px] w-[300px] rounded-full bg-white/5 blur-3xl" />
-      </div>
-
+    <section className="relative w-full bg-ink py-28 px-6 overflow-hidden">
       <div className="relative z-10 mx-auto max-w-3xl">
-        {/* Título */}
-        <motion.h2
-          initial={{ opacity: 0, y: 40 }}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="text-center text-3xl sm:text-4xl lg:text-5xl font-semibold text-white"
+          className="text-center"
         >
-          Ubicaciones de atención
-        </motion.h2>
+          <span className="eyebrow">Dónde Atendemos</span>
+          <h2 className="mt-6 text-4xl sm:text-5xl lg:text-6xl text-cream">
+            Ubicaciones de <span className="gold-text">atención</span>
+          </h2>
+          <p className="mt-7 text-sm sm:text-base text-stone leading-relaxed">
+            El Dr. César Rosales atiende en distintas ciudades para brindar
+            atención médica especializada y personalizada.
+          </p>
+          <div className="gold-divider mx-auto mt-10 max-w-[160px]" />
+        </motion.div>
 
-        {/* Intro */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="mt-6 text-center text-sm sm:text-base text-white/70"
-        >
-          El Dr Cesar Rosales atiende en distintas ciudades para brindar
-          atención médica especializada y personalizada.
-        </motion.p>
-
-        {/* Accordion */}
-        <div className="mt-14 space-y-5">
+        <div className="mt-16 space-y-5">
           {locations.map((location) => {
             const isOpen = openId === location.id
 
             return (
               <div
                 key={location.id}
-                className="rounded-2xl border border-white/10 overflow-hidden bg-white/5"
+                className={`overflow-hidden rounded-2xl border transition-colors duration-500 ${
+                  isOpen
+                    ? "border-[rgba(201,169,106,0.4)] bg-ink-elevated"
+                    : "border-[var(--border-soft)] bg-ink-soft"
+                }`}
               >
-                {/* Header */}
                 <button
-                  onClick={() =>
-                    setOpenId(isOpen ? null : location.id)
-                  }
-                  className={`
-                    w-full flex justify-between items-center px-6 py-5 text-left
-                    transition-colors
-                    ${isOpen ? "bg-white/10" : "bg-transparent"}
-                  `}
+                  onClick={() => setOpenId(isOpen ? null : location.id)}
+                  className="w-full flex justify-between items-center px-7 py-6 text-left"
                 >
                   <div>
-                    <h3 className="text-lg font-semibold text-white">
+                    <h3 className="font-display text-2xl text-cream">
                       {location.title}
                     </h3>
-                    <p className="text-sm text-white/60">
+                    <p className="mt-1 text-sm text-stone">
                       {location.description}
                     </p>
                   </div>
-
-                  <span className="text-2xl font-light text-white">
-                    {isOpen ? "−" : "+"}
+                  <span
+                    className={`flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border-gold)] text-lg text-gold transition-transform duration-500 ${
+                      isOpen ? "rotate-45" : ""
+                    }`}
+                  >
+                    +
                   </span>
                 </button>
 
-                {/* Content */}
                 <div
-                  className={`
-                    overflow-hidden transition-all duration-300 ease-out
-                    ${isOpen ? "max-h-[520px] opacity-100" : "max-h-0 opacity-0"}
-                  `}
+                  className={`overflow-hidden transition-all duration-500 ease-out ${
+                    isOpen ? "max-h-[520px] opacity-100" : "max-h-0 opacity-0"
+                  }`}
                 >
-                  <div className="px-6 pb-6 pt-4 bg-black border-t border-white/10">
+                  <div className="px-7 pb-7 pt-2">
                     <iframe
                       src={location.iframeSrc}
-                      className="w-full h-[360px] rounded-xl border-0"
+                      className="w-full h-[340px] rounded-xl border border-[var(--border-soft)]"
                       loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade"
                     />

@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono } from "next/font/google"
+import { Geist, Geist_Mono, Cormorant_Garamond } from "next/font/google"
 import "./globals.css"
 import Script from "next/script"
 import StickyWhatsappCTA from "./mounjaro/components/StickyWhatsappCTA"
@@ -14,6 +14,12 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+})
+
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 })
 
 export const metadata = {
@@ -67,11 +73,38 @@ export default function RootLayout({ children }) {
             gtag('config', 'G-FQ04BE4QDX');
           `}
         </Script>
+
+        {/* Meta Pixel */}
+        <Script id="fb-pixel" strategy="afterInteractive">
+          {`
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '1558086572418002');
+            fbq('track', 'PageView');
+          `}
+        </Script>
       </head>
 
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} ${cormorant.variable} antialiased bg-ink text-cream`}
       >
+        {/* Meta Pixel noscript fallback */}
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src="https://www.facebook.com/tr?id=1558086572418002&ev=PageView&noscript=1"
+            alt=""
+          />
+        </noscript>
+
         {/* Schema medico global */}
         <MedicalSchema />
         <Navbar/>

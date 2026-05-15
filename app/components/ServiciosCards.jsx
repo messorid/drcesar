@@ -1,104 +1,117 @@
 "use client"
 
 import Image from "next/image"
+import Link from "next/link"
 import { motion } from "framer-motion"
 
 const servicios = [
   {
-    title: "BBL",
+    title: "Brazilian Butt Lift",
+    subtitle: "Proyección y contorno glúteo",
     image: "/images/servicios/bbl.jpeg",
+    href: "/bbl-barinas",
   },
   {
     title: "Lipo HD",
+    subtitle: "Definición y escultura corporal",
     image: "/images/servicios/lipo-hd.PNG",
+    href: "/lipo-hd-barinas",
   },
   {
     title: "Cirugía Mamaria",
+    subtitle: "Armonía y proporción natural",
     image: "/images/servicios/cirugia-mamaria.PNG",
+    href: "/contacto",
   },
   {
-    title: "Retiro de Biopolímeros y Reconstrucción",
+    title: "Retiro de Biopolímeros",
+    subtitle: "Reconstrucción y seguridad",
     image: "/images/servicios/Biopolimeros1.jpeg",
+    href: "/retiro-biopolimeros-caracas",
   },
 ]
 
+function Card({ servicio }) {
+  return (
+    <Link
+      href={servicio.href}
+      className="group relative block overflow-hidden rounded-2xl border border-[var(--border-soft)]"
+    >
+      <Image
+        src={servicio.image}
+        alt={servicio.title}
+        width={600}
+        height={800}
+        className="h-[440px] w-full object-cover transition-transform duration-[1.1s] ease-out group-hover:scale-110"
+      />
+
+      <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
+      <div className="absolute inset-3 rounded-xl border border-transparent transition-colors duration-500 group-hover:border-[rgba(201,169,106,0.4)]" />
+
+      <div className="absolute inset-x-0 bottom-0 p-7">
+        <span className="eyebrow">{servicio.subtitle}</span>
+        <h3 className="mt-3 font-display text-2xl text-cream">
+          {servicio.title}
+        </h3>
+        <span className="mt-4 inline-flex items-center gap-2 text-[0.78rem] uppercase tracking-[0.18em] text-gold-light opacity-0 -translate-y-1 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
+          Conocer más <span aria-hidden>→</span>
+        </span>
+      </div>
+    </Link>
+  )
+}
+
 export default function ServiciosCards() {
   return (
-    <section className="relative w-full bg-black py-24 overflow-hidden">
+    <section
+      id="servicios"
+      className="relative w-full bg-ink py-28 overflow-hidden scroll-mt-20"
+    >
       <div className="mx-auto max-w-7xl px-6">
-        {/* Desktop Grid */}
-        <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-8">
-          {servicios.map((servicio, index) => (
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+          className="mb-16 text-center"
+        >
+          <span className="eyebrow">Procedimientos</span>
+          <h2 className="mt-6 text-4xl sm:text-5xl lg:text-6xl text-cream">
+            Áreas de <span className="gold-text">Especialidad</span>
+          </h2>
+          <div className="gold-divider mx-auto mt-10 max-w-[160px]" />
+        </motion.div>
+
+        {/* Desktop */}
+        <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6">
+          {servicios.map((s, i) => (
             <motion.div
-              key={servicio.title}
+              key={s.title}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
               viewport={{ once: true }}
-              className="relative overflow-hidden rounded-2xl"
             >
-              <Image
-                src={servicio.image}
-                alt={servicio.title}
-                width={600}
-                height={800}
-                className="h-[420px] w-full object-cover transition-transform duration-700 hover:scale-105"
-              />
-
-              <div className="absolute inset-0 bg-black/55" />
-
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <h3 className="text-lg font-medium text-white">
-                  {servicio.title}
-                </h3>
-              </div>
+              <Card servicio={s} />
             </motion.div>
           ))}
         </div>
 
-        {/* Mobile DRAG */}
-        <div
-          className="
-            md:hidden
-            flex gap-6
-            overflow-x-scroll
-            pb-6
-            snap-x snap-mandatory
-            scroll-smooth
-            no-scrollbar
-          "
-        >
-          {servicios.map((servicio) => (
+        {/* Mobile carousel */}
+        <div className="md:hidden flex gap-5 overflow-x-scroll pb-6 snap-x snap-mandatory scroll-smooth no-scrollbar">
+          {servicios.map((s) => (
             <div
-              key={servicio.title}
-              className="min-w-[80%] snap-center shrink-0"
+              key={s.title}
+              className="min-w-[78%] snap-center shrink-0"
             >
-              <div className="relative overflow-hidden rounded-2xl">
-                <Image
-                  src={servicio.image}
-                  alt={servicio.title}
-                  width={600}
-                  height={800}
-                  draggable={false}
-                  className="h-[380px] w-full object-cover select-none"
-                />
-
-                <div className="absolute inset-0 bg-black/55" />
-
-                <div className="absolute bottom-0 left-0 right-0 p-5">
-                  <h3 className="text-base font-medium text-white">
-                    {servicio.title}
-                  </h3>
-                </div>
-              </div>
+              <Card servicio={s} />
             </div>
           ))}
         </div>
 
-        {/* Hint visual */}
-        <div className="mt-4 flex justify-center md:hidden">
-          <span className="text-xs text-white/50">
-            Desliza horizontalmente →
+        <div className="mt-5 flex justify-center md:hidden">
+          <span className="text-[0.7rem] uppercase tracking-[0.25em] text-stone">
+            Desliza →
           </span>
         </div>
       </div>

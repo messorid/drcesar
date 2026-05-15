@@ -5,17 +5,17 @@ import { motion } from "framer-motion"
 
 const faqs = [
   {
-    question: "¿Cómo puedo agendar una consulta con el Dr Cesar Rosales?",
+    question: "¿Cómo puedo agendar una consulta con el Dr. César Rosales?",
     answer:
       "Las consultas se agendan directamente por WhatsApp. Solo debes escribirnos, indicar el procedimiento de tu interés y consultar la disponibilidad según la ciudad.",
   },
   {
-    question: "¿En qué ciudades atiende el Dr Cesar Rosales?",
+    question: "¿En qué ciudades atiende el Dr. César Rosales?",
     answer:
-      "El Dr Cesar Rosales atiende actualmente en Barinas y Caracas. Nuestro equipo te indicará fechas y disponibilidad para cada ubicación.",
+      "El Dr. César Rosales atiende actualmente en Barinas y Caracas. Nuestro equipo te indicará fechas y disponibilidad para cada ubicación.",
   },
   {
-    question: "¿Qué procedimientos realiza el Dr Cesar Rosales?",
+    question: "¿Qué procedimientos realiza el Dr. César Rosales?",
     answer:
       "Realiza procedimientos de cirugía plástica estética y reconstructiva, incluyendo retiro de biopolímeros, BBL, Lipo HD y cirugía mamaria.",
   },
@@ -40,76 +40,59 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(0)
 
   return (
-    <section className="relative w-full bg-black py-24 px-6 overflow-hidden">
-      {/* Glow sutil */}
-      <div className="pointer-events-none absolute inset-0 flex justify-center">
-        <div className="h-[300px] w-[300px] rounded-full bg-white/5 blur-3xl" />
-      </div>
-
+    <section className="relative w-full bg-ink py-28 px-6 overflow-hidden">
       <div className="relative z-10 mx-auto max-w-4xl">
-        {/* Título */}
-        <motion.h2
-          initial={{ opacity: 0, y: 40 }}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="text-center text-3xl sm:text-4xl lg:text-5xl font-semibold text-white"
+          className="text-center"
         >
-          Preguntas frecuentes
-        </motion.h2>
+          <span className="eyebrow">Antes de tu Consulta</span>
+          <h2 className="mt-6 text-4xl sm:text-5xl lg:text-6xl text-cream">
+            Preguntas <span className="gold-text">frecuentes</span>
+          </h2>
+          <div className="gold-divider mx-auto mt-10 max-w-[160px]" />
+        </motion.div>
 
-        {/* Intro */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="mt-6 text-center text-sm sm:text-base text-white/70"
-        >
-          Resolvemos las dudas más comunes antes de tu consulta médica.
-        </motion.p>
-
-        {/* Accordion */}
-        <div className="mt-14 space-y-4">
+        <div className="mt-16 space-y-4">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index
 
             return (
               <div
                 key={index}
-                className="rounded-2xl border border-white/10 bg-white/5 overflow-hidden"
+                className={`overflow-hidden rounded-2xl border transition-colors duration-500 ${
+                  isOpen
+                    ? "border-[rgba(201,169,106,0.4)] bg-ink-elevated"
+                    : "border-[var(--border-soft)] bg-ink-soft"
+                }`}
               >
-                {/* Question */}
                 <button
-                  onClick={() =>
-                    setOpenIndex(isOpen ? null : index)
-                  }
-                  className="
-                    w-full flex justify-between items-center
-                    px-6 py-5 text-left
-                    transition-colors
-                    hover:bg-white/10
-                  "
+                  onClick={() => setOpenIndex(isOpen ? null : index)}
+                  className="w-full flex justify-between items-center gap-6 px-7 py-6 text-left"
                 >
-                  <h3 className="text-base sm:text-lg font-medium text-white">
+                  <h3 className="font-display text-lg sm:text-xl text-cream">
                     {faq.question}
                   </h3>
-
-                  <span className="ml-4 text-2xl font-light text-white">
-                    {isOpen ? "−" : "+"}
+                  <span
+                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[var(--border-gold)] text-lg text-gold transition-transform duration-500 ${
+                      isOpen ? "rotate-45" : ""
+                    }`}
+                  >
+                    +
                   </span>
                 </button>
 
-                {/* Answer */}
                 <div
-                  className={`
-                    overflow-hidden transition-all duration-300 ease-out
-                    ${isOpen ? "max-h-[300px] opacity-100" : "max-h-0 opacity-0"}
-                  `}
+                  className={`overflow-hidden transition-all duration-500 ease-out ${
+                    isOpen ? "max-h-[320px] opacity-100" : "max-h-0 opacity-0"
+                  }`}
                 >
-                  <div className="px-6 pb-6 text-sm sm:text-base text-white/70 leading-relaxed">
+                  <p className="px-7 pb-7 text-sm sm:text-base text-stone leading-relaxed">
                     {faq.answer}
-                  </div>
+                  </p>
                 </div>
               </div>
             )

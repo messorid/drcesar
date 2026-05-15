@@ -6,74 +6,66 @@ import { motion } from "framer-motion"
 
 export default function PerfilDoctor() {
   return (
-    <section className="relative w-full bg-black py-24 px-6 overflow-hidden">
-      {/* Glow */}
-      <div className="pointer-events-none absolute inset-0 flex justify-center">
-        <div className="h-[320px] w-[320px] rounded-full bg-white/5 blur-3xl" />
-      </div>
-
+    <section className="relative w-full bg-ink-soft py-28 px-6 overflow-hidden">
       <div className="relative z-10 mx-auto max-w-6xl">
         <Link
           href="/sobre-mi"
-          className="group grid gap-12 md:grid-cols-2 items-center"
+          className="group grid gap-14 md:grid-cols-2 items-center"
         >
-          {/* Imagen */}
+          {/* Imagen con marco dorado */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="relative overflow-hidden rounded-3xl"
+            className="relative"
           >
-            <Image
-              src="/images/dr-cesar-rosales.JPG"
-              alt="Dr Cesar Rosales Cirujano Plastico en Barinas y Caracas"
-              width={900}
-              height={1200}
-              priority={false}
-              className="
-                w-full
-                object-cover
-                object-top
-                transition-transform
-                duration-700
-                group-hover:scale-105
-                h-[420px]
-                md:h-auto
-                md:max-h-[640px]
-              "
-            />
+            <span className="absolute -left-4 -top-4 h-20 w-20 border-l border-t border-gold/50" />
+            <span className="absolute -right-4 -bottom-4 h-20 w-20 border-r border-b border-gold/50" />
+            <div className="relative overflow-hidden rounded-2xl">
+              <Image
+                src="/images/dr-cesar-rosales.JPG"
+                alt="Dr César Rosales Cirujano Plástico en Barinas y Caracas"
+                width={900}
+                height={1200}
+                className="w-full object-cover object-top transition-transform duration-[1.1s] ease-out group-hover:scale-105 h-[440px] md:h-auto md:max-h-[640px]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/50 to-transparent" />
+            </div>
           </motion.div>
 
           {/* Texto */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-white"
           >
-            <span className="block text-sm uppercase tracking-wider text-white/50">
-              Perfil profesional
-            </span>
+            <span className="eyebrow">Perfil Profesional</span>
 
-            <h2 className="mt-3 text-3xl sm:text-4xl lg:text-5xl font-semibold">
-              Dr Cesar Rosales
+            <h2 className="mt-6 text-4xl sm:text-5xl lg:text-6xl text-cream">
+              Dr. César <span className="gold-text">Rosales</span>
             </h2>
 
-            <p className="mt-6 text-sm sm:text-base text-white/70 leading-relaxed max-w-xl">
-              Cirujano plástico con enfoque en cirugía estética y reconstructiva.
-              Su práctica se basa en la seguridad del paciente, la evaluación
-              personalizada y resultados armónicos acordes a cada caso.
+            <div className="gold-divider my-9 max-w-[120px]" />
+
+            <p className="text-base text-sand leading-relaxed max-w-xl">
+              Cirujano plástico con enfoque en cirugía estética y
+              reconstructiva. Su práctica se fundamenta en la seguridad del
+              paciente, la evaluación personalizada y resultados armónicos
+              acordes a cada caso.
             </p>
 
-            <p className="mt-4 text-sm sm:text-base text-white/70 leading-relaxed max-w-xl">
+            <p className="mt-5 text-base text-sand leading-relaxed max-w-xl">
               Atiende pacientes en Barinas y Caracas, ofreciendo una atención
               profesional respaldada por experiencia clínica y criterio médico.
             </p>
 
-            <span className="mt-8 inline-block text-sm font-medium text-white underline underline-offset-4">
-              Conocer más sobre el Dr Cesar Rosales
+            <span className="mt-10 inline-flex items-center gap-3 text-[0.8rem] uppercase tracking-[0.2em] text-gold-light">
+              Conocer al especialista
+              <span className="transition-transform duration-500 group-hover:translate-x-1">
+                →
+              </span>
             </span>
           </motion.div>
         </Link>

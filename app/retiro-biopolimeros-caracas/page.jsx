@@ -1,6 +1,7 @@
 import Image from "next/image"
-import Link from "next/link"
 import BeforeAfterPro from "../components/BeforeAfterPro"
+import FbViewContent from "../components/FbViewContent"
+import WhatsappLink from "../components/WhatsappLink"
 export const metadata = {
   title: "Retiro de Biopolimeros en Caracas | Dr Cesar Rosales",
   description:
@@ -26,6 +27,7 @@ export const metadata = {
 export default function RetiroBiopolimerosCaracasPage() {
   return (
     <main className="w-full bg-black text-white overflow-hidden">
+      <FbViewContent contentName="Retiro de Biopolimeros Caracas" />
 
       {/* HERO */}
       <section className="relative h-[90vh] flex items-center justify-center text-center">
@@ -53,19 +55,19 @@ export default function RetiroBiopolimerosCaracasPage() {
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
+            <WhatsappLink
               href="https://wa.me/584245846191"
               className="px-8 py-4 bg-white text-black text-sm font-medium hover:bg-neutral-200 transition"
             >
               Agendar consulta en Caracas
-            </Link>
+            </WhatsappLink>
 
-            <Link
+            <a
               href="#informacion"
               className="px-8 py-4 border border-white text-white text-sm font-medium hover:bg-white hover:text-black transition"
             >
               Mas informacion
-            </Link>
+            </a>
           </div>
         </div>
       </section>

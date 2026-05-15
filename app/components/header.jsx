@@ -1,8 +1,16 @@
+"use client"
+
 import Link from "next/link"
+import { fbEvent } from "@/app/lib/fbpixel"
 
 export default function Header() {
   const whatsappMessage =
     "Hola Dr Cesar Rosales, deseo informacion para agendar una consulta"
+
+  const handleWhatsappClick = () => {
+    fbEvent("Contact")
+    fbEvent("Lead")
+  }
 
   return (
     <header className="relative h-screen w-full overflow-hidden">
@@ -53,6 +61,7 @@ export default function Header() {
                 whatsappMessage
               )}`}
               target="_blank"
+              onClick={handleWhatsappClick}
               className="rounded-xl bg-white px-6 py-3 text-sm font-medium text-black transition hover:bg-slate-200"
             >
               Agendar Consulta
