@@ -33,7 +33,7 @@ const whatsappUrl =
 export default function LiposuccionCaracasPage() {
   return (
     <main className="w-full bg-ink text-cream overflow-hidden">
-      <FbViewContent contentName="Liposuccion Caracas" />
+      <FbViewContent contentName="Consulta General" />
 
       {/* HERO */}
       <section className="relative min-h-[92vh] flex items-center justify-center text-center">

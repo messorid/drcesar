@@ -47,7 +47,7 @@ const relacionados = [
 export default function LipoHDBarinasPage() {
   return (
     <main className="w-full bg-ink text-cream overflow-hidden">
-      <FbViewContent contentName="Lipo HD Barinas" />
+      <FbViewContent contentName="Lipo HD" />
 
       {/* HERO */}
       <section className="relative px-6 pt-40 pb-24 text-center">

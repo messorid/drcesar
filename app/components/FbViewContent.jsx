@@ -3,7 +3,7 @@
 import { useEffect } from "react"
 import { fbEvent } from "@/app/lib/fbpixel"
 
-export default function FbViewContent({ contentName, contentCategory = "Cirugia Plastica" }) {
+export default function FbViewContent({ contentName, contentCategory = "cirugia_plastica" }) {
   useEffect(() => {
     fbEvent("ViewContent", {
       content_name: contentName,

@@ -25,7 +25,7 @@ import FbViewContent from "../components/FbViewContent"
 export default function RetiroBiopolimerosBarinasPage() {
   return (
     <main className="w-full bg-black px-6 py-28 text-white">
-      <FbViewContent contentName="Retiro de Biopolimeros Barinas" />
+      <FbViewContent contentName="Consulta General" />
       <div className="mx-auto max-w-4xl">
         {/* H1 */}
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold">

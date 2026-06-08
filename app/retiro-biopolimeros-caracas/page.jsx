@@ -34,7 +34,7 @@ const whatsappUrl =
 export default function RetiroBiopolimerosCaracasPage() {
   return (
     <main className="w-full bg-ink text-cream overflow-hidden">
-      <FbViewContent contentName="Retiro de Biopolimeros Caracas" />
+      <FbViewContent contentName="Retiro de Biopolimeros" />
 
       {/* HERO */}
       <section className="relative min-h-[92vh] flex items-center justify-center text-center">

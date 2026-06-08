@@ -26,7 +26,7 @@ export const metadata = {
 export default function BBLBarinasPage() {
   return (
     <main className="w-full bg-black px-6 py-28 text-white">
-      <FbViewContent contentName="BBL Barinas" />
+      <FbViewContent contentName="BBL" />
       <div className="mx-auto max-w-4xl">
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold">
           BBL en Barinas
