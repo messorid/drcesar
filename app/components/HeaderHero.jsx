@@ -32,15 +32,14 @@ export default function HeaderHero() {
 
   return (
     <section className="relative w-full h-[100svh] min-h-[640px] overflow-hidden bg-ink">
-      {/* Fondo desktop video */}
+      {/* Fondo desktop imagen */}
       <div className="absolute inset-0 hidden md:block">
-        <video
-          className="h-full w-full object-cover"
-          src="/videos/hero-background.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
+        <Image
+          src="/images/fondohero.jpg"
+          alt="Dr César Rosales Cirujano Plástico"
+          fill
+          priority
+          className="object-cover"
         />
       </div>
 
