@@ -15,7 +15,7 @@ export const metadata = {
       "Cirugia Lipo HD en Barinas con criterio medico y enfoque profesional.",
     images: [
       {
-        url: "/og-image.JPG",
+        url: "/images/og.JPG",
         width: 1200,
         height: 630,
         alt: "Lipo HD en Barinas Dr Cesar Rosales",

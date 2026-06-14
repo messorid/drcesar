@@ -24,7 +24,7 @@ const cormorant = Cormorant_Garamond({
 })
 
 export const metadata = {
-  title: "Dr Cesar Rosales | Cirujano Plastico en  Caracas y Barinas",
+  title: "Dr Cesar Rosales | Cirujano Plastico en Caracas y Barinas",
   description:
     "Dr Cesar Rosales, cirujano plastico especializado en retiro de biopolimeros, reconstruccion, BBL, Lipo HD y cirugia mamaria. Atencion en Barinas y Caracas.",
   metadataBase: new URL("https://www.drcesarrosales.com"),
@@ -39,7 +39,7 @@ export const metadata = {
     siteName: "Dr Cesar Rosales",
     images: [
       {
-        url: "/og-image.JPG",
+        url: "/images/og.JPG",
         width: 1200,
         height: 630,
         alt: "Dr Cesar Rosales Cirujano Plastico",
@@ -53,7 +53,7 @@ export const metadata = {
     title: "Dr Cesar Rosales | Cirujano Plastico",
     description:
       "Cirugia plastica con enfoque medico, estetico y seguro.",
-    images: ["/og-image.JPG"],
+    images: ["/images/og.JPG"],
   },
 }
 

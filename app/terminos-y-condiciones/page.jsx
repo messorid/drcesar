@@ -12,7 +12,7 @@ export const metadata = {
     url: "https://www.drcesarrosales.com/terminos-y-condiciones",
     images: [
       {
-        url: "/og-image.JPG",
+        url: "/images/og.JPG",
         width: 1200,
         height: 630,
         alt: "Términos y Condiciones Dr Cesar Rosales",

@@ -35,8 +35,8 @@ export default function MedicalSchema() {
         "description":
           "Consulta de cirugía plástica con enfoque médico, estético y reconstructivo. Atención previa cita.",
         "url": "https://www.drcesarrosales.com",
-        "logo": "https://www.drcesarrosales.com/og-image.JPG",
-        "image": "https://www.drcesarrosales.com/og-image.JPG",
+        "logo": "https://www.drcesarrosales.com/images/og.JPG",
+        "image": "https://www.drcesarrosales.com/images/og.JPG",
         "areaServed": [
           {
             "@type": "City",

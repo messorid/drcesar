@@ -15,7 +15,7 @@ export const metadata = {
       "Cirugia de liposuccion en Caracas Venezuela con enfoque medico profesional.",
     images: [
       {
-        url: "/og-image.JPG",
+        url: "/images/og.JPG",
         width: 1200,
         height: 630,
         alt: "Liposuccion en Caracas Dr Cesar Rosales",

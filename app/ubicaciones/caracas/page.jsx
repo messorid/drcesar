@@ -12,7 +12,7 @@ export const metadata = {
     url: "https://www.drcesarrosales.com/ubicaciones/caracas",
     images: [
       {
-        url: "/og-image.JPG",
+        url: "/images/og.JPG",
         width: 1200,
         height: 630,
         alt: "Cirujano Plastico en Caracas Dr Cesar Rosales",

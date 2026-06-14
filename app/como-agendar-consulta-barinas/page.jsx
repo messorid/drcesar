@@ -14,7 +14,7 @@ export const metadata = {
       "Conoce el proceso para agendar una consulta de cirugia plastica en Barinas.",
     images: [
       {
-        url: "/og-image.JPG",
+        url: "/images/og.JPG",
         width: 1200,
         height: 630,
         alt: "Agendar consulta cirujano plastico en Barinas",

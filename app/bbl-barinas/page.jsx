@@ -14,7 +14,7 @@ export const metadata = {
       "Cirugia BBL en Barinas con evaluacion medica personalizada.",
     images: [
       {
-        url: "/og-image.JPG",
+        url: "/images/og.JPG",
         width: 1200,
         height: 630,
         alt: "BBL en Barinas Dr Cesar Rosales",

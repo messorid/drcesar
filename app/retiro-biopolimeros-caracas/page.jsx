@@ -16,7 +16,7 @@ export const metadata = {
       "Cirugia de retiro de biopolimeros en Caracas Venezuela con enfoque medico y reconstructivo.",
     images: [
       {
-        url: "/og-image.JPG",
+        url: "/images/og.JPG",
         width: 1200,
         height: 630,
         alt: "Retiro de Biopolimeros en Caracas Dr Cesar Rosales",

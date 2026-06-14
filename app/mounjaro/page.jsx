@@ -5,6 +5,10 @@ export const metadata = {
   title: "Mounjaro | Tratamiento medico con el Dr Cesar Rosales",
   description:
     "Informacion medica completa sobre Mounjaro. Indicaciones, funcionamiento, seguridad, efectos secundarios y preguntas frecuentes bajo supervision del Dr Cesar Rosales.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 }
 
 export default function Page() {

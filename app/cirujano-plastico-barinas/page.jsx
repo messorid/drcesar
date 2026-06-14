@@ -13,7 +13,7 @@ export const metadata = {
       "Atencion especializada en cirugia plastica en Barinas. Evaluacion medica personalizada.",
     images: [
       {
-        url: "/og-image.JPG",
+        url: "/images/og.JPG",
         width: 1200,
         height: 630,
         alt: "Cirujano Plastico en Barinas Dr Cesar Rosales",

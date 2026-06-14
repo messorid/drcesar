@@ -2,8 +2,7 @@
 module.exports = {
   siteUrl: "https://www.drcesarrosales.com",
   generateRobotsTxt: true,
-  generateIndexSitemap: true,
-  sitemapSize: 7000,
+  generateIndexSitemap: false,
 
   changefreq: "weekly",
   priority: 0.7,
@@ -19,5 +18,11 @@ module.exports = {
 
   exclude: [
     "/api/*",
+    "/mounjaro",
+    "/mounjaro/*",
+    "/hero",
+    "/hero/*",
+    "/not-found",
+    "/not-found.jsx",
   ],
 }

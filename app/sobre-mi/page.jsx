@@ -14,7 +14,7 @@ export const metadata = {
     url: "https://www.drcesarrosales.com/sobre-mi",
     images: [
       {
-        url: "/og-image.JPG",
+        url: "/images/og.JPG",
         width: 1200,
         height: 630,
         alt: "Dr César Rosales Cirujano Plástico",

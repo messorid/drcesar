@@ -37,7 +37,7 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "/og-dr-cesar-rosales.jpg",
+        url: "/images/og.JPG",
         width: 1200,
         height: 630,
         alt: "Dr Cesar Rosales Cirujano Plastico en Caracas",
