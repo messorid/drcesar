@@ -100,6 +100,28 @@ h4 {
   color: transparent;
 }
 
+/* Variante para el hero: stops más claros que .gold-text, porque los
+   extremos oscuros (#9c7f4a) no alcanzan 4.5:1 sobre la foto de fondo */
+.gold-text-bright {
+  background: linear-gradient(
+    100deg,
+    #d9bd85 0%,
+    #f0dcb4 38%,
+    #fbf2dc 50%,
+    #f0dcb4 62%,
+    #d9bd85 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Separa el titular del fondo fotográfico sin recurrir a más opacidad */
+.hero-title {
+  filter: drop-shadow(0 2px 18px rgba(10, 9, 8, 0.85))
+    drop-shadow(0 1px 3px rgba(10, 9, 8, 0.6));
+}
+
 .gold-divider {
   height: 1px;
   width: 100%;
@@ -290,6 +312,23 @@ h4 {
   animation: goldPulse 3s ease-in-out infinite;
 }
 
+/* Halo del CTA flotante de WhatsApp: sólo transform/opacity */
+@keyframes whatsappHalo {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  70%,
+  100% {
+    transform: scale(1.28);
+    opacity: 0;
+  }
+}
+
+.animate-whatsapp-halo {
+  animation: whatsappHalo 2.6s cubic-bezier(0.22, 0.61, 0.36, 1) infinite;
+}
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -297,4 +336,32 @@ h4 {
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* =================================================
+   Foco visible para navegación por teclado
+   ================================================= */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-gold-light);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* =================================================
+   Respetar prefers-reduced-motion
+   ================================================= */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
