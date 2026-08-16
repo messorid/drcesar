@@ -37,24 +37,26 @@ export default function StickyWhatsappCTA() {
 
   return (
     <>
-      {/* ---------- Mobile: barra inferior ---------- */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-[rgba(201,169,106,0.35)] bg-ink/95 backdrop-blur-xl md:hidden">
-        <a
-          href={WHATSAPP_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={handleWhatsappClick}
-          aria-label="Agendar consulta por WhatsApp"
-          className="group relative flex min-h-[56px] w-full cursor-pointer items-center justify-center gap-3 overflow-hidden py-4 text-[0.8rem] font-medium uppercase tracking-[0.2em] text-gold-light transition-colors hover:text-cream"
-        >
-          <span className="h-1.5 w-1.5 rounded-full bg-gold animate-gold-pulse" />
-          Agendar consulta por WhatsApp
-          <span
-            aria-hidden="true"
-            className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-[rgba(201,169,106,0.18)] to-transparent transition-transform duration-1000 group-hover:translate-x-full"
-          />
-        </a>
-      </div>
+      {/* ---------- Mobile: botón flotante ----------
+          Antes era una barra inferior a todo el ancho que tapaba las
+          ciudades del hero; ahora es un botón circular flotante a la
+          derecha, igual en espíritu al de desktop pero a escala mobile. */}
+      <a
+        href={WHATSAPP_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={handleWhatsappClick}
+        aria-label="Agendar consulta por WhatsApp"
+        className="group fixed bottom-5 right-5 z-40 flex h-14 w-14 cursor-pointer items-center justify-center rounded-full border border-[rgba(246,233,200,0.65)] bg-[linear-gradient(135deg,#e6cfa0,#c9a96a_55%,#a8884f)] shadow-[0_10px_34px_-8px_rgba(201,169,106,0.65)] transition-transform duration-300 active:scale-95 md:hidden"
+      >
+        {/* Halo pulsante */}
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 rounded-full border border-gold-light/70 animate-whatsapp-halo"
+        />
+        <WhatsappIcon className="h-6 w-6 shrink-0 text-[#1a1306]" />
+        <span className="sr-only">Agendar consulta por WhatsApp</span>
+      </a>
 
       {/* ---------- Desktop: botón flotante ----------
           La barra full-width se leía como pie de página; un botón dorado

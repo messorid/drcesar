@@ -77,12 +77,13 @@ export default function HeaderHero() {
       {/* Viñeta perimetral cálida */}
       <div className="absolute inset-0 hidden bg-[radial-gradient(ellipse_at_center,_transparent_38%,_rgba(10,9,8,0.55)_100%)] md:block" />
 
-      {/* Marcos ornamentales */}
-      <div className="pointer-events-none absolute inset-5 sm:inset-8 border border-[rgba(201,169,106,0.16)]" />
-      <span className="pointer-events-none absolute left-5 top-5 sm:left-8 sm:top-8 h-8 w-8 border-l border-t border-gold/60" />
-      <span className="pointer-events-none absolute right-5 top-5 sm:right-8 sm:top-8 h-8 w-8 border-r border-t border-gold/60" />
-      <span className="pointer-events-none absolute left-5 bottom-5 sm:left-8 sm:bottom-8 h-8 w-8 border-l border-b border-gold/60" />
-      <span className="pointer-events-none absolute right-5 bottom-5 sm:right-8 sm:bottom-8 h-8 w-8 border-r border-b border-gold/60" />
+      {/* Marcos ornamentales — ocultos en mobile, se veían como rayas sueltas
+          compitiendo con el contenido en pantallas chicas */}
+      <div className="pointer-events-none absolute inset-8 hidden border border-[rgba(201,169,106,0.16)] md:block" />
+      <span className="pointer-events-none absolute left-8 top-8 hidden h-8 w-8 border-l border-t border-gold/60 md:block" />
+      <span className="pointer-events-none absolute right-8 top-8 hidden h-8 w-8 border-r border-t border-gold/60 md:block" />
+      <span className="pointer-events-none absolute left-8 bottom-8 hidden h-8 w-8 border-l border-b border-gold/60 md:block" />
+      <span className="pointer-events-none absolute right-8 bottom-8 hidden h-8 w-8 border-r border-b border-gold/60 md:block" />
 
       {/* Contenido */}
       <div className="relative z-10 flex h-full w-full flex-col items-center justify-center px-6 text-center">
@@ -128,17 +129,24 @@ export default function HeaderHero() {
           className="gold-divider mt-9 max-w-[220px] origin-center"
         />
 
-        {/* CTAs */}
+        {/* CTAs — en mobile van en una sola fila y más compactos para no
+            solaparse con las ciudades debajo */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.65 }}
-          className="mt-11 flex w-full max-w-md flex-col gap-4 sm:flex-row sm:justify-center"
+          className="mt-8 flex w-full max-w-md flex-row gap-3 sm:mt-11 sm:gap-4 sm:justify-center"
         >
-          <WhatsappLink href={whatsappUrl} className="btn-gold w-full sm:w-auto">
+          <WhatsappLink
+            href={whatsappUrl}
+            className="btn-gold flex-1 !px-4 !py-2.5 !text-[0.68rem] sm:flex-none sm:!w-auto sm:!px-9 sm:!py-4 sm:!text-[0.82rem]"
+          >
             Agendar consulta
           </WhatsappLink>
-          <Link href="#servicios" className="btn-outline w-full sm:w-auto">
+          <Link
+            href="#servicios"
+            className="btn-outline flex-1 !px-4 !py-2.5 !text-[0.68rem] sm:flex-none sm:!w-auto sm:!px-9 sm:!py-4 sm:!text-[0.82rem]"
+          >
             Ver procedimientos
           </Link>
         </motion.div>
@@ -150,7 +158,10 @@ export default function HeaderHero() {
           transition={{ duration: 1, delay: 0.9 }}
           className="absolute bottom-32 md:bottom-24 text-[0.7rem] uppercase tracking-[0.3em] text-sand [text-shadow:0_1px_10px_rgba(10,9,8,0.9)]"
         >
-          Barinas · Caracas · San Cristóbal
+          <span className="md:hidden">Caracas · Barinas · San Cristóbal</span>
+          <span className="hidden md:inline">
+            Barinas · Caracas · San Cristóbal
+          </span>
         </motion.p>
       </div>
 
