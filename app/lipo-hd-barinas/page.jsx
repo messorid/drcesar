@@ -52,22 +52,22 @@ export default function LipoHDBarinasPage() {
       {/* HERO */}
       <section className="relative px-6 pt-40 pb-24 text-center">
         <div className="pointer-events-none absolute inset-0 flex justify-center">
-          <div className="h-[440px] w-[440px] rounded-full bg-[radial-gradient(circle,_rgba(201,169,106,0.1),_transparent_70%)] blur-2xl" />
+          <div className="h-[440px] w-[440px] rounded-full bg-[radial-gradient(circle,_rgba(40,145,198,0.1),_transparent_70%)] blur-2xl" />
         </div>
 
         <div className="relative z-10 mx-auto max-w-3xl">
           <span className="eyebrow">Contorno Corporal · Barinas</span>
           <h1 className="mt-7 font-display text-4xl sm:text-6xl lg:text-7xl leading-[1.05]">
             <span className="block text-cream">Lipo HD en</span>
-            <span className="block gold-text">Barinas</span>
+            <span className="block brand-text">Barinas</span>
           </h1>
           <p className="mt-7 text-base sm:text-lg text-sand leading-relaxed">
             Definición y escultura corporal con planificación médica detallada y
             resultados armónicos.
           </p>
-          <div className="gold-divider mx-auto mt-9 max-w-[200px]" />
+          <div className="brand-divider mx-auto mt-9 max-w-[200px]" />
           <div className="mt-10 flex justify-center">
-            <WhatsappLink href={whatsappUrl} className="btn-gold">
+            <WhatsappLink href={whatsappUrl} className="btn-brand">
               Agendar consulta
             </WhatsappLink>
           </div>
@@ -103,7 +103,7 @@ export default function LipoHDBarinasPage() {
               </p>
             </article>
 
-            <div className="gold-divider" />
+            <div className="brand-divider" />
 
             <article>
               <span className="eyebrow">La Consulta</span>
@@ -117,7 +117,7 @@ export default function LipoHDBarinasPage() {
               </p>
             </article>
 
-            <div className="gold-divider" />
+            <div className="brand-divider" />
 
             <article>
               <span className="eyebrow">Compromiso</span>
@@ -143,23 +143,23 @@ export default function LipoHDBarinasPage() {
               evaluación personalizada.
             </p>
             <div className="mt-8 flex justify-center">
-              <WhatsappLink href={whatsappUrl} className="btn-gold">
+              <WhatsappLink href={whatsappUrl} className="btn-brand">
                 Escribir por WhatsApp
               </WhatsappLink>
             </div>
           </div>
 
           {/* Enlaces internos */}
-          <section className="mt-20 border-t border-[var(--border-gold)] pt-12">
+          <section className="mt-20 border-t border-[var(--border-brand)] pt-12">
             <span className="eyebrow">Información Relacionada</span>
             <ul className="mt-7 grid gap-3 sm:grid-cols-2">
               {relacionados.map((r) => (
                 <li key={r.href}>
                   <Link
                     href={r.href}
-                    className="group flex items-center gap-3 text-sm text-sand transition-colors hover:text-gold-light"
+                    className="group flex items-center gap-3 text-sm text-sand transition-colors hover:text-brand-light"
                   >
-                    <span className="h-1 w-1 rounded-full bg-gold" />
+                    <span className="h-1 w-1 rounded-full bg-brand" />
                     {r.label}
                     <span className="ml-auto opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1">
                       →

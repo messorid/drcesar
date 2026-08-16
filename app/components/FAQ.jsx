@@ -51,9 +51,9 @@ export default function FAQ() {
         >
           <span className="eyebrow">Antes de tu Consulta</span>
           <h2 className="mt-6 text-4xl sm:text-5xl lg:text-6xl text-cream">
-            Preguntas <span className="gold-text">frecuentes</span>
+            Preguntas <span className="brand-text">frecuentes</span>
           </h2>
-          <div className="gold-divider mx-auto mt-10 max-w-[160px]" />
+          <div className="brand-divider mx-auto mt-10 max-w-[160px]" />
         </motion.div>
 
         <div className="mt-16 space-y-4">
@@ -65,7 +65,7 @@ export default function FAQ() {
                 key={index}
                 className={`overflow-hidden rounded-2xl border transition-colors duration-500 ${
                   isOpen
-                    ? "border-[rgba(201,169,106,0.4)] bg-ink-elevated"
+                    ? "border-[rgba(40,145,198,0.4)] bg-ink-elevated"
                     : "border-[var(--border-soft)] bg-ink-soft"
                 }`}
               >
@@ -77,7 +77,7 @@ export default function FAQ() {
                     {faq.question}
                   </h3>
                   <span
-                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[var(--border-gold)] text-lg text-gold transition-transform duration-500 ${
+                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[var(--border-brand)] text-lg text-brand transition-transform duration-500 ${
                       isOpen ? "rotate-45" : ""
                     }`}
                   >

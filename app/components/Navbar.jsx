@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import Image from "next/image"
 import Link from "next/link"
 import WhatsappLink from "./WhatsappLink"
 
@@ -35,16 +36,21 @@ export default function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-ink/85 backdrop-blur-xl border-b border-[var(--border-gold)]"
+            ? "bg-ink/85 backdrop-blur-xl border-b border-[var(--border-brand)]"
             : "bg-transparent border-b border-transparent"
         }`}
       >
         <nav className="mx-auto max-w-7xl px-6 h-20 flex items-center justify-between">
-          {/* Monograma */}
+          {/* Logotipo */}
           <Link href="/" className="group flex items-center gap-3">
-            <span className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--border-gold)] font-display text-lg gold-text transition-transform duration-500 group-hover:scale-105">
-              CR
-            </span>
+            <Image
+              src="/images/logo-cr.png"
+              alt="Logotipo Dr. César Rosales"
+              width={44}
+              height={44}
+              priority
+              className="h-11 w-11 object-contain transition-transform duration-500 group-hover:scale-105"
+            />
             <span className="hidden sm:flex flex-col leading-none">
               <span className="font-display text-base text-cream tracking-wide">
                 Dr. César Rosales
@@ -62,7 +68,7 @@ export default function Navbar() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="relative py-1 transition-colors duration-300 hover:text-cream after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-300 hover:after:w-full"
+                    className="relative py-1 transition-colors duration-300 hover:text-cream after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-0 after:bg-brand after:transition-all after:duration-300 hover:after:w-full"
                   >
                     {link.name}
                   </Link>
@@ -72,7 +78,7 @@ export default function Navbar() {
 
             <WhatsappLink
               href={whatsappUrl}
-              className="border border-[var(--border-gold)] rounded-full px-5 py-2 text-[0.78rem] uppercase tracking-[0.18em] text-gold-light transition-all duration-300 hover:bg-[rgba(201,169,106,0.08)] hover:border-[rgba(201,169,106,0.7)]"
+              className="border border-[var(--border-brand)] rounded-full px-5 py-2 text-[0.78rem] uppercase tracking-[0.18em] text-brand-light transition-all duration-300 hover:bg-[rgba(40,145,198,0.08)] hover:border-[rgba(40,145,198,0.7)]"
             >
               Agendar
             </WhatsappLink>
@@ -84,9 +90,9 @@ export default function Navbar() {
             className="md:hidden flex flex-col gap-1.5 p-2"
             aria-label="Abrir menú"
           >
-            <span className="block h-px w-6 bg-gold" />
-            <span className="block h-px w-6 bg-gold" />
-            <span className="block h-px w-4 bg-gold self-end" />
+            <span className="block h-px w-6 bg-brand" />
+            <span className="block h-px w-6 bg-brand" />
+            <span className="block h-px w-4 bg-brand self-end" />
           </button>
         </nav>
       </header>
@@ -105,13 +111,13 @@ export default function Navbar() {
         />
 
         <div
-          className={`absolute right-0 top-0 h-full w-[82%] max-w-sm bg-ink-soft border-l border-[var(--border-gold)] transition-transform duration-500 ${
+          className={`absolute right-0 top-0 h-full w-[82%] max-w-sm bg-ink-soft border-l border-[var(--border-brand)] transition-transform duration-500 ${
             open ? "translate-x-0" : "translate-x-full"
           }`}
         >
           <div className="h-full flex flex-col px-8 py-10">
             <div className="flex items-center justify-between">
-              <span className="font-display text-xl gold-text">
+              <span className="font-display text-xl brand-text">
                 Dr. César Rosales
               </span>
               <button
@@ -122,7 +128,7 @@ export default function Navbar() {
               </button>
             </div>
 
-            <div className="gold-divider mt-8" />
+            <div className="brand-divider mt-8" />
 
             <ul className="mt-12 space-y-7">
               {links.map((link) => (
@@ -130,7 +136,7 @@ export default function Navbar() {
                   <Link
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className="font-display text-2xl text-cream transition-colors hover:text-gold-light"
+                    className="font-display text-2xl text-cream transition-colors hover:text-brand-light"
                   >
                     {link.name}
                   </Link>
@@ -141,7 +147,7 @@ export default function Navbar() {
             <div className="mt-auto space-y-5">
               <WhatsappLink
                 href={whatsappUrl}
-                className="btn-gold w-full"
+                className="btn-brand w-full"
               >
                 Agendar consulta
               </WhatsappLink>
@@ -149,7 +155,7 @@ export default function Navbar() {
                 href={instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-center text-sm uppercase tracking-[0.22em] text-stone transition-colors hover:text-gold-light"
+                className="block text-center text-sm uppercase tracking-[0.22em] text-stone transition-colors hover:text-brand-light"
               >
                 Instagram
               </a>

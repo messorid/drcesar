@@ -12,9 +12,9 @@ export default function FinalCTA() {
 
   return (
     <section className="relative w-full bg-ink py-32 px-6 overflow-hidden">
-      {/* Resplandor dorado */}
+      {/* Resplandor de marca */}
       <div className="pointer-events-none absolute inset-0 flex justify-center items-center">
-        <div className="h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,_rgba(201,169,106,0.12),_transparent_70%)] blur-2xl" />
+        <div className="h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,_rgba(40,145,198,0.12),_transparent_70%)] blur-2xl" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-3xl text-center">
@@ -36,7 +36,7 @@ export default function FinalCTA() {
           className="mt-7 text-4xl sm:text-5xl lg:text-7xl text-cream leading-[1.08]"
         >
           Agenda tu consulta con un{" "}
-          <span className="gold-text">especialista</span>
+          <span className="brand-text">especialista</span>
         </motion.h2>
 
         <motion.p
@@ -58,7 +58,7 @@ export default function FinalCTA() {
           viewport={{ once: true }}
           className="mt-12 flex justify-center"
         >
-          <WhatsappLink href={whatsappUrl} className="btn-gold">
+          <WhatsappLink href={whatsappUrl} className="btn-brand">
             Agendar por WhatsApp
           </WhatsappLink>
         </motion.div>

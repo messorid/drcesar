@@ -37,13 +37,13 @@ export default function UbicacionesSection() {
         >
           <span className="eyebrow">Dónde Atendemos</span>
           <h2 className="mt-6 text-4xl sm:text-5xl lg:text-6xl text-cream">
-            Ubicaciones de <span className="gold-text">atención</span>
+            Ubicaciones de <span className="brand-text">atención</span>
           </h2>
           <p className="mt-7 text-sm sm:text-base text-stone leading-relaxed">
             El Dr. César Rosales atiende en distintas ciudades para brindar
             atención médica especializada y personalizada.
           </p>
-          <div className="gold-divider mx-auto mt-10 max-w-[160px]" />
+          <div className="brand-divider mx-auto mt-10 max-w-[160px]" />
         </motion.div>
 
         <div className="mt-16 space-y-5">
@@ -55,7 +55,7 @@ export default function UbicacionesSection() {
                 key={location.id}
                 className={`overflow-hidden rounded-2xl border transition-colors duration-500 ${
                   isOpen
-                    ? "border-[rgba(201,169,106,0.4)] bg-ink-elevated"
+                    ? "border-[rgba(40,145,198,0.4)] bg-ink-elevated"
                     : "border-[var(--border-soft)] bg-ink-soft"
                 }`}
               >
@@ -72,7 +72,7 @@ export default function UbicacionesSection() {
                     </p>
                   </div>
                   <span
-                    className={`flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border-gold)] text-lg text-gold transition-transform duration-500 ${
+                    className={`flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border-brand)] text-lg text-brand transition-transform duration-500 ${
                       isOpen ? "rotate-45" : ""
                     }`}
                   >

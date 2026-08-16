@@ -45,15 +45,18 @@ function Card({ servicio }) {
         className="h-[440px] w-full object-cover transition-transform duration-[1.1s] ease-out group-hover:scale-110"
       />
 
-      <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
-      <div className="absolute inset-3 rounded-xl border border-transparent transition-colors duration-500 group-hover:border-[rgba(201,169,106,0.4)]" />
+      {/* El scrim se mantiene opaco hasta ~30% de alto: con subtítulos de dos
+          líneas la etiqueta subía hasta la zona clara de la foto y perdía
+          contraste (visible en "Reconstrucción y seguridad") */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_top,var(--color-ink)_0%,rgba(15,18,20,0.92)_30%,rgba(15,18,20,0.45)_58%,transparent_100%)]" />
+      <div className="absolute inset-3 rounded-xl border border-transparent transition-colors duration-500 group-hover:border-[rgba(40,145,198,0.4)]" />
 
       <div className="absolute inset-x-0 bottom-0 p-7">
         <span className="eyebrow">{servicio.subtitle}</span>
         <h3 className="mt-3 font-display text-2xl text-cream">
           {servicio.title}
         </h3>
-        <span className="mt-4 inline-flex items-center gap-2 text-[0.78rem] uppercase tracking-[0.18em] text-gold-light opacity-0 -translate-y-1 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
+        <span className="mt-4 inline-flex items-center gap-2 text-[0.78rem] uppercase tracking-[0.18em] text-brand-light opacity-0 -translate-y-1 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
           Conocer más <span aria-hidden>→</span>
         </span>
       </div>
@@ -77,9 +80,9 @@ export default function ServiciosCards() {
         >
           <span className="eyebrow">Procedimientos</span>
           <h2 className="mt-6 text-4xl sm:text-5xl lg:text-6xl text-cream">
-            Áreas de <span className="gold-text">Especialidad</span>
+            Áreas de <span className="brand-text">Especialidad</span>
           </h2>
-          <div className="gold-divider mx-auto mt-10 max-w-[160px]" />
+          <div className="brand-divider mx-auto mt-10 max-w-[160px]" />
         </motion.div>
 
         {/* Desktop */}

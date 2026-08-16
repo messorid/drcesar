@@ -38,7 +38,7 @@ export default function EspecialidadesIntro() {
           viewport={{ once: true }}
           className="mt-6 text-4xl sm:text-5xl lg:text-6xl text-cream"
         >
-          Cirugía Plástica <span className="gold-text">Especializada</span>
+          Cirugía Plástica <span className="brand-text">Especializada</span>
         </motion.h2>
 
         <motion.p
@@ -53,7 +53,7 @@ export default function EspecialidadesIntro() {
           excelencia estética.
         </motion.p>
 
-        <div className="gold-divider mx-auto mt-14 max-w-[180px]" />
+        <div className="brand-divider mx-auto mt-14 max-w-[180px]" />
 
         <div className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-[var(--border-soft)] sm:grid-cols-3">
           {pilares.map((p, i) => (
@@ -65,7 +65,7 @@ export default function EspecialidadesIntro() {
               viewport={{ once: true }}
               className="group relative bg-ink-soft px-8 py-12 transition-colors duration-500 hover:bg-ink-elevated"
             >
-              <span className="font-display text-3xl gold-text">
+              <span className="font-display text-3xl brand-text">
                 0{i + 1}
               </span>
               <h3 className="mt-5 font-display text-2xl text-cream">
@@ -74,7 +74,7 @@ export default function EspecialidadesIntro() {
               <p className="mt-4 text-sm text-stone leading-relaxed">
                 {p.text}
               </p>
-              <span className="absolute bottom-0 left-0 h-px w-0 bg-gradient-to-r from-gold to-transparent transition-all duration-500 group-hover:w-full" />
+              <span className="absolute bottom-0 left-0 h-px w-0 bg-gradient-to-r from-brand to-transparent transition-all duration-500 group-hover:w-full" />
             </motion.div>
           ))}
         </div>

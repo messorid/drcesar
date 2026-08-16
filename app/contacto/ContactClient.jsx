@@ -12,9 +12,9 @@ export default function ContactClient() {
 
   return (
     <main className="relative min-h-screen w-full bg-ink px-6 pt-36 pb-32 overflow-hidden">
-      {/* Resplandor dorado */}
+      {/* Resplandor de marca */}
       <div className="pointer-events-none absolute inset-0 flex justify-center">
-        <div className="h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,_rgba(201,169,106,0.1),_transparent_70%)] blur-2xl" />
+        <div className="h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,_rgba(40,145,198,0.1),_transparent_70%)] blur-2xl" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-4xl text-center">
@@ -33,7 +33,7 @@ export default function ContactClient() {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="mt-7 text-4xl sm:text-5xl lg:text-7xl text-cream"
         >
-          <span className="gold-text">Contacto</span>
+          <span className="brand-text">Contacto</span>
         </motion.h1>
 
         <motion.p
@@ -46,7 +46,7 @@ export default function ContactClient() {
           atención se realiza previa coordinación por WhatsApp.
         </motion.p>
 
-        <div className="gold-divider mx-auto mt-12 max-w-[160px]" />
+        <div className="brand-divider mx-auto mt-12 max-w-[160px]" />
 
         {/* Tarjetas */}
         <div className="mt-16 grid gap-6 md:grid-cols-2">
@@ -57,7 +57,7 @@ export default function ContactClient() {
             viewport={{ once: true }}
             className="surface-card rounded-2xl p-9 text-left"
           >
-            <span className="font-display text-3xl gold-text">01</span>
+            <span className="font-display text-3xl brand-text">01</span>
             <h2 className="mt-5 font-display text-2xl text-cream">
               Contacto directo
             </h2>
@@ -75,16 +75,16 @@ export default function ContactClient() {
             viewport={{ once: true }}
             className="surface-card rounded-2xl p-9 text-left"
           >
-            <span className="font-display text-3xl gold-text">02</span>
+            <span className="font-display text-3xl brand-text">02</span>
             <h2 className="mt-5 font-display text-2xl text-cream">
               Ubicaciones de atención
             </h2>
             <ul className="mt-5 space-y-3 text-sm text-sand">
               <li className="flex items-center gap-3">
-                <span className="h-1 w-1 rounded-full bg-gold" /> Barinas
+                <span className="h-1 w-1 rounded-full bg-brand" /> Barinas
               </li>
               <li className="flex items-center gap-3">
-                <span className="h-1 w-1 rounded-full bg-gold" /> Caracas
+                <span className="h-1 w-1 rounded-full bg-brand" /> Caracas
               </li>
             </ul>
             <p className="mt-5 text-xs text-stone/70">
@@ -101,7 +101,7 @@ export default function ContactClient() {
           viewport={{ once: true }}
           className="mt-16 flex justify-center"
         >
-          <WhatsappLink href={whatsappUrl} className="btn-gold">
+          <WhatsappLink href={whatsappUrl} className="btn-brand">
             Escribir por WhatsApp
           </WhatsappLink>
         </motion.div>

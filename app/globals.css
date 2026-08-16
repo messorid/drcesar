@@ -1,28 +1,35 @@
 @import "tailwindcss";
 
 /* =================================================
-   Sistema de diseño — Lujo oscuro / dorado
+   Sistema de diseño — Oscuro / azul de marca
+
+   Paleta tomada directamente del logotipo (logodrcesar.png):
+   azul #2891c6, blanco #ffffff y carbón #231f20. Los neutros se
+   desaturaron a gris frío para que no compitan con el azul; la
+   familia cálida anterior (cremas y arenas) ensuciaba el acento.
    ================================================= */
 @theme {
-  --color-ink: #0a0908;
-  --color-ink-soft: #100f0d;
-  --color-ink-elevated: #16140f;
+  --color-ink: #0f1214;
+  --color-ink-soft: #15191c;
+  --color-ink-elevated: #1d2226;
 
-  --color-gold: #c9a96a;
-  --color-gold-light: #e6cfa0;
-  --color-gold-dark: #9c7f4a;
+  --color-brand: #2891c6; /* azul exacto del logo */
+  --color-brand-light: #63b4e2;
+  --color-brand-dark: #17608a;
 
-  --color-cream: #f4efe6;
-  --color-sand: #b8b0a0;
-  --color-stone: #837b6d;
+  --color-cream: #f2f4f6;
+  --color-sand: #afb6bc;
+  --color-stone: #7b848c;
 
   --font-display: var(--font-cormorant), Georgia, "Times New Roman", serif;
 }
 
 :root {
-  --background: #0a0908;
-  --foreground: #f4efe6;
-  --border-gold: rgba(201, 169, 106, 0.22);
+  --background: #0f1214;
+  --foreground: #f2f4f6;
+  /* El azul rinde ~40% menos luminancia que el dorado que sustituye, así
+     que las hairlines suben de alfa para conservar el mismo peso visual */
+  --border-brand: rgba(40, 145, 198, 0.32);
   --border-soft: rgba(255, 255, 255, 0.07);
 }
 
@@ -54,7 +61,7 @@ body {
 }
 
 ::selection {
-  background: rgba(201, 169, 106, 0.3);
+  background: rgba(40, 145, 198, 0.3);
   color: #fff;
 }
 
@@ -80,36 +87,38 @@ h4 {
   letter-spacing: 0.32em;
   font-size: 0.7rem;
   font-weight: 500;
-  color: var(--color-gold);
+  color: var(--color-brand);
 }
 
 /* =================================================
-   Acentos dorados
+   Acentos de marca
    ================================================= */
-.gold-text {
+/* Los extremos no bajan de #2f86b8: por debajo de ese tono el degradado
+   cae de 3:1 sobre el fondo tinta y los titulares dejan de ser legibles */
+.brand-text {
   background: linear-gradient(
     100deg,
-    #9c7f4a 0%,
-    #e6cfa0 38%,
-    #f6e9c8 50%,
-    #e6cfa0 62%,
-    #9c7f4a 100%
+    #2f86b8 0%,
+    #7cc3ea 38%,
+    #c2e3f7 50%,
+    #7cc3ea 62%,
+    #2f86b8 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-/* Variante para el hero: stops más claros que .gold-text, porque los
-   extremos oscuros (#9c7f4a) no alcanzan 4.5:1 sobre la foto de fondo */
-.gold-text-bright {
+/* Variante para el hero: stops más claros que .brand-text, porque sobre la
+   foto de fondo el contraste disponible es menor que sobre tinta plana */
+.brand-text-bright {
   background: linear-gradient(
     100deg,
-    #d9bd85 0%,
-    #f0dcb4 38%,
-    #fbf2dc 50%,
-    #f0dcb4 62%,
-    #d9bd85 100%
+    #6fbce6 0%,
+    #a9d6f0 38%,
+    #e2f2fb 50%,
+    #a9d6f0 62%,
+    #6fbce6 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
@@ -118,23 +127,23 @@ h4 {
 
 /* Separa el titular del fondo fotográfico sin recurrir a más opacidad */
 .hero-title {
-  filter: drop-shadow(0 2px 18px rgba(10, 9, 8, 0.85))
-    drop-shadow(0 1px 3px rgba(10, 9, 8, 0.6));
+  filter: drop-shadow(0 2px 18px rgba(15, 18, 20, 0.85))
+    drop-shadow(0 1px 3px rgba(15, 18, 20, 0.6));
 }
 
-.gold-divider {
+.brand-divider {
   height: 1px;
   width: 100%;
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(201, 169, 106, 0.55),
+    rgba(40, 145, 198, 0.7),
     transparent
   );
 }
 
-.gold-hairline {
-  border: 1px solid var(--border-gold);
+.brand-hairline {
+  border: 1px solid var(--border-brand);
 }
 
 .surface-card {
@@ -150,7 +159,11 @@ h4 {
 /* =================================================
    Botones
    ================================================= */
-.btn-gold {
+/* El botón mantiene el patrón del dorado que sustituye: relleno claro con
+   texto oscuro. Con el azul del logo a pleno (#2891c6) el texto blanco se
+   queda en 3.5:1, así que el degradado usa la rama clara de la marca y
+   texto azul-tinta, que rinde 5.6:1 incluso en el stop más oscuro. */
+.btn-brand {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -161,20 +174,20 @@ h4 {
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #1a1306;
-  background: linear-gradient(135deg, #e6cfa0, #c9a96a 55%, #a8884f);
-  border: 1px solid rgba(230, 207, 160, 0.6);
+  color: #08202d;
+  background: linear-gradient(135deg, #8ccbee, #63b4e2 55%, #3f9fd3);
+  border: 1px solid rgba(169, 214, 240, 0.6);
   overflow: hidden;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
-  box-shadow: 0 8px 30px -10px rgba(201, 169, 106, 0.5);
+  box-shadow: 0 8px 30px -10px rgba(40, 145, 198, 0.55);
 }
 
-.btn-gold:hover {
+.btn-brand:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 40px -10px rgba(201, 169, 106, 0.7);
+  box-shadow: 0 14px 40px -10px rgba(40, 145, 198, 0.75);
 }
 
-.btn-gold::after {
+.btn-brand::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -199,15 +212,15 @@ h4 {
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--color-cream);
-  border: 1px solid var(--border-gold);
+  border: 1px solid var(--border-brand);
   background: transparent;
   transition: all 0.4s ease;
 }
 
 .btn-outline:hover {
-  border-color: rgba(201, 169, 106, 0.7);
-  color: var(--color-gold-light);
-  background: rgba(201, 169, 106, 0.06);
+  border-color: rgba(40, 145, 198, 0.75);
+  color: var(--color-brand-light);
+  background: rgba(40, 145, 198, 0.1);
 }
 
 /* =================================================
@@ -298,7 +311,7 @@ h4 {
   animation: shine 4s ease-in-out infinite;
 }
 
-@keyframes goldPulse {
+@keyframes brandPulse {
   0%,
   100% {
     opacity: 0.55;
@@ -308,8 +321,8 @@ h4 {
   }
 }
 
-.animate-gold-pulse {
-  animation: goldPulse 3s ease-in-out infinite;
+.animate-brand-pulse {
+  animation: brandPulse 3s ease-in-out infinite;
 }
 
 /* Halo del CTA flotante de WhatsApp: sólo transform/opacity */
@@ -343,7 +356,7 @@ h4 {
    ================================================= */
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--color-gold-light);
+  outline: 2px solid var(--color-brand-light);
   outline-offset: 3px;
   border-radius: 2px;
 }

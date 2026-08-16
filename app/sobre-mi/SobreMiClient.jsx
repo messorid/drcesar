@@ -40,7 +40,7 @@ export default function SobreMiClient() {
       {/* HERO PERFIL */}
       <section className="relative px-6 pt-36 pb-24">
         <div className="pointer-events-none absolute inset-0 flex justify-center">
-          <div className="h-[460px] w-[460px] rounded-full bg-[radial-gradient(circle,_rgba(201,169,106,0.1),_transparent_70%)] blur-2xl" />
+          <div className="h-[460px] w-[460px] rounded-full bg-[radial-gradient(circle,_rgba(40,145,198,0.1),_transparent_70%)] blur-2xl" />
         </div>
 
         <div className="relative z-10 mx-auto max-w-6xl grid gap-16 md:grid-cols-2 items-center">
@@ -51,8 +51,8 @@ export default function SobreMiClient() {
             transition={{ duration: 0.9 }}
             className="relative order-1 md:order-none"
           >
-            <span className="absolute -left-4 -top-4 h-20 w-20 border-l border-t border-gold/50" />
-            <span className="absolute -right-4 -bottom-4 h-20 w-20 border-r border-b border-gold/50" />
+            <span className="absolute -left-4 -top-4 h-20 w-20 border-l border-t border-brand/50" />
+            <span className="absolute -right-4 -bottom-4 h-20 w-20 border-r border-b border-brand/50" />
             <div className="relative overflow-hidden rounded-2xl">
               <Image
                 src="/images/dr-cesar-rosales.JPG"
@@ -74,13 +74,13 @@ export default function SobreMiClient() {
           >
             <span className="eyebrow">Sobre el Especialista</span>
             <h1 className="mt-6 text-4xl sm:text-5xl lg:text-7xl text-cream leading-[1.05]">
-              Dr. César <span className="gold-text">Rosales</span>
+              Dr. César <span className="brand-text">Rosales</span>
             </h1>
             <p className="mt-4 text-sm uppercase tracking-[0.28em] text-stone">
               Cirujano Plástico
             </p>
 
-            <div className="gold-divider my-9 max-w-[120px]" />
+            <div className="brand-divider my-9 max-w-[120px]" />
 
             <p className="text-base text-sand leading-relaxed">
               Cirujano plástico dedicado a la cirugía estética y reconstructiva,
@@ -110,9 +110,9 @@ export default function SobreMiClient() {
             <span className="eyebrow">Filosofía</span>
             <h2 className="mt-6 text-3xl sm:text-4xl lg:text-5xl text-cream">
               Principios que guían cada{" "}
-              <span className="gold-text">procedimiento</span>
+              <span className="brand-text">procedimiento</span>
             </h2>
-            <div className="gold-divider mx-auto mt-10 max-w-[160px]" />
+            <div className="brand-divider mx-auto mt-10 max-w-[160px]" />
           </motion.div>
 
           <div className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-[var(--border-soft)] sm:grid-cols-3">
@@ -125,7 +125,7 @@ export default function SobreMiClient() {
                 viewport={{ once: true }}
                 className="group relative bg-ink px-8 py-12 transition-colors duration-500 hover:bg-ink-elevated"
               >
-                <span className="font-display text-3xl gold-text">
+                <span className="font-display text-3xl brand-text">
                   0{i + 1}
                 </span>
                 <h3 className="mt-5 font-display text-2xl text-cream">
@@ -134,7 +134,7 @@ export default function SobreMiClient() {
                 <p className="mt-4 text-sm text-stone leading-relaxed">
                   {v.text}
                 </p>
-                <span className="absolute bottom-0 left-0 h-px w-0 bg-gradient-to-r from-gold to-transparent transition-all duration-500 group-hover:w-full" />
+                <span className="absolute bottom-0 left-0 h-px w-0 bg-gradient-to-r from-brand to-transparent transition-all duration-500 group-hover:w-full" />
               </motion.div>
             ))}
           </div>
@@ -152,9 +152,9 @@ export default function SobreMiClient() {
           >
             <span className="eyebrow">Áreas de Práctica</span>
             <h2 className="mt-6 text-3xl sm:text-4xl lg:text-5xl text-cream">
-              <span className="gold-text">Especialidades</span>
+              <span className="brand-text">Especialidades</span>
             </h2>
-            <div className="gold-divider mx-auto mt-10 max-w-[160px]" />
+            <div className="brand-divider mx-auto mt-10 max-w-[160px]" />
           </motion.div>
 
           <div className="mt-14 grid gap-4 sm:grid-cols-2">
@@ -167,7 +167,7 @@ export default function SobreMiClient() {
                 viewport={{ once: true }}
                 className="surface-card flex items-center gap-4 rounded-xl px-6 py-5 text-left"
               >
-                <span className="h-1.5 w-1.5 rounded-full bg-gold" />
+                <span className="h-1.5 w-1.5 rounded-full bg-brand" />
                 <span className="font-display text-lg text-cream">{esp}</span>
               </motion.div>
             ))}
@@ -186,7 +186,7 @@ export default function SobreMiClient() {
             className="text-3xl sm:text-4xl lg:text-5xl text-cream leading-[1.1]"
           >
             Agenda tu consulta con un{" "}
-            <span className="gold-text">especialista</span>
+            <span className="brand-text">especialista</span>
           </motion.h2>
 
           <motion.div
@@ -196,7 +196,7 @@ export default function SobreMiClient() {
             viewport={{ once: true }}
             className="mt-12 flex justify-center"
           >
-            <WhatsappLink href={whatsappUrl} className="btn-gold">
+            <WhatsappLink href={whatsappUrl} className="btn-brand">
               Agendar por WhatsApp
             </WhatsappLink>
           </motion.div>

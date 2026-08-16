@@ -1,15 +1,20 @@
+import Image from "next/image"
 import Link from "next/link"
 
 export default function Footer() {
   return (
-    <footer className="relative w-full bg-ink-soft border-t border-[var(--border-gold)] px-6 pt-20 pb-32">
+    <footer className="relative w-full bg-ink-soft border-t border-[var(--border-brand)] px-6 pt-20 pb-32">
       <div className="mx-auto max-w-7xl grid gap-12 md:grid-cols-4 text-sm text-stone">
         {/* Marca */}
         <div className="space-y-5">
           <div className="flex items-center gap-3">
-            <span className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border-gold)] font-display text-base gold-text">
-              CR
-            </span>
+            <Image
+              src="/images/logo-cr.png"
+              alt="Logotipo Dr. César Rosales"
+              width={40}
+              height={40}
+              className="h-10 w-10 object-contain"
+            />
             <h3 className="font-display text-xl text-cream">
               Dr. César Rosales
             </h3>
@@ -33,7 +38,7 @@ export default function Footer() {
             <li>
               <Link
                 href="/servicios/retiro-de-biopolimeros"
-                className="transition-colors hover:text-gold-light"
+                className="transition-colors hover:text-brand-light"
               >
                 Retiro de Biopolímeros
               </Link>
@@ -41,7 +46,7 @@ export default function Footer() {
             <li>
               <Link
                 href="/servicios/bbl"
-                className="transition-colors hover:text-gold-light"
+                className="transition-colors hover:text-brand-light"
               >
                 BBL
               </Link>
@@ -49,7 +54,7 @@ export default function Footer() {
             <li>
               <Link
                 href="/servicios/lipo-hd"
-                className="transition-colors hover:text-gold-light"
+                className="transition-colors hover:text-brand-light"
               >
                 Lipo HD
               </Link>
@@ -57,7 +62,7 @@ export default function Footer() {
             <li>
               <Link
                 href="/servicios/cirugia-mamaria"
-                className="transition-colors hover:text-gold-light"
+                className="transition-colors hover:text-brand-light"
               >
                 Cirugía Mamaria
               </Link>
@@ -85,7 +90,7 @@ export default function Footer() {
             <li>
               <Link
                 href="/terminos-y-condiciones"
-                className="transition-colors hover:text-gold-light"
+                className="transition-colors hover:text-brand-light"
               >
                 Términos y condiciones
               </Link>
@@ -93,7 +98,7 @@ export default function Footer() {
             <li>
               <Link
                 href="/politica-de-privacidad"
-                className="transition-colors hover:text-gold-light"
+                className="transition-colors hover:text-brand-light"
               >
                 Política de privacidad
               </Link>
@@ -102,7 +107,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="gold-divider mx-auto mt-16 max-w-7xl" />
+      <div className="brand-divider mx-auto mt-16 max-w-7xl" />
 
       <div className="mx-auto mt-8 max-w-3xl text-center text-xs text-stone space-y-4">
         <p>
@@ -119,7 +124,7 @@ export default function Footer() {
             href="https://www.boostori.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gold-light transition-colors hover:text-cream"
+            className="text-brand-light transition-colors hover:text-cream"
           >
             Boostori
           </a>

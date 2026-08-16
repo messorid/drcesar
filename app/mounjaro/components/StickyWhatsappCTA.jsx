@@ -47,33 +47,33 @@ export default function StickyWhatsappCTA() {
         rel="noopener noreferrer"
         onClick={handleWhatsappClick}
         aria-label="Agendar consulta por WhatsApp"
-        className="group fixed bottom-5 right-5 z-40 flex h-14 w-14 cursor-pointer items-center justify-center rounded-full border border-[rgba(246,233,200,0.65)] bg-[linear-gradient(135deg,#e6cfa0,#c9a96a_55%,#a8884f)] shadow-[0_10px_34px_-8px_rgba(201,169,106,0.65)] transition-transform duration-300 active:scale-95 md:hidden"
+        className="group fixed bottom-5 right-5 z-40 flex h-14 w-14 cursor-pointer items-center justify-center rounded-full border border-[rgba(169,214,240,0.65)] bg-[linear-gradient(135deg,#8ccbee,#63b4e2_55%,#3f9fd3)] shadow-[0_10px_34px_-8px_rgba(40,145,198,0.65)] transition-transform duration-300 active:scale-95 md:hidden"
       >
         {/* Halo pulsante */}
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 rounded-full border border-gold-light/70 animate-whatsapp-halo"
+          className="pointer-events-none absolute inset-0 rounded-full border border-brand-light/70 animate-whatsapp-halo"
         />
-        <WhatsappIcon className="h-6 w-6 shrink-0 text-[#1a1306]" />
+        <WhatsappIcon className="h-6 w-6 shrink-0 text-[#08202d]" />
         <span className="sr-only">Agendar consulta por WhatsApp</span>
       </a>
 
       {/* ---------- Desktop: botón flotante ----------
-          La barra full-width se leía como pie de página; un botón dorado
-          con el glifo de WhatsApp se reconoce de inmediato sobre el fondo
-          oscuro y mantiene la identidad de marca. */}
+          La barra full-width se leía como pie de página; un botón en el
+          azul de marca con el glifo de WhatsApp se reconoce de inmediato
+          sobre el fondo oscuro y mantiene la identidad del logo. */}
       <a
         href={WHATSAPP_URL}
         target="_blank"
         rel="noopener noreferrer"
         onClick={handleWhatsappClick}
         aria-label="Agendar consulta por WhatsApp"
-        className="group fixed bottom-8 right-8 z-40 hidden cursor-pointer items-center gap-3 rounded-full border border-[rgba(246,233,200,0.65)] bg-[linear-gradient(135deg,#e6cfa0,#c9a96a_55%,#a8884f)] px-7 py-4 text-[0.78rem] font-semibold uppercase tracking-[0.16em] text-[#1a1306] shadow-[0_10px_34px_-8px_rgba(201,169,106,0.65)] transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_44px_-8px_rgba(201,169,106,0.85)] md:inline-flex"
+        className="group fixed bottom-8 right-8 z-40 hidden cursor-pointer items-center gap-3 rounded-full border border-[rgba(169,214,240,0.65)] bg-[linear-gradient(135deg,#8ccbee,#63b4e2_55%,#3f9fd3)] px-7 py-4 text-[0.78rem] font-semibold uppercase tracking-[0.16em] text-[#08202d] shadow-[0_10px_34px_-8px_rgba(40,145,198,0.65)] transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_44px_-8px_rgba(40,145,198,0.85)] md:inline-flex"
       >
         {/* Halo pulsante: refuerza la visibilidad sin desplazar el layout */}
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 rounded-full border border-gold-light/70 animate-whatsapp-halo"
+          className="pointer-events-none absolute inset-0 rounded-full border border-brand-light/70 animate-whatsapp-halo"
         />
         <WhatsappIcon className="h-5 w-5 shrink-0" />
         Agendar consulta

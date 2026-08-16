@@ -64,26 +64,26 @@ export default function HeaderHero() {
       {/* Mobile: se conserva el tratamiento original (la foto vertical ya es
           oscura y el resultado funcionaba bien) */}
       <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/55 to-ink md:hidden" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_30%,_rgba(10,9,8,0.85)_100%)] md:hidden" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_30%,_rgba(15,18,20,0.85)_100%)] md:hidden" />
 
       {/* Desktop: recalibrado para una foto CLARA. El overlay anterior
           (55-70%) sobre pared blanca daba un gris medio y el texto quedaba
           por debajo de 4.5:1. Medido sobre la imagen real, este stack deja
           el peor caso en 5.4:1 y conserva visible el consultorio. */}
       <div className="absolute inset-0 hidden bg-ink/25 md:block" />
-      <div className="absolute inset-0 hidden bg-[linear-gradient(to_bottom,rgba(10,9,8,0.78)_0%,rgba(10,9,8,0.36)_22%,rgba(10,9,8,0.3)_50%,rgba(10,9,8,0.68)_82%,rgba(10,9,8,0.94)_100%)] md:block" />
+      <div className="absolute inset-0 hidden bg-[linear-gradient(to_bottom,rgba(15,18,20,0.78)_0%,rgba(15,18,20,0.36)_22%,rgba(15,18,20,0.3)_50%,rgba(15,18,20,0.68)_82%,rgba(15,18,20,0.94)_100%)] md:block" />
       {/* Protección de texto: mancha oscura detrás del bloque central */}
-      <div className="absolute inset-0 hidden bg-[radial-gradient(ellipse_70%_52%_at_50%_46%,rgba(10,9,8,0.46)_0%,rgba(10,9,8,0.2)_58%,transparent_100%)] md:block" />
+      <div className="absolute inset-0 hidden bg-[radial-gradient(ellipse_70%_52%_at_50%_46%,rgba(15,18,20,0.46)_0%,rgba(15,18,20,0.2)_58%,transparent_100%)] md:block" />
       {/* Viñeta perimetral cálida */}
-      <div className="absolute inset-0 hidden bg-[radial-gradient(ellipse_at_center,_transparent_38%,_rgba(10,9,8,0.55)_100%)] md:block" />
+      <div className="absolute inset-0 hidden bg-[radial-gradient(ellipse_at_center,_transparent_38%,_rgba(15,18,20,0.55)_100%)] md:block" />
 
       {/* Marcos ornamentales — ocultos en mobile, se veían como rayas sueltas
           compitiendo con el contenido en pantallas chicas */}
-      <div className="pointer-events-none absolute inset-8 hidden border border-[rgba(201,169,106,0.16)] md:block" />
-      <span className="pointer-events-none absolute left-8 top-8 hidden h-8 w-8 border-l border-t border-gold/60 md:block" />
-      <span className="pointer-events-none absolute right-8 top-8 hidden h-8 w-8 border-r border-t border-gold/60 md:block" />
-      <span className="pointer-events-none absolute left-8 bottom-8 hidden h-8 w-8 border-l border-b border-gold/60 md:block" />
-      <span className="pointer-events-none absolute right-8 bottom-8 hidden h-8 w-8 border-r border-b border-gold/60 md:block" />
+      <div className="pointer-events-none absolute inset-8 hidden border border-[rgba(40,145,198,0.16)] md:block" />
+      <span className="pointer-events-none absolute left-8 top-8 hidden h-8 w-8 border-l border-t border-brand/60 md:block" />
+      <span className="pointer-events-none absolute right-8 top-8 hidden h-8 w-8 border-r border-t border-brand/60 md:block" />
+      <span className="pointer-events-none absolute left-8 bottom-8 hidden h-8 w-8 border-l border-b border-brand/60 md:block" />
+      <span className="pointer-events-none absolute right-8 bottom-8 hidden h-8 w-8 border-r border-b border-brand/60 md:block" />
 
       {/* Contenido */}
       <div className="relative z-10 flex h-full w-full flex-col items-center justify-center px-6 text-center">
@@ -91,7 +91,7 @@ export default function HeaderHero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: "easeOut" }}
-          className="eyebrow !text-gold-light [text-shadow:0_1px_10px_rgba(10,9,8,0.9)]"
+          className="eyebrow !text-brand-light [text-shadow:0_1px_10px_rgba(15,18,20,0.9)]"
         >
           Cirugía Plástica · Estética & Reconstructiva
         </motion.span>
@@ -103,7 +103,7 @@ export default function HeaderHero() {
           className="hero-title mt-7 font-display font-medium leading-[1.05] text-5xl sm:text-6xl lg:text-8xl"
         >
           <span className="block text-cream">Dr. César</span>
-          <span className="block gold-text-bright">Rosales</span>
+          <span className="block brand-text-bright">Rosales</span>
         </motion.h1>
 
         {/* Especialidad rotativa */}
@@ -115,7 +115,7 @@ export default function HeaderHero() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -16 }}
               transition={{ duration: 0.55, ease: "easeOut" }}
-              className="absolute whitespace-nowrap text-sm sm:text-base lg:text-lg tracking-[0.08em] text-cream/90 [text-shadow:0_1px_12px_rgba(10,9,8,0.9)]"
+              className="absolute whitespace-nowrap text-sm sm:text-base lg:text-lg tracking-[0.08em] text-cream/90 [text-shadow:0_1px_12px_rgba(15,18,20,0.9)]"
             >
               {especialidades[current]}
             </motion.p>
@@ -126,7 +126,7 @@ export default function HeaderHero() {
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="gold-divider mt-9 max-w-[220px] origin-center"
+          className="brand-divider mt-9 max-w-[220px] origin-center"
         />
 
         {/* CTAs — en mobile van en una sola fila y más compactos para no
@@ -139,7 +139,7 @@ export default function HeaderHero() {
         >
           <WhatsappLink
             href={whatsappUrl}
-            className="btn-gold flex-1 !px-4 !py-2.5 !text-[0.68rem] sm:flex-none sm:!w-auto sm:!px-9 sm:!py-4 sm:!text-[0.82rem]"
+            className="btn-brand flex-1 !px-4 !py-2.5 !text-[0.68rem] sm:flex-none sm:!w-auto sm:!px-9 sm:!py-4 sm:!text-[0.82rem]"
           >
             Agendar consulta
           </WhatsappLink>
@@ -156,7 +156,7 @@ export default function HeaderHero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.9 }}
-          className="absolute bottom-32 md:bottom-24 text-[0.7rem] uppercase tracking-[0.3em] text-sand [text-shadow:0_1px_10px_rgba(10,9,8,0.9)]"
+          className="absolute bottom-32 md:bottom-24 text-[0.7rem] uppercase tracking-[0.3em] text-sand [text-shadow:0_1px_10px_rgba(15,18,20,0.9)]"
         >
           <span className="md:hidden">Caracas · Barinas · San Cristóbal</span>
           <span className="hidden md:inline">
@@ -168,8 +168,8 @@ export default function HeaderHero() {
       {/* Indicador de scroll — elevado para no quedar bajo la barra sticky de
           WhatsApp en mobile */}
       <div className="absolute bottom-20 md:bottom-10 left-1/2 z-10 -translate-x-1/2">
-        <div className="flex h-9 w-5 justify-center rounded-full border border-[rgba(201,169,106,0.55)] pt-2">
-          <span className="h-1.5 w-1.5 rounded-full bg-gold animate-gold-pulse" />
+        <div className="flex h-9 w-5 justify-center rounded-full border border-[rgba(40,145,198,0.55)] pt-2">
+          <span className="h-1.5 w-1.5 rounded-full bg-brand animate-brand-pulse" />
         </div>
       </div>
     </section>

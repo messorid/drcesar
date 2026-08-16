@@ -43,9 +43,9 @@ export default function PasosConsulta() {
         >
           <span className="eyebrow">El Proceso</span>
           <h2 className="mt-6 text-4xl sm:text-5xl lg:text-6xl text-cream">
-            Cómo agendar tu <span className="gold-text">consulta</span>
+            Cómo agendar tu <span className="brand-text">consulta</span>
           </h2>
-          <div className="gold-divider mx-auto mt-10 max-w-[160px]" />
+          <div className="brand-divider mx-auto mt-10 max-w-[160px]" />
         </motion.div>
 
         <div className="mt-20 grid gap-12 md:grid-cols-3">
@@ -58,7 +58,7 @@ export default function PasosConsulta() {
               viewport={{ once: true }}
               className="relative text-center"
             >
-              <span className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border border-[var(--border-gold)] font-display text-3xl gold-text">
+              <span className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border border-[var(--border-brand)] font-display text-3xl brand-text">
                 {paso.step}
               </span>
               <h3 className="mt-7 font-display text-2xl text-cream">
@@ -78,7 +78,7 @@ export default function PasosConsulta() {
           viewport={{ once: true }}
           className="mt-20 flex justify-center"
         >
-          <WhatsappLink href={whatsappUrl} className="btn-gold">
+          <WhatsappLink href={whatsappUrl} className="btn-brand">
             Iniciar por WhatsApp
           </WhatsappLink>
         </motion.div>

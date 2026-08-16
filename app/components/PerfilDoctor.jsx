@@ -12,7 +12,7 @@ export default function PerfilDoctor() {
           href="/sobre-mi"
           className="group grid gap-14 md:grid-cols-2 items-center"
         >
-          {/* Imagen con marco dorado */}
+          {/* Imagen con marco de marca */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -20,8 +20,8 @@ export default function PerfilDoctor() {
             viewport={{ once: true }}
             className="relative"
           >
-            <span className="absolute -left-4 -top-4 h-20 w-20 border-l border-t border-gold/50" />
-            <span className="absolute -right-4 -bottom-4 h-20 w-20 border-r border-b border-gold/50" />
+            <span className="absolute -left-4 -top-4 h-20 w-20 border-l border-t border-brand/50" />
+            <span className="absolute -right-4 -bottom-4 h-20 w-20 border-r border-b border-brand/50" />
             <div className="relative overflow-hidden rounded-2xl">
               <Image
                 src="/images/dr-cesar-rosales.JPG"
@@ -44,10 +44,10 @@ export default function PerfilDoctor() {
             <span className="eyebrow">Perfil Profesional</span>
 
             <h2 className="mt-6 text-4xl sm:text-5xl lg:text-6xl text-cream">
-              Dr. César <span className="gold-text">Rosales</span>
+              Dr. César <span className="brand-text">Rosales</span>
             </h2>
 
-            <div className="gold-divider my-9 max-w-[120px]" />
+            <div className="brand-divider my-9 max-w-[120px]" />
 
             <p className="text-base text-sand leading-relaxed max-w-xl">
               Cirujano plástico con enfoque en cirugía estética y
@@ -61,7 +61,7 @@ export default function PerfilDoctor() {
               profesional respaldada por experiencia clínica y criterio médico.
             </p>
 
-            <span className="mt-10 inline-flex items-center gap-3 text-[0.8rem] uppercase tracking-[0.2em] text-gold-light">
+            <span className="mt-10 inline-flex items-center gap-3 text-[0.8rem] uppercase tracking-[0.2em] text-brand-light">
               Conocer al especialista
               <span className="transition-transform duration-500 group-hover:translate-x-1">
                 →
