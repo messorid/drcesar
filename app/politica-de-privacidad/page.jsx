@@ -23,24 +23,25 @@ export const metadata = {
 
 export default function PoliticaPrivacidadPage() {
   return (
-    <main className="w-full bg-black px-6 py-28 text-white">
-      <div className="mx-auto max-w-4xl">
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-center">
+    <main className="w-full bg-crema pb-24 pt-28 lg:pb-32 lg:pt-36">
+      <div className="contenedor max-w-[880px]">
+        <p className="label">Información legal</p>
+        <h1 className="display mt-6 text-[clamp(2.8rem,7vw,5.5rem)]">
           Política de Privacidad
         </h1>
 
-        <p className="mt-10 text-sm sm:text-base text-white/70 leading-relaxed">
+        <p className="mt-10 text-[1.05rem] leading-relaxed text-tinta-suave">
           La presente Política de Privacidad describe cómo se recopila, utiliza
           y protege la información personal proporcionada por los usuarios del
           sitio web del Dr Cesar Rosales.
         </p>
 
         {/* 1 */}
-        <section className="mt-12 space-y-4">
-          <h2 className="text-xl font-medium">
+        <section className="mt-12 border-t border-linea pt-8">
+          <h2 className="display text-[1.9rem] leading-tight">
             1. Información recopilada
           </h2>
-          <p className="text-white/70 leading-relaxed">
+          <p className="mt-4 leading-relaxed text-tinta-suave">
             Este sitio web no recopila información médica sensible a través de
             formularios. La información personal se obtiene únicamente cuando
             el usuario decide comunicarse de manera voluntaria por WhatsApp u
@@ -49,11 +50,11 @@ export default function PoliticaPrivacidadPage() {
         </section>
 
         {/* 2 */}
-        <section className="mt-12 space-y-4">
-          <h2 className="text-xl font-medium">
+        <section className="mt-12 border-t border-linea pt-8">
+          <h2 className="display text-[1.9rem] leading-tight">
             2. Uso de la información
           </h2>
-          <p className="text-white/70 leading-relaxed">
+          <p className="mt-4 leading-relaxed text-tinta-suave">
             La información proporcionada será utilizada exclusivamente para
             fines de contacto, coordinación de consultas médicas y atención al
             paciente. No se utilizará para fines publicitarios no autorizados.
@@ -61,11 +62,11 @@ export default function PoliticaPrivacidadPage() {
         </section>
 
         {/* 3 */}
-        <section className="mt-12 space-y-4">
-          <h2 className="text-xl font-medium">
+        <section className="mt-12 border-t border-linea pt-8">
+          <h2 className="display text-[1.9rem] leading-tight">
             3. Protección de datos
           </h2>
-          <p className="text-white/70 leading-relaxed">
+          <p className="mt-4 leading-relaxed text-tinta-suave">
             El Dr Cesar Rosales adopta medidas razonables para proteger la
             información personal frente a accesos no autorizados, pérdidas o
             usos indebidos, respetando la confidencialidad del paciente.
@@ -73,11 +74,11 @@ export default function PoliticaPrivacidadPage() {
         </section>
 
         {/* 4 */}
-        <section className="mt-12 space-y-4">
-          <h2 className="text-xl font-medium">
+        <section className="mt-12 border-t border-linea pt-8">
+          <h2 className="display text-[1.9rem] leading-tight">
             4. Compartir información
           </h2>
-          <p className="text-white/70 leading-relaxed">
+          <p className="mt-4 leading-relaxed text-tinta-suave">
             La información personal no será compartida con terceros, salvo
             cuando sea estrictamente necesario para la atención médica o por
             requerimiento legal de las autoridades competentes.
@@ -85,11 +86,11 @@ export default function PoliticaPrivacidadPage() {
         </section>
 
         {/* 5 */}
-        <section className="mt-12 space-y-4">
-          <h2 className="text-xl font-medium">
+        <section className="mt-12 border-t border-linea pt-8">
+          <h2 className="display text-[1.9rem] leading-tight">
             5. Enlaces externos
           </h2>
-          <p className="text-white/70 leading-relaxed">
+          <p className="mt-4 leading-relaxed text-tinta-suave">
             Este sitio web puede contener enlaces a plataformas externas, como
             WhatsApp o Google Maps. El Dr Cesar Rosales no es responsable de las
             políticas de privacidad de dichos sitios.
@@ -97,11 +98,11 @@ export default function PoliticaPrivacidadPage() {
         </section>
 
         {/* 6 */}
-        <section className="mt-12 space-y-4">
-          <h2 className="text-xl font-medium">
+        <section className="mt-12 border-t border-linea pt-8">
+          <h2 className="display text-[1.9rem] leading-tight">
             6. Derechos del usuario
           </h2>
-          <p className="text-white/70 leading-relaxed">
+          <p className="mt-4 leading-relaxed text-tinta-suave">
             El usuario puede solicitar información sobre el uso de sus datos
             personales o solicitar su eliminación comunicándose directamente
             por los canales oficiales indicados en este sitio.
@@ -109,11 +110,11 @@ export default function PoliticaPrivacidadPage() {
         </section>
 
         {/* 7 */}
-        <section className="mt-12 space-y-4">
-          <h2 className="text-xl font-medium">
+        <section className="mt-12 border-t border-linea pt-8">
+          <h2 className="display text-[1.9rem] leading-tight">
             7. Cambios en la política
           </h2>
-          <p className="text-white/70 leading-relaxed">
+          <p className="mt-4 leading-relaxed text-tinta-suave">
             Esta política de privacidad puede ser actualizada en cualquier
             momento. Se recomienda revisar periódicamente esta sección para
             mantenerse informado.
@@ -121,7 +122,7 @@ export default function PoliticaPrivacidadPage() {
         </section>
 
         {/* Cierre */}
-        <p className="mt-20 text-xs text-white/50 text-center leading-relaxed">
+        <p className="mt-16 border-t border-linea pt-8 text-sm leading-relaxed text-tinta-suave">
           El uso de este sitio web implica la aceptación de la presente Política
           de Privacidad. Para cualquier duda relacionada con la protección de
           datos, se recomienda contactar directamente al equipo médico.

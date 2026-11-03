@@ -1,4 +1,16 @@
 import Link from "next/link"
+import Reveal from "../components/motion/Reveal"
+import { ubicaciones } from "../content/site"
+
+// Textos propios de esta página (los de site.js se usan en el home)
+const resumen = {
+  barinas:
+    "Atención médica especializada en cirugía plástica con enfoque médico y evaluación personalizada.",
+  caracas:
+    "Consultas médicas con orientación profesional y planificación quirúrgica personalizada.",
+  "san-cristobal":
+    "Consultas de evaluación en el Táchira. Escríbenos para conocer las próximas fechas disponibles.",
+}
 
 export const metadata = {
   title: "Ubicaciones | Dr Cesar Rosales Cirujano Plastico",
@@ -25,61 +37,45 @@ export const metadata = {
 
 export default function UbicacionesPage() {
   return (
-    <main className="w-full bg-black px-6 py-28 text-white">
-      <div className="mx-auto max-w-4xl">
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-center">
-          Ubicaciones de atención
-        </h1>
+    <main className="w-full bg-crema pb-24 pt-28 lg:pb-32 lg:pt-36">
+      <div className="contenedor">
+        <Reveal>
+          <p data-reveal className="label">
+            Barinas · Caracas · San Cristóbal
+          </p>
+          <h1 data-reveal className="display mt-6 max-w-[14ch] text-[clamp(2.8rem,8vw,6.5rem)]">
+            Ubicaciones de <em>atención</em>
+          </h1>
+          <p data-reveal className="mt-8 max-w-xl text-[1.05rem] leading-relaxed text-tinta-suave">
+            El Dr. César Rosales brinda atención médica especializada en
+            distintas ciudades. Selecciona la ubicación para conocer más
+            información sobre la consulta y los procedimientos disponibles.
+          </p>
+        </Reveal>
 
-        <p className="mt-8 text-center text-sm sm:text-base text-white/70 leading-relaxed">
-          El Dr Cesar Rosales brinda atención médica especializada en distintas
-          ciudades. Selecciona la ubicación para conocer más información sobre
-          la consulta y los procedimientos disponibles.
-        </p>
+        <Reveal as="ul" className="mt-16 border-t border-linea lg:mt-24">
+          {ubicaciones.map((u, i) => (
+            <li key={u.id} data-reveal className="border-b border-linea">
+              <Link
+                href={u.href}
+                className="group grid gap-4 py-10 lg:grid-cols-12 lg:items-baseline lg:gap-6 lg:py-14"
+              >
+                <span className="label lg:col-span-1">0{i + 1}</span>
+                <h2 className="display text-[clamp(2.8rem,7vw,5.5rem)] transition-transform duration-700 ease-[var(--ease-editorial)] lg:col-span-6 lg:group-hover:translate-x-3">
+                  {u.ciudad}
+                </h2>
+                <p className="max-w-sm leading-relaxed text-tinta-suave lg:col-span-4">
+                  {resumen[u.id]}
+                </p>
+                <span className="label !text-tinta lg:col-span-1 lg:justify-self-end">
+                  Ver ubicación →
+                </span>
+              </Link>
+            </li>
+          ))}
+        </Reveal>
 
-        {/* Cards de ubicaciones */}
-        <div className="mt-20 grid gap-8 md:grid-cols-2">
-          {/* Barinas */}
-          <Link
-            href="/ubicaciones/barinas"
-            className="group rounded-2xl border border-white/10 bg-white/5 p-10 transition hover:bg-white/10"
-          >
-            <h2 className="text-2xl font-medium text-white">
-              Barinas
-            </h2>
-
-            <p className="mt-4 text-sm sm:text-base text-white/70 leading-relaxed">
-              Atención médica especializada en cirugía plástica con enfoque
-              médico y evaluación personalizada.
-            </p>
-
-            <span className="mt-6 inline-block text-sm text-white underline underline-offset-4">
-              Ver ubicación
-            </span>
-          </Link>
-
-          {/* Caracas */}
-          <Link
-            href="/ubicaciones/caracas"
-            className="group rounded-2xl border border-white/10 bg-white/5 p-10 transition hover:bg-white/10"
-          >
-            <h2 className="text-2xl font-medium text-white">
-              Caracas
-            </h2>
-
-            <p className="mt-4 text-sm sm:text-base text-white/70 leading-relaxed">
-              Consultas médicas con orientación profesional y planificación
-              quirúrgica personalizada.
-            </p>
-
-            <span className="mt-6 inline-block text-sm text-white underline underline-offset-4">
-              Ver ubicación
-            </span>
-          </Link>
-        </div>
-
-        {/* Nota */}
-        <p className="mt-20 text-center text-sm text-white/60">
+        <p className="mt-16 max-w-xl text-sm leading-relaxed text-tinta-suave">
           La disponibilidad de consultas puede variar según la ciudad y la
           agenda médica. La coordinación se realiza por WhatsApp.
         </p>

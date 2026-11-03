@@ -32,7 +32,7 @@ export default function BeforeAfterPro({
 
   const watermarkClasses = useMemo(() => {
     const base =
-      "absolute z-20 text-[11px] sm:text-xs font-medium text-white/90 tracking-wide px-2 py-1 rounded-full bg-black/35 backdrop-blur select-none"
+      "label absolute z-20 bg-tinta/60 px-2 py-1 !text-crema select-none"
     if (watermarkPosition === "bottom-left")
       return `${base} left-3 bottom-3`
     if (watermarkPosition === "top-right") return `${base} right-3 top-3`
@@ -98,115 +98,86 @@ export default function BeforeAfterPro({
     return () => clearInterval(intervalRef.current)
   }, [autoplay, autoplayMs, autoplaySweep, reducedMotion, initial, isHover])
 
+  const onKeyDown = (e) => {
+    if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+      e.preventDefault()
+      setPos((p) => clamp(p + (e.key === "ArrowRight" ? 5 : -5), 0, 100))
+    }
+  }
+
   return (
-    <div className={`w-full select-none ${className}`}>
+    <figure className={`w-full select-none ${className}`}>
       <div
         ref={containerRef}
+        role="slider"
+        tabIndex={0}
+        aria-label="Comparar antes y después"
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-valuenow={Math.round(pos)}
+        onKeyDown={onKeyDown}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={onPointerUp}
         onPointerCancel={onPointerUp}
         onMouseEnter={() => setIsHover(true)}
         onMouseLeave={() => setIsHover(false)}
-        className="
-          relative mx-auto w-full max-w-4xl
-          aspect-[16/10] sm:aspect-[16/9]
-          overflow-hidden rounded-3xl
-          shadow-[0_30px_80px_rgba(0,0,0,0.25)]
-          bg-neutral-900
-          ring-1 ring-black/10
-          cursor-col-resize
-          touch-none
-          select-none
-        "
+        onFocus={() => setIsHover(true)}
+        onBlur={() => setIsHover(false)}
+        className="relative mx-auto aspect-[4/5] w-full max-w-5xl cursor-col-resize touch-pan-y select-none overflow-hidden bg-tinta sm:aspect-[16/9]"
       >
-        {/* Fondo elegante */}
-        <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/15 via-transparent to-black/35 pointer-events-none" />
-
-        {/* Imagen despues */}
+        {/* Imagen después */}
         <div className="absolute inset-0 z-[2]">
           <Image
             src={afterImage}
             alt={altAfter}
             fill
-            sizes="(max-width: 768px) 100vw, 900px"
+            sizes="(max-width: 1024px) 100vw, 1024px"
             draggable={false}
-            className="object-cover pointer-events-none select-none"
-            priority
+            className="pointer-events-none select-none object-cover"
           />
         </div>
 
         {/* Imagen antes */}
         <div
-          className="absolute inset-0 z-[3] overflow-hidden will-change-[width]"
+          className="absolute inset-0 z-[3]"
           style={{
-            width: `${pos}%`,
-            transition: reducedMotion ? "none" : "width 140ms ease-out",
+            clipPath: `inset(0 ${100 - pos}% 0 0)`,
+            transition: reducedMotion ? "none" : "clip-path 140ms ease-out",
           }}
         >
           <Image
             src={beforeImage}
             alt={altBefore}
             fill
-            sizes="(max-width: 768px) 100vw, 900px"
+            sizes="(max-width: 1024px) 100vw, 1024px"
             draggable={false}
-            className="object-cover pointer-events-none select-none"
+            className="pointer-events-none select-none object-cover"
           />
         </div>
 
-        {/* Labels */}
-        <div className="absolute z-[5] left-3 top-3 select-none">
-          <span className="px-3 py-1 rounded-full text-xs sm:text-sm font-semibold bg-white/85 text-neutral-900 shadow">
-            {labelBefore}
-          </span>
-        </div>
+        {/* Etiquetas */}
+        <span className="label absolute left-3 top-3 z-[5] bg-crema/90 px-2 py-1 !text-tinta">
+          {labelBefore}
+        </span>
+        <span className="label absolute right-3 top-3 z-[5] bg-crema/90 px-2 py-1 !text-tinta">
+          {labelAfter}
+        </span>
 
-        <div className="absolute z-[5] right-3 top-3 select-none">
-          <span className="px-3 py-1 rounded-full text-xs sm:text-sm font-semibold bg-white/85 text-neutral-900 shadow">
-            {labelAfter}
-          </span>
-        </div>
+        {watermarkText && <div className={watermarkClasses}>{watermarkText}</div>}
 
-        {/* Watermark */}
-        {watermarkText && (
-          <div className={watermarkClasses}>{watermarkText}</div>
-        )}
-
-        {/* Linea divisora */}
+        {/* Línea divisora y manija */}
         <div
-          className="absolute z-[6] top-0 bottom-0 w-[3px] bg-white/95 shadow pointer-events-none"
-          style={{
-            left: `${pos}%`,
-            transform: "translateX(-1.5px)",
-          }}
-        />
-
-        {/* Handle minimal */}
-        <div
-          className="absolute z-[7] top-1/2 -translate-y-1/2 pointer-events-none"
-          style={{
-            left: `${pos}%`,
-            transform: "translate(-50%, -50%)",
-          }}
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 z-[6] w-px bg-crema"
+          style={{ left: `${pos}%` }}
         >
-          <div
-            className="
-              w-14 h-14 sm:w-16 sm:h-16
-              rounded-full bg-white
-              shadow-[0_16px_40px_rgba(0,0,0,0.25)]
-              ring-1 ring-black/10
-            "
-          />
-        </div>
-
-        {/* Micro tip */}
-        <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-[8] pointer-events-none select-none">
-          <span className="inline-flex items-center gap-2 text-[11px] sm:text-xs font-medium text-white/90 bg-black/35 backdrop-blur px-3 py-1 rounded-full">
-            Desliza para comparar
-            <span className="inline-block w-2 h-2 rounded-full bg-white/80 animate-pulse" />
+          <span className="absolute left-1/2 top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-crema font-mono text-xs text-tinta shadow-[0_10px_30px_-10px_rgba(28,26,25,0.6)]">
+            ⟷
           </span>
         </div>
       </div>
-    </div>
+      <figcaption className="label mt-4">Desliza para comparar</figcaption>
+    </figure>
   )
 }

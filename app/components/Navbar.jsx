@@ -2,26 +2,21 @@
 
 import { useEffect, useState } from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import WhatsappLink from "./WhatsappLink"
+import { INSTAGRAM_URL, waLink } from "@/app/content/site"
+
+const links = [
+  { name: "Procedimientos", href: "/#procedimientos" },
+  { name: "Ubicaciones", href: "/ubicaciones" },
+  { name: "Sobre mí", href: "/sobre-mi" },
+  { name: "Contacto", href: "/contacto" },
+]
 
 export default function Navbar() {
+  const pathname = usePathname()
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-
-  const links = [
-    { name: "Inicio", href: "/" },
-    { name: "Servicios", href: "/#servicios" },
-    { name: "Ubicaciones", href: "/ubicaciones" },
-    { name: "Sobre mí", href: "/sobre-mi" },
-    { name: "Contacto", href: "/contacto" },
-  ]
-
-  const instagramUrl = "https://www.instagram.com/drcesarrosales/"
-  const whatsappUrl =
-    "https://wa.me/584245846191?text=" +
-    encodeURIComponent(
-      "Hola Dr César Rosales, deseo información para agendar una consulta"
-    )
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -30,130 +25,136 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
+  useEffect(() => {
+    document.documentElement.style.overflow = open ? "hidden" : ""
+    if (!open) return
+    const onKey = (e) => e.key === "Escape" && setOpen(false)
+    window.addEventListener("keydown", onKey)
+    return () => window.removeEventListener("keydown", onKey)
+  }, [open])
+
+  // En el home el navbar arranca transparente sobre la foto del hero
+  const sobreFoto = pathname === "/" && !scrolled && !open
+  const texto = sobreFoto ? "text-crema" : "text-tinta"
+
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? "bg-ink/85 backdrop-blur-xl border-b border-[var(--border-gold)]"
-            : "bg-transparent border-b border-transparent"
-        }`}
+        className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,color] duration-500 ${
+          sobreFoto
+            ? "border-b border-transparent bg-transparent"
+            : "border-b border-linea bg-crema/90 backdrop-blur-md"
+        } ${texto}`}
       >
-        <nav className="mx-auto max-w-7xl px-6 h-20 flex items-center justify-between">
-          {/* Monograma */}
-          <Link href="/" className="group flex items-center gap-3">
-            <span className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--border-gold)] font-display text-lg gold-text transition-transform duration-500 group-hover:scale-105">
-              CR
+        <nav className="contenedor flex h-16 items-center justify-between lg:h-20">
+          <Link
+            href="/"
+            onClick={() => setOpen(false)}
+            className="flex flex-col leading-none"
+          >
+            <span className="font-serif text-xl tracking-tight lg:text-2xl">
+              Dr. César Rosales
             </span>
-            <span className="hidden sm:flex flex-col leading-none">
-              <span className="font-display text-base text-cream tracking-wide">
-                Dr. César Rosales
-              </span>
-              <span className="text-[0.62rem] uppercase tracking-[0.3em] text-stone mt-1">
-                Cirujano Plástico
-              </span>
+            <span
+              className={`mt-1 font-mono text-[0.6rem] uppercase tracking-[0.2em] ${
+                sobreFoto ? "text-crema/75" : "text-tinta-suave"
+              }`}
+            >
+              Cirujano Plástico
             </span>
           </Link>
 
-          {/* Desktop */}
-          <div className="hidden md:flex items-center gap-10">
-            <ul className="flex items-center gap-9 text-[0.82rem] tracking-wide text-sand">
+          <div className="hidden items-center gap-10 lg:flex">
+            <ul className="flex items-center gap-8 text-[0.82rem]">
               {links.map((link) => (
                 <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="relative py-1 transition-colors duration-300 hover:text-cream after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-300 hover:after:w-full"
-                  >
+                  <Link href={link.href} className="link-editorial py-1">
                     {link.name}
                   </Link>
                 </li>
               ))}
             </ul>
-
             <WhatsappLink
-              href={whatsappUrl}
-              className="border border-[var(--border-gold)] rounded-full px-5 py-2 text-[0.78rem] uppercase tracking-[0.18em] text-gold-light transition-all duration-300 hover:bg-[rgba(201,169,106,0.08)] hover:border-[rgba(201,169,106,0.7)]"
+              href={waLink()}
+              label="Navbar"
+              className={`btn !min-h-[42px] !px-5 ${
+                sobreFoto ? "btn-claro" : "btn-primario"
+              }`}
             >
-              Agendar
+              Agendar consulta
             </WhatsappLink>
           </div>
 
-          {/* Mobile button */}
           <button
-            onClick={() => setOpen(true)}
-            className="md:hidden flex flex-col gap-1.5 p-2"
-            aria-label="Abrir menú"
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            className="-mr-2 flex h-11 items-center gap-3 px-2 lg:hidden"
+            aria-expanded={open}
+            aria-controls="menu-movil"
+            aria-label={open ? "Cerrar menú" : "Abrir menú"}
           >
-            <span className="block h-px w-6 bg-gold" />
-            <span className="block h-px w-6 bg-gold" />
-            <span className="block h-px w-4 bg-gold self-end" />
+            <span className="font-mono text-[0.65rem] uppercase tracking-[0.18em]">
+              {open ? "Cerrar" : "Menú"}
+            </span>
+            <span className="relative block h-3 w-6" aria-hidden="true">
+              <span
+                className={`absolute left-0 h-px w-6 bg-current transition-transform duration-500 ${
+                  open ? "top-1.5 rotate-45" : "top-0"
+                }`}
+              />
+              <span
+                className={`absolute left-0 h-px w-6 bg-current transition-transform duration-500 ${
+                  open ? "top-1.5 -rotate-45" : "top-3"
+                }`}
+              />
+            </span>
           </button>
         </nav>
       </header>
 
-      {/* Mobile drawer */}
+      {/* Menú móvil a pantalla completa */}
       <div
-        className={`fixed inset-0 z-50 transition-all duration-500 md:hidden ${
-          open ? "pointer-events-auto" : "pointer-events-none"
+        id="menu-movil"
+        className={`fixed inset-0 z-40 bg-crema transition-[clip-path] duration-700 ease-[var(--ease-editorial)] lg:hidden ${
+          open
+            ? "[clip-path:inset(0_0_0_0)]"
+            : "pointer-events-none [clip-path:inset(0_0_100%_0)]"
         }`}
+        aria-hidden={!open}
+        inert={!open}
       >
-        <div
-          onClick={() => setOpen(false)}
-          className={`absolute inset-0 bg-ink/80 backdrop-blur-sm transition-opacity duration-500 ${
-            open ? "opacity-100" : "opacity-0"
-          }`}
-        />
+        <div className="contenedor flex h-full flex-col pb-28 pt-24">
+          <ul className="space-y-1">
+            {[{ name: "Inicio", href: "/" }, ...links].map((link, i) => (
+              <li key={link.name} className="border-b border-linea">
+                <Link
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className="flex items-baseline gap-4 py-4"
+                >
+                  <span className="label">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="font-serif text-4xl">{link.name}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
 
-        <div
-          className={`absolute right-0 top-0 h-full w-[82%] max-w-sm bg-ink-soft border-l border-[var(--border-gold)] transition-transform duration-500 ${
-            open ? "translate-x-0" : "translate-x-full"
-          }`}
-        >
-          <div className="h-full flex flex-col px-8 py-10">
-            <div className="flex items-center justify-between">
-              <span className="font-display text-xl gold-text">
-                Dr. César Rosales
-              </span>
-              <button
-                onClick={() => setOpen(false)}
-                className="text-stone text-sm uppercase tracking-[0.2em]"
-              >
-                Cerrar
-              </button>
-            </div>
-
-            <div className="gold-divider mt-8" />
-
-            <ul className="mt-12 space-y-7">
-              {links.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    onClick={() => setOpen(false)}
-                    className="font-display text-2xl text-cream transition-colors hover:text-gold-light"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-auto space-y-5">
-              <WhatsappLink
-                href={whatsappUrl}
-                className="btn-gold w-full"
-              >
-                Agendar consulta
-              </WhatsappLink>
-              <a
-                href={instagramUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-center text-sm uppercase tracking-[0.22em] text-stone transition-colors hover:text-gold-light"
-              >
-                Instagram
-              </a>
-            </div>
+          <div className="mt-auto space-y-4">
+            <WhatsappLink
+              href={waLink()}
+              label="Menu movil"
+              className="btn btn-primario w-full"
+            >
+              Agendar por WhatsApp
+            </WhatsappLink>
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="label block text-center"
+            >
+              Instagram · @drcesarrosales
+            </a>
           </div>
         </div>
       </div>

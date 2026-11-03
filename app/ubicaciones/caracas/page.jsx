@@ -1,3 +1,5 @@
+import UbicacionDetalle from "../UbicacionDetalle"
+
 export const metadata = {
   title: "Cirujano Plastico en Caracas | Dr Cesar Rosales",
   description:
@@ -23,46 +25,35 @@ export const metadata = {
 
 export default function CaracasPage() {
   return (
-    <main className="w-full bg-black px-6 py-28 text-white">
-      <div className="mx-auto max-w-4xl">
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold">
-          Cirujano Plastico en Caracas
-        </h1>
-
-        <p className="mt-8 text-sm sm:text-base text-white/70 leading-relaxed">
-          El Dr Cesar Rosales brinda atencion en Caracas para pacientes que
-          buscan cirugia plastica con enfoque medico, estetico y seguro.
-        </p>
-
-        <section className="mt-14 space-y-4">
-          <h2 className="text-xl font-medium">
-            Procedimientos disponibles en Caracas
-          </h2>
-
-          <ul className="list-disc list-inside text-white/70 space-y-2">
-            <li>Retiro de biopolimeros</li>
-            <li>BBL</li>
-            <li>Lipo HD</li>
-            <li>Cirugia mamaria</li>
-          </ul>
-        </section>
-
-        <section className="mt-14 space-y-4">
-          <h2 className="text-xl font-medium">
-            Consulta medica especializada
-          </h2>
-
-          <p className="text-white/70 leading-relaxed">
-            Cada consulta incluye evaluacion clinica, orientacion profesional
-            y explicacion detallada del procedimiento mas adecuado.
-          </p>
-        </section>
-
-        <p className="mt-20 text-sm text-white/60">
-          La disponibilidad de consultas en Caracas se coordina previamente
-          por WhatsApp.
-        </p>
-      </div>
-    </main>
+    <UbicacionDetalle
+      ciudadId="caracas"
+      titulo={
+        <>
+          Cirujano Plástico en <em>Caracas</em>
+        </>
+      }
+      intro={[
+        "El Dr. César Rosales brinda atención en Caracas para pacientes que buscan cirugía plástica con enfoque médico, estético y seguro.",
+      ]}
+      procedimientosTitulo={
+        <>
+          Procedimientos disponibles en <em>Caracas</em>
+        </>
+      }
+      procedimientosLista={[
+        "Retiro de biopolímeros",
+        "BBL",
+        "Lipo HD",
+        "Cirugía mamaria",
+      ]}
+      secciones={[
+        {
+          titulo: "Consulta médica especializada",
+          texto:
+            "Cada consulta incluye evaluación clínica, orientación profesional y explicación detallada del procedimiento más adecuado.",
+        },
+      ]}
+      nota="La disponibilidad de consultas en Caracas se coordina previamente por WhatsApp."
+    />
   )
 }

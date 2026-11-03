@@ -1,26 +1,31 @@
-import { Geist, Geist_Mono, Cormorant_Garamond } from "next/font/google"
+import { Inter, Geist_Mono, Cormorant_Garamond } from "next/font/google"
 import "./globals.css"
 import Script from "next/script"
-import StickyWhatsappCTA from "./mounjaro/components/StickyWhatsappCTA"
+import StickyWhatsapp from "./components/StickyWhatsapp"
 import Footer from "./components/Footer"
 import MedicalSchema from "./components/MedicalSchema"
 import Navbar from "./components/Navbar"
 import FacebookPixel from "./components/FacebookPixel"
+import SmoothScroll from "./components/motion/SmoothScroll"
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 })
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
 })
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500"],
+  style: ["normal", "italic"],
+  display: "swap",
 })
 
 export const metadata = {
@@ -59,7 +64,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="es" className="dark">
+    <html
+      lang="es"
+      className={`${inter.variable} ${geistMono.variable} ${cormorant.variable}`}
+    >
       <head>
         {/* Google Analytics */}
         <Script
@@ -93,7 +101,7 @@ export default function RootLayout({ children }) {
       </head>
 
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${cormorant.variable} antialiased bg-ink text-cream`}
+        className="bg-crema text-tinta antialiased"
       >
         {/* Meta Pixel */}
         <FacebookPixel />
@@ -115,8 +123,10 @@ export default function RootLayout({ children }) {
         {/* Contenido */}
         {children}
 
-        {/* Sticky WhatsApp */}
-        <StickyWhatsappCTA />
+        {/* WhatsApp fijo: barra inferior en móvil, botón flotante en escritorio */}
+        <StickyWhatsapp />
+
+        <SmoothScroll />
 
         {/* Footer legal */}
         <Footer />

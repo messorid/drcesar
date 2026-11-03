@@ -1,7 +1,13 @@
 import Image from "next/image"
 import BeforeAfterPro from "../components/BeforeAfterPro"
 import FbViewContent from "../components/FbViewContent"
-import WhatsappLink from "../components/WhatsappLink"
+import SectionHeader from "../components/SectionHeader"
+import Reveal from "../components/motion/Reveal"
+import {
+  CtaWhatsapp,
+  ProcedimientoHero,
+} from "../components/procedimiento/Procedimiento"
+import { waLink } from "../content/site"
 
 export const metadata = {
   title: "Retiro de Biopolimeros en Caracas | Dr Cesar Rosales",
@@ -25,145 +31,107 @@ export const metadata = {
   },
 }
 
-const whatsappUrl =
-  "https://wa.me/584245846191?text=" +
-  encodeURIComponent(
-    "Hola Dr César Rosales, deseo información sobre retiro de biopolímeros en Caracas"
-  )
+const contentName = "Retiro de Biopolimeros"
+const whatsappHref = waLink(
+  "Hola Dr. César Rosales, deseo información sobre retiro de biopolímeros en Caracas"
+)
 
 export default function RetiroBiopolimerosCaracasPage() {
   return (
-    <main className="w-full bg-ink text-cream overflow-hidden">
-      <FbViewContent contentName="Retiro de Biopolimeros" />
+    <main className="w-full bg-crema text-tinta">
+      <FbViewContent contentName={contentName} />
 
-      {/* HERO */}
-      <section className="relative min-h-[92vh] flex items-center justify-center text-center">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/hero-dr-cesar.jpeg"
-            alt="Retiro de Biopolimeros en Caracas Venezuela"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-center scale-105"
-          />
-        </div>
+      <ProcedimientoHero
+        etiqueta="Cirugía reconstructiva · Caracas"
+        titulo={
+          <>
+            Retiro de <em>Biopolímeros</em>
+          </>
+        }
+        intro="Evaluación especializada y manejo reconstructivo seguro, con criterio médico y acompañamiento profesional."
+        whatsappHref={whatsappHref}
+        contentName={contentName}
+        imagen={{
+          src: "/images/hero-dr-cesar.jpeg",
+          alt: "Retiro de Biopolimeros en Caracas Venezuela",
+        }}
+      />
 
-        <div className="absolute inset-0 bg-gradient-to-b from-ink/75 via-ink/65 to-ink" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_35%,_rgba(10,9,8,0.85)_100%)]" />
-
-        {/* Marcos ornamentales */}
-        <span className="pointer-events-none absolute left-6 top-24 sm:left-10 h-10 w-10 border-l border-t border-gold/50" />
-        <span className="pointer-events-none absolute right-6 top-24 sm:right-10 h-10 w-10 border-r border-t border-gold/50" />
-
-        <div className="relative z-10 px-6 max-w-3xl">
-          <span className="eyebrow">Cirugía Reconstructiva · Caracas</span>
-
-          <h1 className="mt-7 font-display text-4xl sm:text-6xl lg:text-7xl leading-[1.05]">
-            <span className="block text-cream">Retiro de</span>
-            <span className="block gold-text">Biopolímeros</span>
-          </h1>
-
-          <p className="mt-7 text-base sm:text-lg text-sand leading-relaxed">
-            Evaluación especializada y manejo reconstructivo seguro, con criterio
-            médico y acompañamiento profesional.
+      {/* Antes y después */}
+      <section className="bg-arena py-16 lg:py-24">
+        <div className="contenedor">
+          <SectionHeader numero="01" etiqueta="Resultados reales" />
+          <h2 className="display mt-10 text-[clamp(2.1rem,4.6vw,3.75rem)]">
+            Antes y <em>después</em>
+          </h2>
+          <div className="mt-10">
+            <BeforeAfterPro
+              beforeImage="/images/servicios/biopolimeros.jpg"
+              afterImage="/images/servicios/Biopolimeros1.jpeg"
+              altBefore="Antes retiro de biopolimeros"
+              altAfter="Despues retiro de biopolimeros"
+              labelBefore="Antes"
+              labelAfter="Después"
+              watermarkText="Dr César Rosales"
+              autoplay={true}
+              autoplayMs={1400}
+            />
+          </div>
+          <p className="mt-6 text-sm text-tinta-suave">
+            Los resultados varían en cada paciente.
           </p>
-
-          <div className="gold-divider mx-auto mt-9 max-w-[200px]" />
-
-          <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-            <WhatsappLink href={whatsappUrl} className="btn-gold w-full sm:w-auto">
-              Agendar consulta en Caracas
-            </WhatsappLink>
-            <a href="#informacion" className="btn-outline w-full sm:w-auto">
-              Más información
-            </a>
-          </div>
         </div>
       </section>
 
-      {/* ANTES Y DESPUÉS */}
-      <section className="py-28 bg-ink-soft px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="eyebrow">Resultados Reales</span>
-            <h2 className="mt-6 text-3xl sm:text-4xl lg:text-5xl text-cream">
-              Antes y <span className="gold-text">después</span>
-            </h2>
-            <div className="gold-divider mx-auto mt-10 max-w-[160px]" />
+      {/* El procedimiento */}
+      <section id="informacion" className="scroll-mt-20 bg-crema py-16 lg:py-24">
+        <Reveal className="contenedor">
+          <div data-reveal>
+            <SectionHeader numero="02" etiqueta="El procedimiento" />
           </div>
-
-          <BeforeAfterPro
-            beforeImage="/images/servicios/biopolimeros.jpg"
-            afterImage="/images/servicios/Biopolimeros1.jpeg"
-            altBefore="Antes retiro de biopolimeros"
-            altAfter="Despues retiro de biopolimeros"
-            labelBefore="Antes"
-            labelAfter="Después"
-            watermarkText="Dr César Rosales"
-            autoplay={true}
-            autoplayMs={1400}
-          />
-        </div>
-      </section>
-
-      {/* CONTENIDO SEO */}
-      <section id="informacion" className="px-6 py-28 scroll-mt-20">
-        <div className="mx-auto max-w-6xl">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <span className="eyebrow">El Procedimiento</span>
-              <h2 className="mt-6 text-3xl sm:text-4xl text-cream leading-tight">
-                Cirugía de retiro de biopolímeros en{" "}
-                <span className="gold-text">Caracas</span>
+          <div className="mt-10 grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-10">
+            <div data-reveal className="lg:col-span-6">
+              <h2 className="display text-[clamp(2.1rem,4.6vw,3.75rem)]">
+                Cirugía de retiro de biopolímeros en <em>Caracas</em>
               </h2>
-
-              <div className="gold-divider my-8 max-w-[120px]" />
-
-              <p className="text-base text-sand leading-relaxed">
-                El retiro de biopolímeros en Caracas es un procedimiento
-                quirúrgico complejo que requiere experiencia en cirugía plástica
-                y reconstrucción de tejidos.
-              </p>
-
-              <p className="mt-5 text-base text-sand leading-relaxed">
-                Cada paciente necesita una evaluación personalizada para
-                determinar el plan adecuado y reducir riesgos, priorizando
-                siempre la seguridad y la salud.
-              </p>
-            </div>
-
-            <div className="relative">
-              <span className="absolute -right-4 -bottom-4 h-20 w-20 border-r border-b border-gold/50" />
-              <div className="relative w-full h-[440px] overflow-hidden rounded-2xl">
-                <Image
-                  src="/images/servicios/Biopolimeros1.jpeg"
-                  alt="Cirugia de retiro de biopolimeros en Caracas"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink/50 to-transparent" />
+              <div className="prose-editorial mt-8 max-w-xl text-[1.02rem] leading-relaxed text-tinta-suave">
+                <p>
+                  El retiro de biopolímeros en Caracas es un procedimiento
+                  quirúrgico complejo que requiere experiencia en cirugía
+                  plástica y reconstrucción de tejidos.
+                </p>
+                <p>
+                  Cada paciente necesita una evaluación personalizada para
+                  determinar el plan adecuado y reducir riesgos, priorizando
+                  siempre la seguridad y la salud.
+                </p>
               </div>
             </div>
+            <div
+              data-reveal
+              className="relative aspect-[4/5] overflow-hidden bg-tinta lg:col-span-5 lg:col-start-8"
+            >
+              <Image
+                src="/images/servicios/Biopolimeros1.jpeg"
+                alt="Cirugia de retiro de biopolimeros en Caracas"
+                fill
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-cover grayscale"
+              />
+            </div>
           </div>
-        </div>
+        </Reveal>
       </section>
 
-      {/* CTA FINAL */}
-      <section className="relative px-6 pb-32 pt-8">
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl text-cream leading-[1.1]">
-            Solicita tu evaluación con un{" "}
-            <span className="gold-text">especialista</span>
-          </h2>
-          <div className="mt-12 flex justify-center">
-            <WhatsappLink href={whatsappUrl} className="btn-gold">
-              Agendar por WhatsApp
-            </WhatsappLink>
-          </div>
-        </div>
-      </section>
+      <CtaWhatsapp
+        titulo={
+          <>
+            Solicita tu evaluación con un <em>especialista.</em>
+          </>
+        }
+        whatsappHref={whatsappHref}
+        contentName={contentName}
+      />
     </main>
   )
 }

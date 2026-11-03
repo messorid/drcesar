@@ -1,3 +1,12 @@
+import FbViewContent from "../components/FbViewContent"
+import {
+  Bloque,
+  CtaWhatsapp,
+  ProcedimientoHero,
+  Relacionados,
+} from "../components/procedimiento/Procedimiento"
+import { procedimientos, waLink } from "../content/site"
+
 export const metadata = {
   title: "Retiro de Biopolimeros en Barinas | Dr Cesar Rosales",
   description:
@@ -20,79 +29,119 @@ export const metadata = {
   },
 }
 
-import FbViewContent from "../components/FbViewContent"
+const contentName = "Consulta General"
+const whatsappHref = waLink(
+  "Hola Dr. César Rosales, deseo información sobre retiro de biopolímeros en Barinas"
+)
+
+const relacionados = [
+  { href: "/cirujano-plastico-barinas", label: "Cirujano plástico en Barinas" },
+  { href: "/bbl-barinas", label: "BBL en Barinas" },
+  { href: "/lipo-hd-barinas", label: "Lipo HD en Barinas" },
+  { href: "/retiro-biopolimeros-caracas", label: "Retiro de biopolímeros en Caracas" },
+  { href: "/como-agendar-consulta-barinas", label: "Cómo agendar una consulta en Barinas" },
+]
 
 export default function RetiroBiopolimerosBarinasPage() {
+  const { zonas } = procedimientos.find((p) => p.id === "biopolimeros")
+
   return (
-    <main className="w-full bg-black px-6 py-28 text-white">
-      <FbViewContent contentName="Consulta General" />
-      <div className="mx-auto max-w-4xl">
-        {/* H1 */}
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold">
-          Retiro de Biopolimeros en Barinas
-        </h1>
+    <main className="w-full bg-crema text-tinta">
+      <FbViewContent contentName={contentName} />
 
-        {/* Intro */}
-        <p className="mt-8 text-sm sm:text-base text-white/70 leading-relaxed">
-          El retiro de biopolimeros es un procedimiento quirurgico que requiere
-          una evaluacion medica cuidadosa y experiencia en cirugia
-          reconstructiva. En Barinas, el Dr Cesar Rosales realiza este tipo de
-          cirugia con un enfoque centrado en la seguridad del paciente.
-        </p>
+      <ProcedimientoHero
+        etiqueta="Cirugía reconstructiva · Barinas"
+        titulo={
+          <>
+            Retiro de Biopolímeros en <em>Barinas</em>
+          </>
+        }
+        intro="El retiro de biopolímeros es un procedimiento quirúrgico que requiere una evaluación médica cuidadosa y experiencia en cirugía reconstructiva. En Barinas, el Dr. César Rosales realiza este tipo de cirugía con un enfoque centrado en la seguridad del paciente."
+        whatsappHref={whatsappHref}
+        contentName={contentName}
+        zonas={zonas}
+      />
 
-        <p className="mt-6 text-sm sm:text-base text-white/70 leading-relaxed">
+      <Bloque
+        id="informacion"
+        numero="01"
+        etiqueta="Cada caso es distinto"
+        titulo={
+          <>
+            Una evaluación <em>individual</em>
+          </>
+        }
+        fondo="arena"
+      >
+        <p>
           Cada caso es distinto, por lo que es fundamental analizar el tipo de
           material infiltrado, la zona afectada y el estado general de salud
           del paciente antes de indicar el procedimiento.
         </p>
+      </Bloque>
 
-        {/* Que es */}
-        <section className="mt-14 space-y-4">
-          <h2 className="text-xl font-medium">
-            Que implica el retiro de biopolimeros
-          </h2>
-
-          <p className="text-white/70 leading-relaxed">
-            El procedimiento busca retirar la mayor cantidad posible del
-            material infiltrado, disminuir complicaciones y mejorar la funcion
-            y apariencia de la zona tratada. La cirugia puede requerir tecnicas
-            reconstructivas adicionales segun el caso.
-          </p>
-        </section>
-
-        {/* Consulta */}
-        <section className="mt-14 space-y-4">
-          <h2 className="text-xl font-medium">
-            Consulta para retiro de biopolimeros en Barinas
-          </h2>
-
-          <p className="text-white/70 leading-relaxed">
-            Durante la consulta se realiza una evaluacion clinica completa,
-            revision de estudios previos y se explica de manera clara el alcance
-            del procedimiento, riesgos y expectativas reales.
-          </p>
-        </section>
-
-        {/* Seguridad */}
-        <section className="mt-14 space-y-4">
-          <h2 className="text-xl font-medium">
-            Enfoque medico y seguridad
-          </h2>
-
-          <p className="text-white/70 leading-relaxed">
-            El Dr Cesar Rosales prioriza la seguridad del paciente, el manejo
-            responsable de cada caso y el acompanamiento medico antes, durante
-            y despues de la cirugia.
-          </p>
-        </section>
-
-        {/* CTA indirecto */}
-        <p className="mt-20 text-sm text-white/60">
-          Para conocer la disponibilidad de consultas para retiro de
-          biopolimeros en Barinas, se recomienda contactar directamente por
-          WhatsApp y coordinar una evaluacion medica especializada.
+      <Bloque
+        numero="02"
+        etiqueta="El procedimiento"
+        titulo={
+          <>
+            Qué implica el retiro de <em>biopolímeros</em>
+          </>
+        }
+      >
+        <p>
+          El procedimiento busca retirar la mayor cantidad posible del material
+          infiltrado, disminuir complicaciones y mejorar la función y
+          apariencia de la zona tratada. La cirugía puede requerir técnicas
+          reconstructivas adicionales según el caso.
         </p>
-      </div>
+      </Bloque>
+
+      <Bloque
+        numero="03"
+        etiqueta="La consulta"
+        titulo={
+          <>
+            Consulta para retiro de biopolímeros en <em>Barinas</em>
+          </>
+        }
+        fondo="arena"
+      >
+        <p>
+          Durante la consulta se realiza una evaluación clínica completa,
+          revisión de estudios previos y se explica de manera clara el alcance
+          del procedimiento, riesgos y expectativas reales.
+        </p>
+      </Bloque>
+
+      <Bloque
+        numero="04"
+        etiqueta="Seguridad"
+        titulo={
+          <>
+            Enfoque médico y <em>seguridad</em>
+          </>
+        }
+      >
+        <p>
+          El Dr. César Rosales prioriza la seguridad del paciente, el manejo
+          responsable de cada caso y el acompañamiento médico antes, durante y
+          después de la cirugía.
+        </p>
+      </Bloque>
+
+      <Relacionados numero="05" links={relacionados} />
+
+      <CtaWhatsapp
+        titulo={
+          <>
+            Coordina tu evaluación <em>especializada.</em>
+          </>
+        }
+        texto="Para conocer la disponibilidad de consultas para retiro de biopolímeros en Barinas, se recomienda contactar directamente por WhatsApp y coordinar una evaluación médica especializada."
+        whatsappHref={whatsappHref}
+        contentName={contentName}
+      />
     </main>
   )
 }

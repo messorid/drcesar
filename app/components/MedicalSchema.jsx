@@ -1,3 +1,5 @@
+import { INSTAGRAM_URL } from "@/app/content/site"
+
 export default function MedicalSchema() {
   const schema = {
     "@context": "https://schema.org",
@@ -7,10 +9,10 @@ export default function MedicalSchema() {
         "@id": "https://www.drcesarrosales.com/#physician",
         "name": "Dr Cesar Rosales",
         "description":
-          "Cirujano plástico especializado en cirugía estética y reconstructiva, con atención en Barinas y Caracas.",
+          "Cirujano plástico especializado en cirugía estética y reconstructiva, con atención en Barinas, Caracas y San Cristóbal.",
         "medicalSpecialty": "PlasticSurgery",
         "url": "https://www.drcesarrosales.com",
-        "sameAs": [],
+        "sameAs": [INSTAGRAM_URL],
         "areaServed": [
           {
             "@type": "City",
@@ -20,6 +22,11 @@ export default function MedicalSchema() {
           {
             "@type": "City",
             "name": "Caracas",
+            "addressCountry": "VE",
+          },
+          {
+            "@type": "City",
+            "name": "San Cristóbal",
             "addressCountry": "VE",
           },
         ],
@@ -48,8 +55,14 @@ export default function MedicalSchema() {
             "name": "Caracas",
             "addressCountry": "VE",
           },
+          {
+            "@type": "City",
+            "name": "San Cristóbal",
+            "addressCountry": "VE",
+          },
         ],
         "medicalSpecialty": "PlasticSurgery",
+        "sameAs": [INSTAGRAM_URL],
       },
     ],
   }

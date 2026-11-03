@@ -1,5 +1,11 @@
-import Link from "next/link"
 import FbViewContent from "../components/FbViewContent"
+import {
+  Bloque,
+  CtaWhatsapp,
+  ProcedimientoHero,
+  Relacionados,
+} from "../components/procedimiento/Procedimiento"
+import { procedimientos, waLink } from "../content/site"
 
 export const metadata = {
   title: "BBL en Barinas | Dr Cesar Rosales Cirujano Plastico",
@@ -23,79 +29,83 @@ export const metadata = {
   },
 }
 
+const contentName = "BBL"
+const whatsappHref = waLink(
+  "Hola Dr. César Rosales, deseo información sobre BBL en Barinas"
+)
+
+const relacionados = [
+  { href: "/cirujano-plastico-barinas", label: "Cirujano plástico en Barinas" },
+  { href: "/retiro-biopolimeros-barinas", label: "Retiro de biopolímeros en Barinas" },
+  { href: "/lipo-hd-barinas", label: "Lipo HD en Barinas" },
+  { href: "/como-agendar-consulta-barinas", label: "Cómo agendar una consulta en Barinas" },
+  { href: "/contacto", label: "Página de contacto" },
+]
+
 export default function BBLBarinasPage() {
+  const { zonas } = procedimientos.find((p) => p.id === "bbl")
+
   return (
-    <main className="w-full bg-black px-6 py-28 text-white">
-      <FbViewContent contentName="BBL" />
-      <div className="mx-auto max-w-4xl">
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold">
-          BBL en Barinas
-        </h1>
+    <main className="w-full bg-crema text-tinta">
+      <FbViewContent contentName={contentName} />
 
-        <p className="mt-8 text-sm sm:text-base text-white/70 leading-relaxed">
-          El BBL es un procedimiento de cirugia plastica que requiere una
-          evaluacion medica cuidadosa. En Barinas, el Dr Cesar Rosales realiza
-          este procedimiento con enfoque en seguridad y resultados armónicos.
+      <ProcedimientoHero
+        etiqueta="Contorno corporal · Barinas"
+        titulo={
+          <>
+            BBL en <em>Barinas</em>
+          </>
+        }
+        intro="El BBL es un procedimiento de cirugía plástica que requiere una evaluación médica cuidadosa. En Barinas, el Dr. César Rosales realiza este procedimiento con enfoque en seguridad y resultados armónicos."
+        whatsappHref={whatsappHref}
+        contentName={contentName}
+        zonas={zonas}
+      />
+
+      <Bloque
+        id="informacion"
+        numero="01"
+        etiqueta="El procedimiento"
+        titulo={
+          <>
+            Qué es el <em>BBL</em>
+          </>
+        }
+        fondo="arena"
+      >
+        <p>
+          El BBL combina liposucción y transferencia de grasa para mejorar el
+          contorno corporal de forma equilibrada y personalizada.
         </p>
+      </Bloque>
 
-        <section className="mt-14 space-y-4">
-          <h2 className="text-xl font-medium">Que es el BBL</h2>
-          <p className="text-white/70 leading-relaxed">
-            El BBL combina liposuccion y transferencia de grasa para mejorar el
-            contorno corporal de forma equilibrada y personalizada.
-          </p>
-        </section>
-
-        <section className="mt-14 space-y-4">
-          <h2 className="text-xl font-medium">
-            Consulta para BBL en Barinas
-          </h2>
-          <p className="text-white/70 leading-relaxed">
-            Durante la consulta se evalua el estado de salud del paciente y se
-            determina si es candidato al procedimiento.
-          </p>
-        </section>
-
-        {/* 🔗 Enlaces internos SEO */}
-        <section className="mt-20 border-t border-white/10 pt-10">
-          <h3 className="text-lg font-medium text-white">
-            Informacion relacionada
-          </h3>
-
-          <ul className="mt-6 space-y-3 text-sm text-white/70">
-            <li>
-              <Link href="/cirujano-plastico-barinas" className="underline">
-                Cirujano plastico en Barinas
-              </Link>
-            </li>
-            <li>
-              <Link href="/retiro-biopolimeros-barinas" className="underline">
-                Retiro de biopolimeros en Barinas
-              </Link>
-            </li>
-            <li>
-              <Link href="/lipo-hd-barinas" className="underline">
-                Lipo HD en Barinas
-              </Link>
-            </li>
-            <li>
-              <Link href="/como-agendar-consulta-barinas" className="underline">
-                Como agendar una consulta en Barinas
-              </Link>
-            </li>
-            <li>
-              <Link href="/contacto" className="underline">
-                Pagina de contacto
-              </Link>
-            </li>
-          </ul>
-        </section>
-
-        <p className="mt-12 text-sm text-white/60">
-          Para conocer disponibilidad de consultas en Barinas, se recomienda
-          contactar por WhatsApp y coordinar una evaluacion medica.
+      <Bloque
+        numero="02"
+        etiqueta="La consulta"
+        titulo={
+          <>
+            Consulta para BBL en <em>Barinas</em>
+          </>
+        }
+      >
+        <p>
+          Durante la consulta se evalúa el estado de salud del paciente y se
+          determina si es candidato al procedimiento.
         </p>
-      </div>
+      </Bloque>
+
+      <Relacionados numero="03" links={relacionados} />
+
+      <CtaWhatsapp
+        titulo={
+          <>
+            Coordina tu evaluación para BBL en <em>Barinas.</em>
+          </>
+        }
+        texto="Para conocer disponibilidad de consultas en Barinas, se recomienda contactar por WhatsApp y coordinar una evaluación médica."
+        whatsappHref={whatsappHref}
+        contentName={contentName}
+      />
     </main>
   )
 }

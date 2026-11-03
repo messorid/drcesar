@@ -1,13 +1,16 @@
-import EspecialidadesIntro from "./components/EspecialidadesIntro"
-import FAQ from "./components/FAQ"
-import FinalCTA from "./components/FinalCTA"
-import HeaderHero from "./components/HeaderHero"
-import PageLoader from "./components/PageLoader"
-import PasosConsulta from "./components/PasosConsulta"
-import PerfilDoctor from "./components/PerfilDoctor"
-import ProfileHeaderHero from "./components/ProfileHeaderHero"
-import ServiciosCards from "./components/ServiciosCards"
-import UbicacionesSection from "./components/UbicacionesSection"
+import Hero from "./components/home/Hero"
+import Manifiesto from "./components/home/Manifiesto"
+import Filosofia from "./components/home/Filosofia"
+import Procedimientos from "./components/home/Procedimientos"
+import Anatomia from "./components/home/Anatomia"
+import Recuperacion from "./components/home/Recuperacion"
+import AntesDespues from "./components/home/AntesDespues"
+import Especialista from "./components/home/Especialista"
+import Testimonios from "./components/home/Testimonios"
+import Ubicaciones from "./components/home/Ubicaciones"
+import Agenda from "./components/home/Agenda"
+import Preguntas from "./components/home/Preguntas"
+import { casosPublicables, testimoniosPublicables } from "./content/site"
 
 export const metadata = {
   metadataBase: new URL("https://www.drcesarrosales.com"),
@@ -47,17 +50,27 @@ export const metadata = {
 }
 
 export default function HomePage() {
+  // Las secciones sin datos reales se omiten y la numeración se ajusta sola
+  const secciones = [
+    Filosofia,
+    Procedimientos,
+    Anatomia,
+    Recuperacion,
+    casosPublicables.length > 0 && AntesDespues,
+    Especialista,
+    testimoniosPublicables.length > 0 && Testimonios,
+    Ubicaciones,
+    Agenda,
+    Preguntas,
+  ].filter(Boolean)
+
   return (
-    <>
-      <PageLoader />
-      <HeaderHero />
-      <EspecialidadesIntro/>
-      <ServiciosCards/>
-      <PasosConsulta/>
-      <UbicacionesSection/>
-      <PerfilDoctor/>
-      <FAQ/>
-      <FinalCTA/>
-    </>
+    <main>
+      <Hero />
+      <Manifiesto />
+      {secciones.map((Seccion, i) => (
+        <Seccion key={i} numero={String(i + 1).padStart(2, "0")} />
+      ))}
+    </main>
   )
 }

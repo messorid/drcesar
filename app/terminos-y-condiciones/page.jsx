@@ -23,22 +23,23 @@ export const metadata = {
 
 export default function TerminosPage() {
   return (
-    <main className="w-full bg-black px-6 py-28 text-white">
-      <div className="mx-auto max-w-4xl">
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-center">
+    <main className="w-full bg-crema pb-24 pt-28 lg:pb-32 lg:pt-36">
+      <div className="contenedor max-w-[880px]">
+        <p className="label">Información legal</p>
+        <h1 className="display mt-6 text-[clamp(2.8rem,7vw,5.5rem)]">
           Términos y Condiciones
         </h1>
 
-        <p className="mt-10 text-sm sm:text-base text-white/70 leading-relaxed">
+        <p className="mt-10 text-[1.05rem] leading-relaxed text-tinta-suave">
           El presente documento establece los términos y condiciones de uso del
           sitio web del Dr Cesar Rosales. Al acceder y utilizar este sitio, el
           usuario acepta cumplir con los términos aquí descritos.
         </p>
 
         {/* 1 */}
-        <section className="mt-12 space-y-4">
-          <h2 className="text-xl font-medium">1. Información médica</h2>
-          <p className="text-white/70 leading-relaxed">
+        <section className="mt-12 border-t border-linea pt-8">
+          <h2 className="display text-[1.9rem] leading-tight">1. Información médica</h2>
+          <p className="mt-4 leading-relaxed text-tinta-suave">
             La información proporcionada en este sitio web tiene fines
             exclusivamente informativos y no sustituye una consulta médica
             presencial, diagnóstico profesional ni tratamiento especializado.
@@ -46,9 +47,9 @@ export default function TerminosPage() {
         </section>
 
         {/* 2 */}
-        <section className="mt-12 space-y-4">
-          <h2 className="text-xl font-medium">2. Atención médica</h2>
-          <p className="text-white/70 leading-relaxed">
+        <section className="mt-12 border-t border-linea pt-8">
+          <h2 className="display text-[1.9rem] leading-tight">2. Atención médica</h2>
+          <p className="mt-4 leading-relaxed text-tinta-suave">
             Toda atención médica se realiza previa evaluación clínica
             individual. Los resultados de los procedimientos pueden variar
             según cada paciente y no se garantizan resultados específicos.
@@ -56,9 +57,9 @@ export default function TerminosPage() {
         </section>
 
         {/* 3 */}
-        <section className="mt-12 space-y-4">
-          <h2 className="text-xl font-medium">3. Agendamiento de consultas</h2>
-          <p className="text-white/70 leading-relaxed">
+        <section className="mt-12 border-t border-linea pt-8">
+          <h2 className="display text-[1.9rem] leading-tight">3. Agendamiento de consultas</h2>
+          <p className="mt-4 leading-relaxed text-tinta-suave">
             Las consultas se coordinan directamente por WhatsApp y están sujetas
             a disponibilidad según la ciudad de atención. La confirmación de
             citas será indicada por el equipo médico.
@@ -66,9 +67,9 @@ export default function TerminosPage() {
         </section>
 
         {/* 4 */}
-        <section className="mt-12 space-y-4">
-          <h2 className="text-xl font-medium">4. Uso del sitio web</h2>
-          <p className="text-white/70 leading-relaxed">
+        <section className="mt-12 border-t border-linea pt-8">
+          <h2 className="display text-[1.9rem] leading-tight">4. Uso del sitio web</h2>
+          <p className="mt-4 leading-relaxed text-tinta-suave">
             El usuario se compromete a utilizar este sitio web de forma
             responsable y conforme a la ley. Queda prohibido el uso del sitio
             con fines fraudulentos, ilegales o que afecten la integridad del
@@ -77,9 +78,9 @@ export default function TerminosPage() {
         </section>
 
         {/* 5 */}
-        <section className="mt-12 space-y-4">
-          <h2 className="text-xl font-medium">5. Propiedad intelectual</h2>
-          <p className="text-white/70 leading-relaxed">
+        <section className="mt-12 border-t border-linea pt-8">
+          <h2 className="display text-[1.9rem] leading-tight">5. Propiedad intelectual</h2>
+          <p className="mt-4 leading-relaxed text-tinta-suave">
             Todo el contenido de este sitio web, incluyendo textos, imágenes,
             logotipos y diseño, es propiedad del Dr Cesar Rosales o se utiliza
             con autorización. Queda prohibida su reproducción sin consentimiento
@@ -88,9 +89,9 @@ export default function TerminosPage() {
         </section>
 
         {/* 6 */}
-        <section className="mt-12 space-y-4">
-          <h2 className="text-xl font-medium">6. Responsabilidad</h2>
-          <p className="text-white/70 leading-relaxed">
+        <section className="mt-12 border-t border-linea pt-8">
+          <h2 className="display text-[1.9rem] leading-tight">6. Responsabilidad</h2>
+          <p className="mt-4 leading-relaxed text-tinta-suave">
             El Dr Cesar Rosales no se hace responsable por interpretaciones
             erróneas de la información contenida en el sitio ni por decisiones
             tomadas sin una evaluación médica presencial.
@@ -98,9 +99,9 @@ export default function TerminosPage() {
         </section>
 
         {/* 7 */}
-        <section className="mt-12 space-y-4">
-          <h2 className="text-xl font-medium">7. Modificaciones</h2>
-          <p className="text-white/70 leading-relaxed">
+        <section className="mt-12 border-t border-linea pt-8">
+          <h2 className="display text-[1.9rem] leading-tight">7. Modificaciones</h2>
+          <p className="mt-4 leading-relaxed text-tinta-suave">
             Los presentes términos y condiciones pueden ser modificados en
             cualquier momento sin previo aviso. Se recomienda revisar
             periódicamente esta sección.
@@ -108,16 +109,16 @@ export default function TerminosPage() {
         </section>
 
         {/* 8 */}
-        <section className="mt-12 space-y-4">
-          <h2 className="text-xl font-medium">8. Legislación aplicable</h2>
-          <p className="text-white/70 leading-relaxed">
+        <section className="mt-12 border-t border-linea pt-8">
+          <h2 className="display text-[1.9rem] leading-tight">8. Legislación aplicable</h2>
+          <p className="mt-4 leading-relaxed text-tinta-suave">
             Estos términos se rigen por las leyes vigentes de la República
             Bolivariana de Venezuela.
           </p>
         </section>
 
         {/* Disclaimer final */}
-        <p className="mt-20 text-xs text-white/50 text-center leading-relaxed">
+        <p className="mt-16 border-t border-linea pt-8 text-sm leading-relaxed text-tinta-suave">
           Este sitio web cumple con fines informativos y educativos. Para una
           evaluación médica adecuada, se recomienda acudir a una consulta
           presencial con un profesional de la salud.

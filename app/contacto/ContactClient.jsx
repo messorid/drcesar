@@ -1,120 +1,83 @@
-"use client"
-
-import { motion } from "framer-motion"
+import Link from "next/link"
 import WhatsappLink from "../components/WhatsappLink"
+import { WhatsappIcon } from "../components/StickyWhatsapp"
+import Reveal from "../components/motion/Reveal"
+import { INSTAGRAM_HANDLE, INSTAGRAM_URL, ubicaciones, waLink } from "../content/site"
 
 export default function ContactClient() {
-  const whatsappUrl =
-    "https://wa.me/584245846191?text=" +
-    encodeURIComponent(
-      "Hola Dr César Rosales, deseo información para agendar una consulta"
-    )
-
   return (
-    <main className="relative min-h-screen w-full bg-ink px-6 pt-36 pb-32 overflow-hidden">
-      {/* Resplandor dorado */}
-      <div className="pointer-events-none absolute inset-0 flex justify-center">
-        <div className="h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,_rgba(201,169,106,0.1),_transparent_70%)] blur-2xl" />
-      </div>
+    <main className="min-h-screen w-full bg-crema pb-24 pt-28 lg:pb-32 lg:pt-36">
+      <div className="contenedor">
+        <Reveal>
+          <p data-reveal className="label">
+            Estamos para atenderte
+          </p>
+          <h1 data-reveal className="display mt-6 text-[clamp(3.2rem,10vw,8rem)]">
+            <em>Contacto</em>
+          </h1>
+          <p data-reveal className="mt-8 max-w-xl text-[1.05rem] leading-relaxed text-tinta-suave">
+            Agenda tu consulta médica o aclara tus dudas con nuestro equipo. La
+            atención se realiza previa coordinación por WhatsApp.
+          </p>
+        </Reveal>
 
-      <div className="relative z-10 mx-auto max-w-4xl text-center">
-        <motion.span
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="eyebrow"
-        >
-          Estamos para Atenderte
-        </motion.span>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 28 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="mt-7 text-4xl sm:text-5xl lg:text-7xl text-cream"
-        >
-          <span className="gold-text">Contacto</span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.25 }}
-          className="mt-8 max-w-2xl mx-auto text-base sm:text-lg text-sand leading-relaxed"
-        >
-          Agenda tu consulta médica o aclara tus dudas con nuestro equipo. La
-          atención se realiza previa coordinación por WhatsApp.
-        </motion.p>
-
-        <div className="gold-divider mx-auto mt-12 max-w-[160px]" />
-
-        {/* Tarjetas */}
-        <div className="mt-16 grid gap-6 md:grid-cols-2">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="surface-card rounded-2xl p-9 text-left"
-          >
-            <span className="font-display text-3xl gold-text">01</span>
-            <h2 className="mt-5 font-display text-2xl text-cream">
-              Contacto directo
-            </h2>
-            <p className="mt-4 text-sm text-stone leading-relaxed">
+        <Reveal className="mt-16 grid border-t border-linea lg:mt-24 lg:grid-cols-2">
+          <article data-reveal className="border-b border-linea py-10 lg:border-b-0 lg:border-r lg:pr-12">
+            <span className="display block text-6xl text-dorado-hondo">01</span>
+            <h2 className="display mt-5 text-[2.2rem]">Contacto directo</h2>
+            <p className="mt-4 max-w-md leading-relaxed text-tinta-suave">
               Para agendar tu consulta o consultar disponibilidad, escríbenos
               directamente por WhatsApp. Un especialista atenderá tu solicitud
               de forma personalizada.
             </p>
-          </motion.div>
+            <p className="mt-6 text-sm">
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-editorial"
+              >
+                Instagram {INSTAGRAM_HANDLE}
+              </a>
+            </p>
+          </article>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.12 }}
-            viewport={{ once: true }}
-            className="surface-card rounded-2xl p-9 text-left"
-          >
-            <span className="font-display text-3xl gold-text">02</span>
-            <h2 className="mt-5 font-display text-2xl text-cream">
-              Ubicaciones de atención
-            </h2>
-            <ul className="mt-5 space-y-3 text-sm text-sand">
-              <li className="flex items-center gap-3">
-                <span className="h-1 w-1 rounded-full bg-gold" /> Barinas
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="h-1 w-1 rounded-full bg-gold" /> Caracas
-              </li>
+          <article data-reveal className="py-10 lg:pl-12">
+            <span className="display block text-6xl text-dorado-hondo">02</span>
+            <h2 className="display mt-5 text-[2.2rem]">Ubicaciones de atención</h2>
+            <ul className="mt-6 border-t border-linea">
+              {ubicaciones.map((u) => (
+                <li key={u.id} className="border-b border-linea">
+                  <Link
+                    href={u.href}
+                    className="flex items-baseline justify-between py-4 font-serif text-2xl transition-opacity hover:opacity-70"
+                  >
+                    {u.ciudad}
+                    <span aria-hidden="true">→</span>
+                  </Link>
+                </li>
+              ))}
             </ul>
-            <p className="mt-5 text-xs text-stone/70">
+            <p className="mt-5 text-sm text-tinta-suave">
               La disponibilidad varía según la ciudad y agenda médica.
             </p>
-          </motion.div>
-        </div>
+          </article>
+        </Reveal>
 
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="mt-16 flex justify-center"
+        <WhatsappLink
+          href={waLink()}
+          label="Contacto"
+          className="group mt-12 flex w-full items-center justify-between gap-6 bg-tinta px-6 py-7 text-crema transition-colors hover:bg-black sm:px-10 lg:py-10"
         >
-          <WhatsappLink href={whatsappUrl} className="btn-gold">
-            Escribir por WhatsApp
-          </WhatsappLink>
-        </motion.div>
+          <span className="display text-[clamp(1.9rem,4.6vw,3.75rem)]">
+            Escribir por <em>WhatsApp</em>
+          </span>
+          <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-crema text-tinta transition-transform duration-500 group-hover:rotate-[-12deg] lg:h-16 lg:w-16">
+            <WhatsappIcon className="h-5 w-5 lg:h-6 lg:w-6" />
+          </span>
+        </WhatsappLink>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.35 }}
-          viewport={{ once: true }}
-          className="mt-10 text-xs uppercase tracking-[0.28em] text-stone"
-        >
-          Atención segura · Profesional · Personalizada
-        </motion.p>
+        <p className="label mt-10">Atención segura · Profesional · Personalizada</p>
       </div>
     </main>
   )

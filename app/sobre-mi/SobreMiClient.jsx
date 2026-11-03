@@ -1,8 +1,9 @@
-"use client"
-
 import Image from "next/image"
-import { motion } from "framer-motion"
+import Link from "next/link"
 import WhatsappLink from "../components/WhatsappLink"
+import SectionHeader from "../components/SectionHeader"
+import Reveal from "../components/motion/Reveal"
+import { especialista, procedimientos, waLink } from "../content/site"
 
 const valores = [
   {
@@ -28,178 +29,177 @@ const especialidades = [
   "Liposucción",
 ]
 
+// Enlaza la especialidad con su página cuando existe
+const hrefEspecialidad = {
+  "Retiro de Biopolímeros": procedimientos[0].href,
+  "Brazilian Butt Lift (BBL)": procedimientos[1].href,
+  "Lipo HD & Contorno Corporal": procedimientos[2].href,
+  "Cirugía Mamaria": procedimientos[3].href,
+  Liposucción: "/liposuccion-caracas",
+}
+
 export default function SobreMiClient() {
-  const whatsappUrl =
-    "https://wa.me/584245846191?text=" +
-    encodeURIComponent(
-      "Hola Dr César Rosales, deseo información para agendar una consulta"
-    )
+  const credenciales = especialista.credenciales.filter((c) => c.valor)
 
   return (
-    <main className="relative w-full bg-ink overflow-hidden">
-      {/* HERO PERFIL */}
-      <section className="relative px-6 pt-36 pb-24">
-        <div className="pointer-events-none absolute inset-0 flex justify-center">
-          <div className="h-[460px] w-[460px] rounded-full bg-[radial-gradient(circle,_rgba(201,169,106,0.1),_transparent_70%)] blur-2xl" />
-        </div>
-
-        <div className="relative z-10 mx-auto max-w-6xl grid gap-16 md:grid-cols-2 items-center">
-          {/* Imagen */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.9 }}
-            className="relative order-1 md:order-none"
-          >
-            <span className="absolute -left-4 -top-4 h-20 w-20 border-l border-t border-gold/50" />
-            <span className="absolute -right-4 -bottom-4 h-20 w-20 border-r border-b border-gold/50" />
-            <div className="relative overflow-hidden rounded-2xl">
+    <main className="w-full bg-crema">
+      {/* PERFIL */}
+      <section className="pb-20 pt-28 lg:pb-32 lg:pt-36">
+        <div className="contenedor grid gap-12 lg:grid-cols-12 lg:gap-10">
+          <div className="lg:col-span-5">
+            <div className="relative aspect-[4/5] overflow-hidden bg-arena">
               <Image
                 src="/images/dr-cesar-rosales.JPG"
                 alt="Dr César Rosales Cirujano Plástico en Barinas y Caracas"
-                width={900}
-                height={1200}
+                fill
                 priority
-                className="w-full object-cover object-top h-[460px] md:h-auto md:max-h-[640px]"
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                quality={78}
+                className="object-cover object-top"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/55 to-transparent" />
             </div>
-          </motion.div>
+          </div>
 
-          {/* Texto */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.9 }}
-          >
-            <span className="eyebrow">Sobre el Especialista</span>
-            <h1 className="mt-6 text-4xl sm:text-5xl lg:text-7xl text-cream leading-[1.05]">
-              Dr. César <span className="gold-text">Rosales</span>
+          <Reveal className="lg:col-span-6 lg:col-start-7 lg:self-end">
+            <p data-reveal className="label">
+              Sobre el especialista
+            </p>
+            <h1 data-reveal className="display mt-6 text-[clamp(3rem,8vw,6.5rem)]">
+              Dr. César <em>Rosales</em>
             </h1>
-            <p className="mt-4 text-sm uppercase tracking-[0.28em] text-stone">
+            <p data-reveal className="label mt-4">
               Cirujano Plástico
             </p>
 
-            <div className="gold-divider my-9 max-w-[120px]" />
+            <div data-reveal className="prose-editorial mt-10 max-w-lg leading-relaxed text-tinta-suave">
+              <p>
+                Cirujano plástico dedicado a la cirugía estética y
+                reconstructiva, con una práctica fundamentada en la seguridad
+                del paciente, la evaluación personalizada y la búsqueda de
+                resultados armónicos y naturales.
+              </p>
+              <p>
+                Su enfoque combina criterio médico, técnica depurada y un
+                acompañamiento cercano en cada etapa del proceso, ofreciendo
+                atención profesional a pacientes en Barinas, Caracas y San
+                Cristóbal.
+              </p>
+            </div>
 
-            <p className="text-base text-sand leading-relaxed">
-              Cirujano plástico dedicado a la cirugía estética y reconstructiva,
-              con una práctica fundamentada en la seguridad del paciente, la
-              evaluación personalizada y la búsqueda de resultados armónicos y
-              naturales.
-            </p>
-            <p className="mt-5 text-base text-sand leading-relaxed">
-              Su enfoque combina criterio médico, técnica depurada y un
-              acompañamiento cercano en cada etapa del proceso, ofreciendo
-              atención profesional a pacientes en Barinas y Caracas.
-            </p>
-          </motion.div>
+            {(credenciales.length > 0 || especialista.aniosExperiencia) && (
+              <dl data-reveal className="mt-10 border-t border-linea">
+                {especialista.aniosExperiencia && (
+                  <div className="flex items-baseline justify-between gap-6 border-b border-linea py-4">
+                    <dt className="label">Experiencia</dt>
+                    <dd className="text-right text-sm">
+                      {especialista.aniosExperiencia} años
+                    </dd>
+                  </div>
+                )}
+                {credenciales.map((c) => (
+                  <div
+                    key={c.etiqueta}
+                    className="flex items-baseline justify-between gap-6 border-b border-linea py-4"
+                  >
+                    <dt className="label">{c.etiqueta}</dt>
+                    <dd className="text-right text-sm">{c.valor}</dd>
+                  </div>
+                ))}
+              </dl>
+            )}
+          </Reveal>
         </div>
       </section>
 
       {/* VALORES */}
-      <section className="px-6 py-24 bg-ink-soft">
-        <div className="mx-auto max-w-6xl">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
-            className="text-center"
-          >
-            <span className="eyebrow">Filosofía</span>
-            <h2 className="mt-6 text-3xl sm:text-4xl lg:text-5xl text-cream">
-              Principios que guían cada{" "}
-              <span className="gold-text">procedimiento</span>
-            </h2>
-            <div className="gold-divider mx-auto mt-10 max-w-[160px]" />
-          </motion.div>
+      <section className="bg-arena py-20 lg:py-32">
+        <div className="contenedor">
+          <SectionHeader numero="01" etiqueta="Filosofía" />
+          <h2 className="display mt-10 max-w-[16ch] text-[clamp(2.4rem,5.4vw,4.5rem)]">
+            Principios que guían cada <em>procedimiento</em>
+          </h2>
 
-          <div className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-[var(--border-soft)] sm:grid-cols-3">
+          <Reveal className="mt-14 grid border-t border-tinta/20 lg:grid-cols-3">
             {valores.map((v, i) => (
-              <motion.div
+              <article
                 key={v.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: i * 0.12 }}
-                viewport={{ once: true }}
-                className="group relative bg-ink px-8 py-12 transition-colors duration-500 hover:bg-ink-elevated"
+                data-reveal
+                className="border-b border-tinta/20 py-10 lg:border-b-0 lg:border-r lg:px-10 lg:first:pl-0 lg:last:border-r-0 lg:last:pr-0"
               >
-                <span className="font-display text-3xl gold-text">
+                <span className="display block text-6xl text-dorado-hondo">
                   0{i + 1}
                 </span>
-                <h3 className="mt-5 font-display text-2xl text-cream">
-                  {v.title}
-                </h3>
-                <p className="mt-4 text-sm text-stone leading-relaxed">
+                <h3 className="display mt-5 text-[2rem]">{v.title}</h3>
+                <p className="mt-4 max-w-sm leading-relaxed text-tinta-suave">
                   {v.text}
                 </p>
-                <span className="absolute bottom-0 left-0 h-px w-0 bg-gradient-to-r from-gold to-transparent transition-all duration-500 group-hover:w-full" />
-              </motion.div>
+              </article>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* ESPECIALIDADES */}
-      <section className="px-6 py-24">
-        <div className="mx-auto max-w-4xl text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
-          >
-            <span className="eyebrow">Áreas de Práctica</span>
-            <h2 className="mt-6 text-3xl sm:text-4xl lg:text-5xl text-cream">
-              <span className="gold-text">Especialidades</span>
+      <section className="py-20 lg:py-32">
+        <div className="contenedor grid gap-12 lg:grid-cols-12">
+          <div className="lg:col-span-5">
+            <SectionHeader numero="02" etiqueta="Áreas de práctica" />
+            <h2 className="display mt-10 text-[clamp(2.4rem,5.4vw,4.5rem)]">
+              <em>Especialidades</em>
             </h2>
-            <div className="gold-divider mx-auto mt-10 max-w-[160px]" />
-          </motion.div>
-
-          <div className="mt-14 grid gap-4 sm:grid-cols-2">
-            {especialidades.map((esp, i) => (
-              <motion.div
-                key={esp}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-                viewport={{ once: true }}
-                className="surface-card flex items-center gap-4 rounded-xl px-6 py-5 text-left"
-              >
-                <span className="h-1.5 w-1.5 rounded-full bg-gold" />
-                <span className="font-display text-lg text-cream">{esp}</span>
-              </motion.div>
-            ))}
+            <div className="relative mt-10 hidden aspect-[3/2] overflow-hidden bg-arena lg:block">
+              <Image
+                src="/images/dr-cesar-rosales-profile.JPG"
+                alt="Dr. César Rosales, cirujano plástico, preparándose para cirugía"
+                fill
+                sizes="40vw"
+                quality={72}
+                className="object-cover object-[50%_30%]"
+              />
+            </div>
           </div>
+
+          <Reveal as="ul" className="border-t border-linea lg:col-span-6 lg:col-start-7">
+            {especialidades.map((esp, i) => {
+              const href = hrefEspecialidad[esp]
+              const contenido = (
+                <>
+                  <span className="label">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="flex-1 font-serif text-[1.7rem] leading-tight lg:text-[2.1rem]">
+                    {esp}
+                  </span>
+                  {href && <span aria-hidden="true" className="font-serif text-2xl">→</span>}
+                </>
+              )
+              return (
+                <li key={esp} data-reveal className="border-b border-linea">
+                  {href ? (
+                    <Link href={href} className="flex items-baseline gap-5 py-5 transition-opacity hover:opacity-70">
+                      {contenido}
+                    </Link>
+                  ) : (
+                    <div className="flex items-baseline gap-5 py-5">{contenido}</div>
+                  )}
+                </li>
+              )
+            })}
+          </Reveal>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="relative px-6 pb-32 pt-8">
-        <div className="mx-auto max-w-3xl text-center">
-          <motion.h2
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
-            className="text-3xl sm:text-4xl lg:text-5xl text-cream leading-[1.1]"
+      <section className="bg-tinta py-20 text-crema lg:py-28">
+        <div className="contenedor lg:flex lg:items-end lg:justify-between lg:gap-10">
+          <h2 className="display max-w-[16ch] text-[clamp(2.4rem,5.4vw,4.5rem)]">
+            Agenda tu consulta con un <em>especialista</em>
+          </h2>
+          <WhatsappLink
+            href={waLink()}
+            label="Sobre mi CTA"
+            className="btn btn-claro mt-10 lg:mt-0"
           >
-            Agenda tu consulta con un{" "}
-            <span className="gold-text">especialista</span>
-          </motion.h2>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.15 }}
-            viewport={{ once: true }}
-            className="mt-12 flex justify-center"
-          >
-            <WhatsappLink href={whatsappUrl} className="btn-gold">
-              Agendar por WhatsApp
-            </WhatsappLink>
-          </motion.div>
+            Agendar por WhatsApp
+          </WhatsappLink>
         </div>
       </section>
     </main>

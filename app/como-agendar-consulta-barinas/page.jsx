@@ -1,3 +1,12 @@
+import {
+  Bloque,
+  CtaWhatsapp,
+  ListaEditorial,
+  ProcedimientoHero,
+  Relacionados,
+} from "../components/procedimiento/Procedimiento"
+import { waLink } from "../content/site"
+
 export const metadata = {
   title:
     "Como agendar consulta con cirujano plastico en Barinas | Dr Cesar Rosales",
@@ -23,83 +32,111 @@ export const metadata = {
   },
 }
 
+const contentName = "Consulta General"
+const whatsappHref = waLink(
+  "Hola Dr. César Rosales, deseo agendar una consulta en Barinas"
+)
+
+const relacionados = [
+  { href: "/cirujano-plastico-barinas", label: "Cirujano plástico en Barinas" },
+  { href: "/ubicaciones/barinas", label: "Consulta en Barinas" },
+  { href: "/bbl-barinas", label: "BBL en Barinas" },
+  { href: "/lipo-hd-barinas", label: "Lipo HD en Barinas" },
+  { href: "/contacto", label: "Página de contacto" },
+]
+
 export default function ComoAgendarConsultaBarinasPage() {
   return (
-    <main className="w-full bg-black px-6 py-28 text-white">
-      <div className="mx-auto max-w-4xl">
-        {/* H1 */}
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold">
-          Como agendar consulta con cirujano plastico en Barinas
-        </h1>
+    <main className="w-full bg-crema text-tinta">
+      <ProcedimientoHero
+        etiqueta="Consulta · Barinas"
+        titulo={
+          <>
+            Cómo agendar consulta con cirujano plástico en <em>Barinas</em>
+          </>
+        }
+        intro="Agendar una consulta con un cirujano plástico en Barinas es el primer paso para recibir una evaluación médica adecuada. La consulta permite aclarar dudas, revisar antecedentes y determinar el procedimiento más indicado según cada caso."
+        whatsappHref={whatsappHref}
+        contentName={contentName}
+      />
 
-        {/* Intro */}
-        <p className="mt-8 text-sm sm:text-base text-white/70 leading-relaxed">
-          Agendar una consulta con un cirujano plastico en Barinas es el primer
-          paso para recibir una evaluacion medica adecuada. La consulta permite
-          aclarar dudas, revisar antecedentes y determinar el procedimiento mas
-          indicado segun cada caso.
+      <Bloque
+        id="informacion"
+        numero="01"
+        etiqueta="Paso 1"
+        titulo={
+          <>
+            Paso 1. Contacto por <em>WhatsApp</em>
+          </>
+        }
+        fondo="arena"
+      >
+        <p>
+          El proceso inicia escribiendo directamente por WhatsApp. El paciente
+          indica el procedimiento de interés y consulta la disponibilidad de
+          atención en Barinas.
         </p>
+      </Bloque>
 
-        {/* Paso 1 */}
-        <section className="mt-14 space-y-4">
-          <h2 className="text-xl font-medium">
-            Paso 1. Contacto por WhatsApp
-          </h2>
-
-          <p className="text-white/70 leading-relaxed">
-            El proceso inicia escribiendo directamente por WhatsApp. El
-            paciente indica el procedimiento de interes y consulta la
-            disponibilidad de atencion en Barinas.
-          </p>
-        </section>
-
-        {/* Paso 2 */}
-        <section className="mt-12 space-y-4">
-          <h2 className="text-xl font-medium">
-            Paso 2. Orientacion inicial
-          </h2>
-
-          <p className="text-white/70 leading-relaxed">
-            Antes de la consulta presencial se brinda una orientacion inicial
-            para resolver dudas generales y explicar el proceso de evaluacion
-            medica.
-          </p>
-        </section>
-
-        {/* Paso 3 */}
-        <section className="mt-12 space-y-4">
-          <h2 className="text-xl font-medium">
-            Paso 3. Consulta presencial
-          </h2>
-
-          <p className="text-white/70 leading-relaxed">
-            Durante la consulta presencial se realiza una evaluacion clinica
-            completa, se revisan antecedentes medicos y se establecen
-            expectativas reales sobre el procedimiento.
-          </p>
-        </section>
-
-        {/* Procedimientos */}
-        <section className="mt-14 space-y-4">
-          <h2 className="text-xl font-medium">
-            Procedimientos evaluados durante la consulta
-          </h2>
-
-          <ul className="list-disc list-inside text-white/70 space-y-2">
-            <li>Retiro de biopolimeros</li>
-            <li>BBL</li>
-            <li>Lipo HD</li>
-            <li>Cirugia mamaria</li>
-          </ul>
-        </section>
-
-        {/* Cierre */}
-        <p className="mt-20 text-sm text-white/60">
-          La disponibilidad de consultas en Barinas depende de la agenda
-          medica. Para conocer fechas disponibles, se recomienda escribir por
-          WhatsApp y coordinar la evaluacion.
+      <Bloque
+        numero="02"
+        etiqueta="Paso 2"
+        titulo={
+          <>
+            Paso 2. Orientación <em>inicial</em>
+          </>
+        }
+      >
+        <p>
+          Antes de la consulta presencial se brinda una orientación inicial
+          para resolver dudas generales y explicar el proceso de evaluación
+          médica.
         </p>
-      </div>
+      </Bloque>
+
+      <Bloque
+        numero="03"
+        etiqueta="Paso 3"
+        titulo={
+          <>
+            Paso 3. Consulta <em>presencial</em>
+          </>
+        }
+        fondo="arena"
+      >
+        <p>
+          Durante la consulta presencial se realiza una evaluación clínica
+          completa, se revisan antecedentes médicos y se establecen
+          expectativas reales sobre el procedimiento.
+        </p>
+      </Bloque>
+
+      <Bloque
+        numero="04"
+        etiqueta="Procedimientos"
+        titulo={
+          <>
+            Procedimientos evaluados durante la <em>consulta</em>
+          </>
+        }
+      >
+        <ListaEditorial
+          items={["Retiro de biopolímeros", "BBL", "Lipo HD", "Cirugía mamaria"]}
+        />
+      </Bloque>
+
+      <Relacionados numero="05" links={relacionados} />
+
+      <CtaWhatsapp
+        titulo={
+          <>
+            Escríbenos y coordinamos tu <em>evaluación.</em>
+          </>
+        }
+        texto="La disponibilidad de consultas en Barinas depende de la agenda médica. Para conocer fechas disponibles, se recomienda escribir por WhatsApp y coordinar la evaluación."
+        whatsappHref={whatsappHref}
+        contentName={contentName}
+      />
     </main>
   )
 }
