@@ -43,7 +43,7 @@ const relacionados = [
 ]
 
 export default function BBLBarinasPage() {
-  const { zonas } = procedimientos.find((p) => p.id === "bbl")
+  const { foto, fotoAlt } = procedimientos.find((p) => p.id === "bbl")
 
   return (
     <main className="w-full bg-crema text-tinta">
@@ -59,12 +59,11 @@ export default function BBLBarinasPage() {
         intro="El BBL es un procedimiento de cirugía plástica que requiere una evaluación médica cuidadosa. En Barinas, el Dr. César Rosales realiza este procedimiento con enfoque en seguridad y resultados armónicos."
         whatsappHref={whatsappHref}
         contentName={contentName}
-        zonas={zonas}
+        imagen={{ src: foto, alt: fotoAlt }}
       />
 
       <Bloque
         id="informacion"
-        numero="01"
         etiqueta="El procedimiento"
         titulo={
           <>
@@ -80,7 +79,6 @@ export default function BBLBarinasPage() {
       </Bloque>
 
       <Bloque
-        numero="02"
         etiqueta="La consulta"
         titulo={
           <>
@@ -94,7 +92,7 @@ export default function BBLBarinasPage() {
         </p>
       </Bloque>
 
-      <Relacionados numero="03" links={relacionados} />
+      <Relacionados links={relacionados} />
 
       <CtaWhatsapp
         titulo={

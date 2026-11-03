@@ -1,5 +1,6 @@
 // Ilustración de línea fina: silueta de perfil, abstracta y no explícita.
 // `zonas` resalta áreas con un tono piel; `numeradas` muestra marcadores.
+// Se usa en la sección educativa "Anatomía de un procedimiento".
 
 export const ZONAS = {
   pecho: { cx: 128, cy: 150, rx: 16, ry: 24 },
@@ -69,30 +70,20 @@ export default function Silueta({
       </g>
       <circle cx="127" cy="268" r="1.3" fill="var(--color-tinta)" />
 
-      {numeradas.map((id, i) => {
+      {numeradas.map((id) => {
         const z = ZONAS[id]
         return (
-          <g key={id} data-marcador={id}>
-            <circle
-              cx={z.cx}
-              cy={z.cy}
-              r="9"
-              fill={activa === id ? "var(--color-tinta)" : "var(--color-crema)"}
-              stroke="var(--color-tinta)"
-              strokeWidth="0.8"
-              style={{ transition: "fill 0.4s var(--ease-editorial)" }}
-            />
-            <text
-              x={z.cx}
-              y={z.cy + 3}
-              textAnchor="middle"
-              fontSize="8"
-              fontFamily="var(--font-mono)"
-              fill={activa === id ? "var(--color-crema)" : "var(--color-tinta)"}
-            >
-              {String(i + 1).padStart(2, "0")}
-            </text>
-          </g>
+          <circle
+            key={id}
+            data-marcador={id}
+            cx={z.cx}
+            cy={z.cy}
+            r={activa === id ? 5 : 3.5}
+            fill={activa === id ? "var(--color-tinta)" : "var(--color-crema)"}
+            stroke="var(--color-tinta)"
+            strokeWidth="0.8"
+            style={{ transition: "r 0.4s var(--ease-editorial), fill 0.4s var(--ease-editorial)" }}
+          />
         )
       })}
     </svg>

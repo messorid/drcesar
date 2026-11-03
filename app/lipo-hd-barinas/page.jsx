@@ -49,7 +49,7 @@ const relacionados = [
 ]
 
 export default function LipoHDBarinasPage() {
-  const { zonas } = procedimientos.find((p) => p.id === "lipo-hd")
+  const { foto, fotoAlt } = procedimientos.find((p) => p.id === "lipo-hd")
 
   return (
     <main className="w-full bg-crema text-tinta">
@@ -65,12 +65,11 @@ export default function LipoHDBarinasPage() {
         intro="Definición y escultura corporal con planificación médica detallada y resultados armónicos."
         whatsappHref={whatsappHref}
         contentName={contentName}
-        zonas={zonas}
+        imagen={{ src: foto, alt: fotoAlt }}
       />
 
       <Bloque
         id="informacion"
-        numero="01"
         etiqueta="Introducción"
         titulo={
           <>
@@ -94,7 +93,6 @@ export default function LipoHDBarinasPage() {
       </Bloque>
 
       <Bloque
-        numero="02"
         etiqueta="Qué es"
         titulo={
           <>
@@ -110,7 +108,6 @@ export default function LipoHDBarinasPage() {
       </Bloque>
 
       <Bloque
-        numero="03"
         etiqueta="La consulta"
         titulo={
           <>
@@ -127,7 +124,6 @@ export default function LipoHDBarinasPage() {
       </Bloque>
 
       <Bloque
-        numero="04"
         etiqueta="Compromiso"
         titulo={
           <>
@@ -142,7 +138,7 @@ export default function LipoHDBarinasPage() {
         </p>
       </Bloque>
 
-      <Relacionados numero="05" links={relacionados} />
+      <Relacionados links={relacionados} />
 
       <CtaWhatsapp
         titulo={

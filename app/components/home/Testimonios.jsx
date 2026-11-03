@@ -5,7 +5,7 @@ import SectionHeader from "../SectionHeader"
 // Sólo testimonios reales con permiso (ver content/site.js).
 import { testimoniosPublicables } from "@/app/content/site"
 
-export default function Testimonios({ numero }) {
+export default function Testimonios() {
   const pistaRef = useRef(null)
 
   if (!testimoniosPublicables.length) return null
@@ -19,7 +19,7 @@ export default function Testimonios({ numero }) {
   return (
     <section className="bg-crema py-24 lg:py-36">
       <div className="contenedor">
-        <SectionHeader numero={numero} etiqueta="Testimonios" />
+        <SectionHeader etiqueta="Testimonios" />
         <div className="mt-10 flex items-end justify-between gap-6">
           <h2 className="display max-w-[14ch] text-[clamp(2.4rem,5.4vw,4.5rem)]">
             En palabras de <em>nuestras pacientes.</em>

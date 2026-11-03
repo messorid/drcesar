@@ -79,7 +79,7 @@ export default function UbicacionDetalle({
       <section className="py-20 lg:py-32">
         <div className="contenedor grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <SectionHeader numero="01" etiqueta="Procedimientos" />
+            <SectionHeader etiqueta="Procedimientos" />
             <h2 className="display mt-10 max-w-[14ch] text-[clamp(2.2rem,4.6vw,3.75rem)]">
               {procedimientosTitulo}
             </h2>
@@ -91,7 +91,6 @@ export default function UbicacionDetalle({
                   href={procedimientos[i]?.href || "/#procedimientos"}
                   className="flex items-baseline gap-5 py-5 transition-opacity hover:opacity-70"
                 >
-                  <span className="label">{String(i + 1).padStart(2, "0")}</span>
                   <span className="flex-1 font-serif text-[1.7rem] leading-tight lg:text-[2.1rem]">
                     {texto}
                   </span>
@@ -107,7 +106,7 @@ export default function UbicacionDetalle({
       {secciones.length > 0 && (
         <section className="bg-arena py-20 lg:py-32">
           <div className="contenedor">
-            <SectionHeader numero="02" etiqueta="La consulta" />
+            <SectionHeader etiqueta="La consulta" />
             <Reveal className="mt-12 grid border-t border-tinta/20 lg:grid-cols-2">
               {secciones.map((s, i) => (
                 <article

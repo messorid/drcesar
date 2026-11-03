@@ -60,7 +60,7 @@ function Comparador({ caso }) {
   )
 }
 
-export default function AntesDespues({ numero }) {
+export default function AntesDespues() {
   const ids = [...new Set(casosPublicables.map((c) => c.procedimiento))]
   const [filtro, setFiltro] = useState("todos")
   const casos =
@@ -73,7 +73,7 @@ export default function AntesDespues({ numero }) {
   return (
     <section className="bg-crema py-24 lg:py-36">
       <div className="contenedor">
-        <SectionHeader numero={numero} etiqueta="Antes y después" />
+        <SectionHeader etiqueta="Antes y después" />
         <h2 className="display mt-10 max-w-[14ch] text-[clamp(2.4rem,5.4vw,4.5rem)]">
           Resultados <em>reales.</em>
         </h2>

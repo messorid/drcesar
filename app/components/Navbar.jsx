@@ -125,14 +125,13 @@ export default function Navbar() {
       >
         <div className="contenedor flex h-full flex-col pb-28 pt-24">
           <ul className="space-y-1">
-            {[{ name: "Inicio", href: "/" }, ...links].map((link, i) => (
+            {[{ name: "Inicio", href: "/" }, ...links].map((link) => (
               <li key={link.name} className="border-b border-linea">
                 <Link
                   href={link.href}
                   onClick={() => setOpen(false)}
                   className="flex items-baseline gap-4 py-4"
                 >
-                  <span className="label">{String(i + 1).padStart(2, "0")}</span>
                   <span className="font-serif text-4xl">{link.name}</span>
                 </Link>
               </li>

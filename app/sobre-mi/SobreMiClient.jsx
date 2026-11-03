@@ -114,7 +114,7 @@ export default function SobreMiClient() {
       {/* VALORES */}
       <section className="bg-arena py-20 lg:py-32">
         <div className="contenedor">
-          <SectionHeader numero="01" etiqueta="Filosofía" />
+          <SectionHeader etiqueta="Filosofía" />
           <h2 className="display mt-10 max-w-[16ch] text-[clamp(2.4rem,5.4vw,4.5rem)]">
             Principios que guían cada <em>procedimiento</em>
           </h2>
@@ -126,10 +126,8 @@ export default function SobreMiClient() {
                 data-reveal
                 className="border-b border-tinta/20 py-10 lg:border-b-0 lg:border-r lg:px-10 lg:first:pl-0 lg:last:border-r-0 lg:last:pr-0"
               >
-                <span className="display block text-6xl text-dorado-hondo">
-                  0{i + 1}
-                </span>
-                <h3 className="display mt-5 text-[2rem]">{v.title}</h3>
+                <span aria-hidden="true" className="block h-px w-10 bg-dorado" />
+                <h3 className="display mt-6 text-[2rem]">{v.title}</h3>
                 <p className="mt-4 max-w-sm leading-relaxed text-tinta-suave">
                   {v.text}
                 </p>
@@ -143,7 +141,7 @@ export default function SobreMiClient() {
       <section className="py-20 lg:py-32">
         <div className="contenedor grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <SectionHeader numero="02" etiqueta="Áreas de práctica" />
+            <SectionHeader etiqueta="Áreas de práctica" />
             <h2 className="display mt-10 text-[clamp(2.4rem,5.4vw,4.5rem)]">
               <em>Especialidades</em>
             </h2>
@@ -164,7 +162,6 @@ export default function SobreMiClient() {
               const href = hrefEspecialidad[esp]
               const contenido = (
                 <>
-                  <span className="label">{String(i + 1).padStart(2, "0")}</span>
                   <span className="flex-1 font-serif text-[1.7rem] leading-tight lg:text-[2.1rem]">
                     {esp}
                   </span>

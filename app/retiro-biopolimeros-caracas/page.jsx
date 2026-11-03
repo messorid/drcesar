@@ -60,7 +60,7 @@ export default function RetiroBiopolimerosCaracasPage() {
       {/* Antes y después */}
       <section className="bg-arena py-16 lg:py-24">
         <div className="contenedor">
-          <SectionHeader numero="01" etiqueta="Resultados reales" />
+          <SectionHeader etiqueta="Resultados reales" />
           <h2 className="display mt-10 text-[clamp(2.1rem,4.6vw,3.75rem)]">
             Antes y <em>después</em>
           </h2>
@@ -87,7 +87,7 @@ export default function RetiroBiopolimerosCaracasPage() {
       <section id="informacion" className="scroll-mt-20 bg-crema py-16 lg:py-24">
         <Reveal className="contenedor">
           <div data-reveal>
-            <SectionHeader numero="02" etiqueta="El procedimiento" />
+            <SectionHeader etiqueta="El procedimiento" />
           </div>
           <div className="mt-10 grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-10">
             <div data-reveal className="lg:col-span-6">
@@ -116,7 +116,7 @@ export default function RetiroBiopolimerosCaracasPage() {
                 alt="Cirugia de retiro de biopolimeros en Caracas"
                 fill
                 sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-cover grayscale"
+                className="object-cover"
               />
             </div>
           </div>

@@ -4,14 +4,14 @@ import { useState } from "react"
 import SectionHeader from "../SectionHeader"
 import { faqs } from "@/app/content/site"
 
-export default function Preguntas({ numero }) {
+export default function Preguntas() {
   const [abierta, setAbierta] = useState(0)
 
   return (
     <section className="bg-crema py-24 lg:py-36">
       <div className="contenedor grid gap-12 lg:grid-cols-12">
         <div className="lg:col-span-4">
-          <SectionHeader numero={numero} etiqueta="Preguntas" />
+          <SectionHeader etiqueta="Preguntas" />
           <h2 className="display mt-10 max-w-[12ch] text-[clamp(2.4rem,5vw,4.25rem)]">
             Preguntas <em>frecuentes</em>
           </h2>

@@ -20,7 +20,7 @@ export function waLink(mensaje = MENSAJE_GENERAL) {
 
 /* ---------------------------------------------------------------
    Procedimientos (el orden es el del home)
-   `zonas` resalta áreas en la ilustración de línea (ver Silueta.jsx)
+   `foto` es la foto profesional del procedimiento.
    --------------------------------------------------------------- */
 export const procedimientos = [
   {
@@ -30,7 +30,8 @@ export const procedimientos = [
     descripcion:
       "Extracción del material y reconstrucción del tejido afectado, con una planificación individual y prudente.",
     href: "/retiro-biopolimeros-caracas",
-    zonas: ["gluteos", "muslos"],
+    foto: "/images/servicios/Biopolimeros1.jpeg",
+    fotoAlt: "Retiro de biopolímeros, procedimiento del Dr. César Rosales",
     mensaje:
       "Hola Dr. César Rosales, deseo información sobre el retiro de biopolímeros",
     contentName: "Retiro de Biopolimeros",
@@ -43,7 +44,8 @@ export const procedimientos = [
     descripcion:
       "Liposucción y transferencia de grasa para un contorno equilibrado y acorde a tu anatomía.",
     href: "/bbl-barinas",
-    zonas: ["lumbar", "gluteos"],
+    foto: "/images/servicios/bbl.jpeg",
+    fotoAlt: "BBL, procedimiento de contorno glúteo del Dr. César Rosales",
     mensaje: "Hola Dr. César Rosales, deseo información sobre el BBL",
     contentName: "BBL",
   },
@@ -54,7 +56,8 @@ export const procedimientos = [
     descripcion:
       "Liposucción de alta definición que resalta el contorno natural del cuerpo, sin exagerarlo.",
     href: "/lipo-hd-barinas",
-    zonas: ["abdomen", "flancos", "espalda"],
+    foto: "/images/servicios/lipo-hd.PNG",
+    fotoAlt: "Lipo HD, definición corporal del Dr. César Rosales",
     mensaje: "Hola Dr. César Rosales, deseo información sobre la Lipo HD",
     contentName: "Lipo HD",
   },
@@ -65,7 +68,8 @@ export const procedimientos = [
     descripcion:
       "Procedimientos mamarios planificados según tu anatomía, tus proporciones y lo que buscas.",
     href: "/cirugia-mamaria-barinas",
-    zonas: ["pecho"],
+    foto: "/images/servicios/cirugia-mamaria.PNG",
+    fotoAlt: "Cirugía mamaria del Dr. César Rosales",
     mensaje:
       "Hola Dr. César Rosales, deseo información sobre cirugía mamaria",
     contentName: "Cirugia Mamaria",

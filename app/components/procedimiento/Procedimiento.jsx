@@ -1,7 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
 import SectionHeader from "../SectionHeader"
-import Silueta from "../Silueta"
 import WhatsappLink from "../WhatsappLink"
 import { WhatsappIcon } from "../StickyWhatsapp"
 import Reveal from "../motion/Reveal"
@@ -14,11 +13,10 @@ export function ProcedimientoHero({
   intro,
   whatsappHref,
   contentName,
-  zonas,
   imagen,
   masInfo = true,
 }) {
-  const conVisual = Boolean(zonas || imagen)
+  const conVisual = Boolean(imagen)
 
   return (
     <section className="bg-crema pb-16 pt-28 lg:pb-24 lg:pt-40">
@@ -54,13 +52,6 @@ export function ProcedimientoHero({
           </div>
         </div>
 
-        {zonas && (
-          <div className="bg-arena px-6 py-8 lg:col-span-4 lg:col-start-9">
-            <Silueta zonas={zonas} className="mx-auto h-[280px] w-auto lg:h-[420px]" />
-            <p className="label mt-4 text-center">Ilustración con fines educativos</p>
-          </div>
-        )}
-
         {imagen && (
           <div className="relative aspect-[4/5] overflow-hidden bg-tinta lg:col-span-5 lg:col-start-8">
             <Image
@@ -68,6 +59,7 @@ export function ProcedimientoHero({
               alt={imagen.alt}
               fill
               priority
+              fetchPriority="high"
               sizes="(min-width: 1024px) 40vw, 100vw"
               quality={75}
               className={`object-cover ${imagen.className || ""}`}
@@ -79,7 +71,7 @@ export function ProcedimientoHero({
   )
 }
 
-export function Bloque({ numero, etiqueta, titulo, children, id, fondo = "crema" }) {
+export function Bloque({ etiqueta, titulo, children, id, fondo = "crema" }) {
   return (
     <section
       id={id}
@@ -87,7 +79,7 @@ export function Bloque({ numero, etiqueta, titulo, children, id, fondo = "crema"
     >
       <Reveal className="contenedor">
         <div data-reveal>
-          <SectionHeader numero={numero} etiqueta={etiqueta} />
+          <SectionHeader etiqueta={etiqueta} />
         </div>
         <div className="mt-10 grid gap-8 lg:grid-cols-12 lg:gap-10">
           <h2
@@ -123,11 +115,11 @@ export function ListaEditorial({ items }) {
   )
 }
 
-export function Relacionados({ links, numero }) {
+export function Relacionados({ links }) {
   return (
     <section className="bg-crema py-16 lg:py-24">
       <div className="contenedor">
-        <SectionHeader numero={numero} etiqueta="Información relacionada" />
+        <SectionHeader etiqueta="Información relacionada" />
         <h2 className="sr-only">Información relacionada</h2>
         <ul className="mt-10 grid border-t border-linea sm:grid-cols-2 sm:gap-x-10">
           {links.map((r) => (

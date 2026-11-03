@@ -50,7 +50,7 @@ export const metadata = {
 }
 
 export default function HomePage() {
-  // Las secciones sin datos reales se omiten y la numeración se ajusta sola
+  // Las secciones sin datos reales se omiten
   const secciones = [
     Filosofia,
     Procedimientos,
@@ -69,7 +69,7 @@ export default function HomePage() {
       <Hero />
       <Manifiesto />
       {secciones.map((Seccion, i) => (
-        <Seccion key={i} numero={String(i + 1).padStart(2, "0")} />
+        <Seccion key={i} />
       ))}
     </main>
   )

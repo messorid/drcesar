@@ -5,7 +5,7 @@ import SectionHeader from "../SectionHeader"
 import { useScene } from "@/app/lib/motion"
 import { recuperacion } from "@/app/content/site"
 
-export default function Recuperacion({ numero }) {
+export default function Recuperacion() {
   const ref = useRef(null)
 
   useScene(ref, ({ gsap, ScrollTrigger, el }) => {
@@ -67,7 +67,7 @@ export default function Recuperacion({ numero }) {
       className="group overflow-hidden bg-tinta py-24 text-crema lg:flex lg:min-h-screen lg:flex-col lg:justify-center lg:py-0 lg:[&.is-horizontal]:h-screen"
     >
       <div className="contenedor">
-        <SectionHeader numero={numero} etiqueta="Tu recuperación" tono="claro" />
+        <SectionHeader etiqueta="Tu recuperación" tono="claro" />
         <h2 className="display mt-10 max-w-[16ch] text-[clamp(2.4rem,5.4vw,4.5rem)]">
           Tu recuperación, <em>paso a paso.</em>
         </h2>
@@ -78,7 +78,7 @@ export default function Recuperacion({ numero }) {
           data-track
           className="relative space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-10 lg:gap-y-16 lg:px-[max(3rem,calc((100vw-1360px)/2+3rem))] lg:group-[.is-horizontal]:flex lg:group-[.is-horizontal]:w-max lg:group-[.is-horizontal]:gap-0"
         >
-          {recuperacion.map((r, i) => (
+          {recuperacion.map((r) => (
             <li
               key={r.etapa}
               data-etapa
@@ -88,10 +88,7 @@ export default function Recuperacion({ numero }) {
                 aria-hidden="true"
                 className="absolute -left-[5px] top-1 h-[9px] w-[9px] rounded-full bg-dorado lg:-top-[5px] lg:left-0"
               />
-              <span className="label !text-crema/60">
-                Etapa {String(i + 1).padStart(2, "0")}
-              </span>
-              <h3 className="display mt-4 text-[clamp(1.9rem,3.4vw,3rem)]">
+              <h3 className="display text-[clamp(1.9rem,3.4vw,3rem)]">
                 {r.etapa}
               </h3>
               <p className="mt-4 max-w-sm leading-relaxed text-crema/75">

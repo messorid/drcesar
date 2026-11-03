@@ -43,7 +43,7 @@ const relacionados = [
 ]
 
 export default function RetiroBiopolimerosBarinasPage() {
-  const { zonas } = procedimientos.find((p) => p.id === "biopolimeros")
+  const { foto, fotoAlt } = procedimientos.find((p) => p.id === "biopolimeros")
 
   return (
     <main className="w-full bg-crema text-tinta">
@@ -59,12 +59,11 @@ export default function RetiroBiopolimerosBarinasPage() {
         intro="El retiro de biopolímeros es un procedimiento quirúrgico que requiere una evaluación médica cuidadosa y experiencia en cirugía reconstructiva. En Barinas, el Dr. César Rosales realiza este tipo de cirugía con un enfoque centrado en la seguridad del paciente."
         whatsappHref={whatsappHref}
         contentName={contentName}
-        zonas={zonas}
+        imagen={{ src: foto, alt: fotoAlt }}
       />
 
       <Bloque
         id="informacion"
-        numero="01"
         etiqueta="Cada caso es distinto"
         titulo={
           <>
@@ -81,7 +80,6 @@ export default function RetiroBiopolimerosBarinasPage() {
       </Bloque>
 
       <Bloque
-        numero="02"
         etiqueta="El procedimiento"
         titulo={
           <>
@@ -98,7 +96,6 @@ export default function RetiroBiopolimerosBarinasPage() {
       </Bloque>
 
       <Bloque
-        numero="03"
         etiqueta="La consulta"
         titulo={
           <>
@@ -115,7 +112,6 @@ export default function RetiroBiopolimerosBarinasPage() {
       </Bloque>
 
       <Bloque
-        numero="04"
         etiqueta="Seguridad"
         titulo={
           <>
@@ -130,7 +126,7 @@ export default function RetiroBiopolimerosBarinasPage() {
         </p>
       </Bloque>
 
-      <Relacionados numero="05" links={relacionados} />
+      <Relacionados links={relacionados} />
 
       <CtaWhatsapp
         titulo={

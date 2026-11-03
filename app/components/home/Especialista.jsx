@@ -4,13 +4,13 @@ import SectionHeader from "../SectionHeader"
 import Reveal from "../motion/Reveal"
 import { especialista } from "@/app/content/site"
 
-export default function Especialista({ numero }) {
+export default function Especialista() {
   const credenciales = especialista.credenciales.filter((c) => c.valor)
 
   return (
     <section className="bg-arena py-24 lg:py-36">
       <div className="contenedor">
-        <SectionHeader numero={numero} etiqueta="Conoce al especialista" />
+        <SectionHeader etiqueta="Conoce al especialista" />
 
         <div className="mt-10 grid gap-12 lg:grid-cols-12 lg:gap-10">
           <div className="relative lg:col-span-7">

@@ -22,23 +22,23 @@ const opciones = [
   },
 ]
 
-export default function Agenda({ numero }) {
+export default function Agenda() {
   const [elegido, setElegido] = useState("general")
   const opcion = opciones.find((o) => o.id === elegido)
 
   return (
     <section id="agenda" className="bg-piel/45 py-24 lg:py-36">
       <div className="contenedor">
-        <SectionHeader numero={numero} etiqueta="Agenda" />
+        <SectionHeader etiqueta="Agenda" />
         <h2 className="display mt-10 max-w-[14ch] text-[clamp(2.4rem,5.4vw,4.5rem)]">
           Agenda en <em>3 pasos.</em>
         </h2>
 
         <Reveal as="ol" className="mt-14 grid gap-px border-y border-tinta/15 lg:grid-cols-3">
-          {pasosAgenda.map((p, i) => (
+          {pasosAgenda.map((p) => (
             <li key={p.titulo} data-reveal className="py-8 lg:pr-10">
-              <span className="display block text-5xl text-dorado-hondo">0{i + 1}</span>
-              <h3 className="display mt-4 text-[1.9rem]">{p.titulo}</h3>
+              <span aria-hidden="true" className="block h-px w-10 bg-dorado" />
+              <h3 className="display mt-6 text-[1.9rem]">{p.titulo}</h3>
               <p className="mt-3 max-w-xs leading-relaxed text-tinta-suave">{p.texto}</p>
             </li>
           ))}

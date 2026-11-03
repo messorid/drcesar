@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
 import SectionHeader from "../SectionHeader"
-import Silueta from "../Silueta"
+import Image from "next/image"
 import Reveal from "../motion/Reveal"
 import { procedimientos } from "@/app/content/site"
 
@@ -61,7 +61,7 @@ function useSeguidor(lista) {
   return { cardRef, activo, setActivo }
 }
 
-export default function Procedimientos({ numero }) {
+export default function Procedimientos() {
   const listaRef = useRef(null)
   const { cardRef, activo, setActivo } = useSeguidor(listaRef)
   const actual = procedimientos.find((p) => p.id === activo)
@@ -72,7 +72,7 @@ export default function Procedimientos({ numero }) {
       <span id="servicios" className="block scroll-mt-40" aria-hidden="true" />
 
       <div className="contenedor">
-        <SectionHeader numero={numero} etiqueta="Procedimientos" />
+        <SectionHeader etiqueta="Procedimientos" />
         <div className="mt-10 lg:flex lg:items-end lg:justify-between lg:gap-10">
           <h2 className="display max-w-[14ch] text-[clamp(2.4rem,6vw,4.75rem)]">
             Áreas de <em>especialidad</em>
@@ -86,7 +86,7 @@ export default function Procedimientos({ numero }) {
         {/* Escritorio: lista tipográfica */}
         <div ref={listaRef} className="relative mt-20 hidden lg:block">
           <ul className="border-t border-tinta/20">
-            {procedimientos.map((p, i) => (
+            {procedimientos.map((p) => (
               <li key={p.id} className="border-b border-tinta/20">
                 <Link
                   href={p.href}
@@ -97,8 +97,7 @@ export default function Procedimientos({ numero }) {
                     activo && activo !== p.id ? "opacity-35" : ""
                   }`}
                 >
-                  <span className="label col-span-1">0{i + 1}</span>
-                  <span className="display col-span-7 text-[clamp(3rem,6.2vw,6rem)] transition-transform duration-700 ease-[var(--ease-editorial)] group-hover:translate-x-4">
+                  <span className="display col-span-8 text-[clamp(3rem,6.2vw,6rem)] transition-transform duration-700 ease-[var(--ease-editorial)] group-hover:translate-x-4">
                     {p.nombre}
                   </span>
                   <span className="col-span-3 text-sm leading-relaxed text-tinta-suave">
@@ -118,39 +117,60 @@ export default function Procedimientos({ numero }) {
           <div
             ref={cardRef}
             aria-hidden="true"
-            className={`pointer-events-none absolute left-0 top-0 z-10 w-[260px] transition-opacity duration-500 ${
+            className={`pointer-events-none absolute left-0 top-0 z-10 w-[300px] transition-opacity duration-500 ${
               actual ? "opacity-100" : "opacity-0"
             }`}
           >
             <div
-              className={`overflow-hidden bg-crema p-6 shadow-[0_30px_60px_-30px_rgba(28,26,25,0.45)] transition-[clip-path] duration-700 ease-[var(--ease-editorial)] ${
+              className={`relative aspect-[4/5] overflow-hidden bg-tinta shadow-[0_30px_60px_-30px_rgba(28,26,25,0.55)] transition-[clip-path] duration-700 ease-[var(--ease-editorial)] ${
                 actual ? "[clip-path:inset(0_0_0_0)]" : "[clip-path:inset(50%_0_50%_0)]"
               }`}
             >
-              <Silueta zonas={actual?.zonas || []} className="h-[300px] w-full" />
-              <p className="label mt-4">{actual?.detalle}</p>
+              {procedimientos.map((p) => (
+                <Image
+                  key={p.id}
+                  src={p.foto}
+                  alt=""
+                  fill
+                  sizes="300px"
+                  quality={70}
+                  className={`object-cover transition-opacity duration-500 ${
+                    activo === p.id ? "opacity-100" : "opacity-0"
+                  }`}
+                />
+              ))}
             </div>
           </div>
         </div>
 
         {/* Móvil: tarjetas verticales */}
         <Reveal className="mt-12 grid grid-cols-2 gap-3 sm:gap-4 lg:hidden">
-          {procedimientos.map((p, i) => (
+          {procedimientos.map((p) => (
             <Link
               key={p.id}
               href={p.href}
               data-reveal
-              className="flex flex-col bg-crema p-4 active:bg-white sm:p-5"
+              className="flex flex-col bg-crema active:bg-white"
             >
-              <span className="label">0{i + 1}</span>
-              <Silueta zonas={p.zonas} className="mx-auto my-3 h-40 w-full" />
-              <span className="display text-[1.65rem] leading-[1.02]">
+              <span className="relative block aspect-[4/5] overflow-hidden bg-tinta">
+                <Image
+                  src={p.foto}
+                  alt={p.fotoAlt}
+                  fill
+                  sizes="(min-width: 640px) 45vw, 50vw"
+                  quality={70}
+                  className="object-cover"
+                />
+              </span>
+              <span className="display px-4 pt-4 text-[1.65rem] leading-[1.02] sm:px-5">
                 {p.nombre}
               </span>
-              <span className="mt-2 text-[0.8rem] leading-snug text-tinta-suave">
+              <span className="mt-2 px-4 text-[0.8rem] leading-snug text-tinta-suave sm:px-5">
                 {p.detalle}
               </span>
-              <span className="label mt-4 !text-tinta">Ver más →</span>
+              <span className="label mt-auto px-4 pb-4 pt-4 !text-tinta sm:px-5 sm:pb-5">
+                Ver más →
+              </span>
             </Link>
           ))}
         </Reveal>

@@ -36,7 +36,6 @@ export default function Manifiesto() {
   return (
     <section ref={ref} className="bg-crema py-28 lg:py-44">
       <div className="contenedor">
-        <p className="label mb-10 lg:mb-14">Manifiesto</p>
         <blockquote className="max-w-[22ch] font-serif text-[clamp(2.1rem,6.4vw,5.6rem)] italic leading-[1.06] tracking-[-0.02em]">
           {palabras.map((p, i) => (
             <span key={i}>

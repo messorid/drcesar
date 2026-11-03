@@ -61,7 +61,7 @@ export default function LiposuccionCaracasPage() {
       <section id="informacion" className="scroll-mt-20 bg-arena py-16 lg:py-24">
         <Reveal className="contenedor">
           <div data-reveal>
-            <SectionHeader numero="01" etiqueta="El procedimiento" />
+            <SectionHeader etiqueta="El procedimiento" />
           </div>
           <div className="mt-10 grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-10">
             <div data-reveal className="lg:col-span-6">
@@ -91,7 +91,7 @@ export default function LiposuccionCaracasPage() {
                 alt="Liposuccion HD en Caracas Venezuela"
                 fill
                 sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-cover grayscale"
+                className="object-cover"
               />
             </div>
           </div>
@@ -99,7 +99,6 @@ export default function LiposuccionCaracasPage() {
       </section>
 
       <Bloque
-        numero="02"
         etiqueta="La consulta"
         titulo={
           <>

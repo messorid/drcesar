@@ -47,7 +47,7 @@ const relacionados = [
 ]
 
 export default function CirugiaMamariaBarinasPage() {
-  const { zonas } = procedimientos.find((p) => p.id === "mamaria")
+  const { foto, fotoAlt } = procedimientos.find((p) => p.id === "mamaria")
 
   return (
     <main className="w-full bg-crema text-tinta">
@@ -63,12 +63,11 @@ export default function CirugiaMamariaBarinasPage() {
         intro="Procedimientos mamarios planificados según tu anatomía, tus proporciones y lo que buscas. En Barinas, el Dr. César Rosales los realiza con un enfoque centrado en la seguridad y en resultados que se vean naturales."
         whatsappHref={whatsappHref}
         contentName={contentName}
-        zonas={zonas}
+        imagen={{ src: foto, alt: fotoAlt }}
       />
 
       <Bloque
         id="informacion"
-        numero="01"
         etiqueta="Qué es"
         titulo={
           <>
@@ -96,7 +95,6 @@ export default function CirugiaMamariaBarinasPage() {
       </Bloque>
 
       <Bloque
-        numero="02"
         etiqueta="Criterio"
         titulo={
           <>
@@ -113,7 +111,6 @@ export default function CirugiaMamariaBarinasPage() {
       </Bloque>
 
       <Bloque
-        numero="03"
         etiqueta="La consulta"
         titulo={
           <>
@@ -135,7 +132,6 @@ export default function CirugiaMamariaBarinasPage() {
       </Bloque>
 
       <Bloque
-        numero="04"
         etiqueta="Seguridad"
         titulo={
           <>
@@ -150,7 +146,7 @@ export default function CirugiaMamariaBarinasPage() {
         </p>
       </Bloque>
 
-      <Relacionados numero="05" links={relacionados} />
+      <Relacionados links={relacionados} />
 
       <CtaWhatsapp
         titulo={

@@ -62,7 +62,6 @@ export default function ComoAgendarConsultaBarinasPage() {
 
       <Bloque
         id="informacion"
-        numero="01"
         etiqueta="Paso 1"
         titulo={
           <>
@@ -79,7 +78,6 @@ export default function ComoAgendarConsultaBarinasPage() {
       </Bloque>
 
       <Bloque
-        numero="02"
         etiqueta="Paso 2"
         titulo={
           <>
@@ -95,7 +93,6 @@ export default function ComoAgendarConsultaBarinasPage() {
       </Bloque>
 
       <Bloque
-        numero="03"
         etiqueta="Paso 3"
         titulo={
           <>
@@ -112,7 +109,6 @@ export default function ComoAgendarConsultaBarinasPage() {
       </Bloque>
 
       <Bloque
-        numero="04"
         etiqueta="Procedimientos"
         titulo={
           <>
@@ -125,7 +121,7 @@ export default function ComoAgendarConsultaBarinasPage() {
         />
       </Bloque>
 
-      <Relacionados numero="05" links={relacionados} />
+      <Relacionados links={relacionados} />
 
       <CtaWhatsapp
         titulo={

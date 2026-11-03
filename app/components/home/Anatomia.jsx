@@ -8,7 +8,7 @@ import { anatomia } from "@/app/content/site"
 
 const zonas = anatomia.map((a) => a.zona)
 
-export default function Anatomia({ numero }) {
+export default function Anatomia() {
   const ref = useRef(null)
   const [activa, setActiva] = useState(zonas[0])
 
@@ -58,7 +58,7 @@ export default function Anatomia({ numero }) {
   return (
     <section ref={ref} className="bg-crema py-24 lg:py-36">
       <div className="contenedor">
-        <SectionHeader numero={numero} etiqueta="Anatomía de un procedimiento" />
+        <SectionHeader etiqueta="Anatomía de un procedimiento" />
 
         <div className="mt-10 lg:grid lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-5">
@@ -93,7 +93,7 @@ export default function Anatomia({ numero }) {
             </div>
 
           <ol className="mt-2 lg:mt-[22vh]">
-            {anatomia.map((a, i) => (
+            {anatomia.map((a) => (
               <li
                 key={a.zona}
                 data-etiqueta={a.zona}
@@ -101,10 +101,7 @@ export default function Anatomia({ numero }) {
                   activa === a.zona ? "opacity-100" : "lg:opacity-40"
                 }`}
               >
-                <div className="flex items-baseline justify-between gap-6">
-                  <span className="label">{String(i + 1).padStart(2, "0")}</span>
-                  <span className="label !text-dorado-hondo">{a.procedimiento}</span>
-                </div>
+                <span className="label !text-dorado-hondo">{a.procedimiento}</span>
                 <h3 className="display mt-4 text-[clamp(2rem,4vw,3.25rem)]">
                   {a.titulo}
                 </h3>

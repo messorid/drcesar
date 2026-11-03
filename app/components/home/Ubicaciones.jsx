@@ -7,7 +7,7 @@ import SectionHeader from "../SectionHeader"
 import WhatsappLink from "../WhatsappLink"
 import { ubicaciones, waLink } from "@/app/content/site"
 
-export default function Ubicaciones({ numero }) {
+export default function Ubicaciones() {
   const [activa, setActiva] = useState(ubicaciones[0].id)
   const u = ubicaciones.find((x) => x.id === activa)
 
@@ -25,7 +25,7 @@ export default function Ubicaciones({ numero }) {
   return (
     <section className="bg-crema py-24 lg:py-36">
       <div className="contenedor">
-        <SectionHeader numero={numero} etiqueta="Ubicaciones" />
+        <SectionHeader etiqueta="Ubicaciones" />
         <h2 className="display mt-10 max-w-[14ch] text-[clamp(2.4rem,5.4vw,4.5rem)]">
           ¿Dónde te <em>atiendo?</em>
         </h2>

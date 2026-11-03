@@ -60,8 +60,7 @@ export default function UbicacionesPage() {
                 href={u.href}
                 className="group grid gap-4 py-10 lg:grid-cols-12 lg:items-baseline lg:gap-6 lg:py-14"
               >
-                <span className="label lg:col-span-1">0{i + 1}</span>
-                <h2 className="display text-[clamp(2.8rem,7vw,5.5rem)] transition-transform duration-700 ease-[var(--ease-editorial)] lg:col-span-6 lg:group-hover:translate-x-3">
+                <h2 className="display text-[clamp(2.8rem,7vw,5.5rem)] transition-transform duration-700 ease-[var(--ease-editorial)] lg:col-span-7 lg:group-hover:translate-x-3">
                   {u.ciudad}
                 </h2>
                 <p className="max-w-sm leading-relaxed text-tinta-suave lg:col-span-4">
