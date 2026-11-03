@@ -21,7 +21,12 @@ export default function SmoothScroll() {
         ([{ default: Lenis }, { gsap, ScrollTrigger }]) => {
           if (cancelled) return
           gsapRef = gsap
-          lenis = new Lenis({ lerp: 0.11, wheelMultiplier: 0.9 })
+          // anchors: los links a #secciones también se desplazan con Lenis
+          lenis = new Lenis({
+            lerp: 0.11,
+            wheelMultiplier: 0.9,
+            anchors: { offset: -80 },
+          })
           lenis.on("scroll", ScrollTrigger.update)
           tick = (time) => lenis.raf(time * 1000)
           gsap.ticker.add(tick)
