@@ -102,10 +102,25 @@ export const pilares = [
 
 /* ---------------------------------------------------------------
    Anatomía de un procedimiento (tono educativo)
+   `foto` indica qué foto de `fotosAnatomia` acompaña a cada zona.
    --------------------------------------------------------------- */
+export const fotosAnatomia = {
+  lipo: {
+    src: "/images/servicios/lipo-hd.PNG",
+    alt: "Abdomen y cintura tras Lipo HD, foto del Dr. César Rosales",
+    etiqueta: "Lipo HD",
+  },
+  bbl: {
+    src: "/images/servicios/bbl.jpeg",
+    alt: "Marcación quirúrgica de espalda baja y glúteos para BBL",
+    etiqueta: "BBL",
+  },
+}
+
 export const anatomia = [
   {
     zona: "abdomen",
+    foto: "lipo",
     titulo: "Abdomen",
     procedimiento: "Lipo HD",
     texto:
@@ -113,6 +128,7 @@ export const anatomia = [
   },
   {
     zona: "flancos",
+    foto: "lipo",
     titulo: "Cintura y flancos",
     procedimiento: "Lipo HD · BBL",
     texto:
@@ -120,6 +136,7 @@ export const anatomia = [
   },
   {
     zona: "espalda",
+    foto: "bbl",
     titulo: "Espalda",
     procedimiento: "Lipo HD",
     texto:
@@ -127,6 +144,7 @@ export const anatomia = [
   },
   {
     zona: "lumbar",
+    foto: "bbl",
     titulo: "Zona lumbar",
     procedimiento: "BBL",
     texto:
@@ -134,6 +152,7 @@ export const anatomia = [
   },
   {
     zona: "gluteos",
+    foto: "bbl",
     titulo: "Glúteos",
     procedimiento: "BBL",
     texto:

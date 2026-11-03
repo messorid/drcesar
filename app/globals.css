@@ -209,12 +209,6 @@ h4 {
   scrollbar-width: none;
 }
 
-/* Trazo SVG que se dibuja con el scroll (pathLength="1") */
-.trazo {
-  stroke-dasharray: 1;
-  stroke-dashoffset: 0;
-}
-
 /* =================================================
    Lenis (scroll suave sólo en escritorio)
    ================================================= */
