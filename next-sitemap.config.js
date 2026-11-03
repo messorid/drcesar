@@ -24,5 +24,7 @@ module.exports = {
     "/hero/*",
     "/not-found",
     "/not-found.jsx",
+    "/icon.png",
+    "/apple-icon.png",
   ],
 }
