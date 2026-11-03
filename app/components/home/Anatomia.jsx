@@ -124,7 +124,7 @@ export default function Anatomia() {
                     activa === a.zona ? "lg:opacity-100" : "lg:opacity-40"
                   }`}
                 >
-                  <span className="label !text-dorado-hondo">{a.procedimiento}</span>
+                  <span className="label !text-marca-hondo">{a.procedimiento}</span>
                   <h3 className="display mt-4 text-[clamp(2rem,4vw,3.25rem)]">
                     {a.titulo}
                   </h3>

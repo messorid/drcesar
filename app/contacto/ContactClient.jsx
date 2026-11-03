@@ -23,7 +23,7 @@ export default function ContactClient() {
 
         <Reveal className="mt-16 grid border-t border-linea lg:mt-24 lg:grid-cols-2">
           <article data-reveal className="border-b border-linea py-10 lg:border-b-0 lg:border-r lg:pr-12">
-            <span className="display block text-6xl text-dorado-hondo">01</span>
+            <span className="display block text-6xl text-marca-hondo">01</span>
             <h2 className="display mt-5 text-[2.2rem]">Contacto directo</h2>
             <p className="mt-4 max-w-md leading-relaxed text-tinta-suave">
               Para agendar tu consulta o consultar disponibilidad, escríbenos
@@ -43,7 +43,7 @@ export default function ContactClient() {
           </article>
 
           <article data-reveal className="py-10 lg:pl-12">
-            <span className="display block text-6xl text-dorado-hondo">02</span>
+            <span className="display block text-6xl text-marca-hondo">02</span>
             <h2 className="display mt-5 text-[2.2rem]">Ubicaciones de atención</h2>
             <ul className="mt-6 border-t border-linea">
               {ubicaciones.map((u) => (

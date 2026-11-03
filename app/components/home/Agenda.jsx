@@ -37,7 +37,7 @@ export default function Agenda() {
         <Reveal as="ol" className="mt-14 grid gap-px border-y border-tinta/15 lg:grid-cols-3">
           {pasosAgenda.map((p) => (
             <li key={p.titulo} data-reveal className="py-8 lg:pr-10">
-              <span aria-hidden="true" className="block h-px w-10 bg-dorado" />
+              <span aria-hidden="true" className="block h-px w-10 bg-marca" />
               <h3 className="display mt-6 text-[1.9rem]">{p.titulo}</h3>
               <p className="mt-3 max-w-xs leading-relaxed text-tinta-suave">{p.texto}</p>
             </li>

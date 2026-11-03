@@ -77,7 +77,7 @@ export const procedimientos = [
 ]
 
 /* ---------------------------------------------------------------
-   Manifiesto: las palabras entre *asteriscos* van en dorado
+   Manifiesto: las palabras entre *asteriscos* van en el azul de marca
    --------------------------------------------------------------- */
 export const manifiesto =
   "No se trata de cambiar quién eres, sino de que te veas como te sientes. Con *seguridad*, con criterio y con resultados que se ven *naturales*."

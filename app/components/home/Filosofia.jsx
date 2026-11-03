@@ -137,7 +137,7 @@ export default function Filosofia() {
               aria-label={`${i + 1} de ${pilares.length}`}
               className="flex w-[85%] shrink-0 snap-center flex-col items-center bg-arena px-7 py-12 text-center lg:w-auto lg:items-start lg:border-r lg:border-linea lg:bg-transparent lg:px-10 lg:py-14 lg:text-left lg:first:pl-0 lg:last:border-r-0 lg:last:pr-0"
             >
-              <span aria-hidden="true" className="block h-px w-12 bg-dorado" />
+              <span aria-hidden="true" className="block h-px w-12 bg-marca" />
               <h3 className="display mt-8 text-[clamp(2.2rem,3.8vw,3.25rem)]">
                 {p.titulo}
               </h3>

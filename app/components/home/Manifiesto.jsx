@@ -4,7 +4,7 @@ import { useRef } from "react"
 import { useScene } from "@/app/lib/motion"
 import { manifiesto } from "@/app/content/site"
 
-// "*palabra*" → dorado. Se separa por palabras para iluminarlas con el scroll.
+// "*palabra*" → azul de marca. Se separa por palabras para iluminarlas con el scroll.
 const palabras = manifiesto.split(" ").map((p) => {
   const dorada = p.includes("*")
   return { texto: p.replaceAll("*", ""), dorada }
@@ -20,7 +20,7 @@ export default function Manifiesto() {
         s,
         { color: "#8f857b" },
         {
-          color: s.dataset.dorada ? "#9a7444" : "#1c1a19",
+          color: s.dataset.dorada ? "#1f7fb0" : "#1c1a19",
           ease: "none",
           scrollTrigger: {
             trigger: s,
@@ -42,7 +42,7 @@ export default function Manifiesto() {
               <span
                 data-palabra
                 data-dorada={p.dorada ? "1" : undefined}
-                className={p.dorada ? "text-dorado-texto" : "text-tinta"}
+                className={p.dorada ? "text-marca-texto" : "text-tinta"}
               >
                 {p.texto}
               </span>{" "}

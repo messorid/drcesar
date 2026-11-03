@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import WhatsappLink from "./WhatsappLink"
 import FooterNombre from "./FooterNombre"
@@ -16,6 +17,13 @@ export default function Footer() {
         <div className="grid gap-14 lg:grid-cols-12">
           {/* Contacto */}
           <div className="lg:col-span-5">
+            <Image
+              src="/images/logo-cr.png"
+              alt="Logotipo Dr. César Rosales"
+              width={56}
+              height={56}
+              className="mb-10 h-14 w-14 object-contain"
+            />
             <p className="label !text-crema/60">Contacto</p>
             <p className="mt-6 max-w-md font-serif text-3xl leading-tight sm:text-4xl">
               Agenda tu evaluación y conversemos sobre{" "}

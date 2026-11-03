@@ -86,7 +86,7 @@ export default function Recuperacion() {
             >
               <span
                 aria-hidden="true"
-                className="absolute -left-[5px] top-1 h-[9px] w-[9px] rounded-full bg-dorado lg:-top-[5px] lg:left-0"
+                className="absolute -left-[5px] top-1 h-[9px] w-[9px] rounded-full bg-marca lg:-top-[5px] lg:left-0"
               />
               <h3 className="display text-[clamp(1.9rem,3.4vw,3rem)]">
                 {r.etapa}
@@ -101,7 +101,7 @@ export default function Recuperacion() {
 
       <div className="contenedor mt-14 lg:mt-16">
         <div className="hidden h-px w-full bg-crema/15 lg:group-[.is-horizontal]:block">
-          <div data-progreso className="h-px origin-left scale-x-0 bg-dorado" />
+          <div data-progreso className="h-px origin-left scale-x-0 bg-marca" />
         </div>
         <p className="text-sm leading-relaxed text-crema/60 lg:group-[.is-horizontal]:mt-6">
           Los tiempos de recuperación son orientativos y dependen de cada

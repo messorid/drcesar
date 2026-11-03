@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import WhatsappLink from "./WhatsappLink"
@@ -71,20 +72,41 @@ export default function Navbar() {
         } ${texto}`}
       >
         <nav className="contenedor flex h-16 items-center justify-between lg:h-20">
-          <Link
-            href="/"
-            onClick={cerrarTodo}
-            className="flex flex-col leading-none"
-          >
-            <span className="font-serif text-xl tracking-tight lg:text-2xl">
-              Dr. César Rosales
+          <Link href="/" onClick={cerrarTodo} className="flex items-center gap-3">
+            {/* Logo CR: C blanca sobre la foto del hero, C oscura sobre crema */}
+            <span className="relative block h-9 w-9 shrink-0 lg:h-10 lg:w-10" aria-hidden="true">
+              <Image
+                src="/images/logo-cr.png"
+                alt=""
+                fill
+                sizes="40px"
+                priority
+                className={`object-contain transition-opacity duration-500 ${
+                  sobreFoto ? "opacity-100" : "opacity-0"
+                }`}
+              />
+              <Image
+                src="/images/logo-cr-oscuro.png"
+                alt=""
+                fill
+                sizes="40px"
+                priority
+                className={`object-contain transition-opacity duration-500 ${
+                  sobreFoto ? "opacity-0" : "opacity-100"
+                }`}
+              />
             </span>
-            <span
-              className={`mt-1 font-mono text-[0.6rem] uppercase tracking-[0.2em] ${
-                sobreFoto ? "text-crema/75" : "text-tinta-suave"
-              }`}
-            >
-              Cirujano Plástico
+            <span className="flex flex-col leading-none">
+              <span className="font-serif text-xl tracking-tight lg:text-2xl">
+                Dr. César Rosales
+              </span>
+              <span
+                className={`mt-1 font-mono text-[0.6rem] uppercase tracking-[0.2em] ${
+                  sobreFoto ? "text-crema/75" : "text-tinta-suave"
+                }`}
+              >
+                Cirujano Plástico
+              </span>
             </span>
           </Link>
 

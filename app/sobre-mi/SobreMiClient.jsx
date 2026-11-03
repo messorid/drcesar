@@ -126,7 +126,7 @@ export default function SobreMiClient() {
                 data-reveal
                 className="border-b border-tinta/20 py-10 lg:border-b-0 lg:border-r lg:px-10 lg:first:pl-0 lg:last:border-r-0 lg:last:pr-0"
               >
-                <span aria-hidden="true" className="block h-px w-10 bg-dorado" />
+                <span aria-hidden="true" className="block h-px w-10 bg-marca" />
                 <h3 className="display mt-6 text-[2rem]">{v.title}</h3>
                 <p className="mt-4 max-w-sm leading-relaxed text-tinta-suave">
                   {v.text}

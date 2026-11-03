@@ -12,12 +12,12 @@
   --color-tinta-suave: #5b544e;
   /* Estado "apagado" del manifiesto: 3.1:1, válido para texto grande */
   --color-tenue: #8f857b;
-  /* Dorado de marca: sólo líneas y detalles (2.5:1 sobre crema) */
-  --color-dorado: #b8925a;
-  /* Dorado para texto grande: 3.7:1 sobre crema */
-  --color-dorado-texto: #9a7444;
-  /* Dorado para texto pequeño: 5.1:1 sobre crema */
-  --color-dorado-hondo: #7f5f35;
+  /* Azul del logo CR: líneas y detalles (3.1:1 sobre crema) */
+  --color-marca: #2891c6;
+  /* Azul para texto grande: 3.9:1 sobre crema */
+  --color-marca-texto: #1f7fb0;
+  /* Azul para texto pequeño: 6:1 sobre crema */
+  --color-marca-hondo: #17608a;
   --color-linea: rgba(28, 26, 25, 0.14);
 
   --font-sans: var(--font-inter), system-ui, -apple-system, "Segoe UI",
@@ -28,11 +28,8 @@
 
   --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
 
-  /* Legado: sólo lo usa la landing /mounjaro, que conserva su estilo */
-  --color-ink: #0a0908;
-  --color-gold: #c9a96a;
-  --color-gold-light: #e6cfa0;
-  --color-cream: #f4efe6;
+  /* Legado: sólo lo usa el CTA fijo de la landing /mounjaro */
+  --color-brand-light: #63b4e2;
 }
 
 @layer base {
@@ -232,20 +229,6 @@ html.lenis body {
 /* =================================================
    Legado /mounjaro
    ================================================= */
-@keyframes goldPulse {
-  0%,
-  100% {
-    opacity: 0.55;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-
-.animate-gold-pulse {
-  animation: goldPulse 3s ease-in-out infinite;
-}
-
 @keyframes whatsappHalo {
   0% {
     transform: scale(1);
