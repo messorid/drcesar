@@ -91,7 +91,7 @@ export default function Recuperacion() {
               <h3 className="display text-[clamp(1.9rem,3.4vw,3rem)]">
                 {r.etapa}
               </h3>
-              <p className="mt-4 max-w-sm leading-relaxed text-crema/75">
+              <p className="mt-4 max-w-sm leading-relaxed text-crema/85">
                 {r.texto}
               </p>
             </li>
@@ -103,7 +103,7 @@ export default function Recuperacion() {
         <div className="hidden h-px w-full bg-crema/15 lg:group-[.is-horizontal]:block">
           <div data-progreso className="h-px origin-left scale-x-0 bg-marca" />
         </div>
-        <p className="text-sm leading-relaxed text-crema/60 lg:group-[.is-horizontal]:mt-6">
+        <p className="text-sm leading-relaxed text-crema/80 lg:group-[.is-horizontal]:mt-6">
           Los tiempos de recuperación son orientativos y dependen de cada
           paciente y procedimiento. Se definen en consulta.
         </p>

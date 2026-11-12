@@ -4,21 +4,21 @@
    Sistema de diseño — Editorial cálido
    ================================================= */
 @theme {
-  --color-crema: #f5efe7;
+  --color-crema: #efe5d8;
   --color-arena: #e6d8c6;
   --color-piel: #d9b8a0;
   --color-tinta: #1c1a19;
-  /* Texto secundario: 6.5:1 sobre crema, 5.3:1 sobre arena */
-  --color-tinta-suave: #5b544e;
-  /* Estado "apagado" del manifiesto: 3.1:1, válido para texto grande */
-  --color-tenue: #8f857b;
-  /* Azul del logo CR: líneas y detalles (3.1:1 sobre crema) */
+  /* Texto secundario: 9:1 sobre crema, 8:1 sobre arena */
+  --color-tinta-suave: #3f3a36;
+  /* Estado "apagado" del manifiesto: 3.9:1, válido para texto grande */
+  --color-tenue: #7a7066;
+  /* Azul del logo CR: líneas y detalles */
   --color-marca: #2891c6;
-  /* Azul para texto grande: 3.9:1 sobre crema */
+  /* Azul para texto grande: 3.6:1 sobre crema */
   --color-marca-texto: #1f7fb0;
-  /* Azul para texto pequeño: 6:1 sobre crema */
+  /* Azul para texto pequeño: 5.5:1 sobre crema */
   --color-marca-hondo: #17608a;
-  --color-linea: rgba(28, 26, 25, 0.14);
+  --color-linea: rgba(28, 26, 25, 0.2);
 
   --font-sans: var(--font-inter), system-ui, -apple-system, "Segoe UI",
     sans-serif;
@@ -72,7 +72,7 @@ h2,
 h3,
 h4 {
   font-family: var(--font-serif);
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: -0.015em;
 }
 }
@@ -83,16 +83,17 @@ h4 {
    ================================================= */
 .label {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
+  font-weight: 500;
   line-height: 1.4;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-tinta-suave);
+  color: var(--color-tinta);
 }
 
 .display {
   font-family: var(--font-serif);
-  font-weight: 400;
+  font-weight: 500;
   line-height: 0.98;
   letter-spacing: -0.025em;
 }
@@ -100,7 +101,7 @@ h4 {
 .display em,
 .serif-italic {
   font-style: italic;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .prose-editorial p + p {

@@ -24,7 +24,7 @@ export default function Footer() {
               height={56}
               className="mb-10 h-14 w-14 object-contain"
             />
-            <p className="label !text-crema/60">Contacto</p>
+            <p className="label !text-crema/75">Contacto</p>
             <p className="mt-6 max-w-md font-serif text-3xl leading-tight sm:text-4xl">
               Agenda tu evaluación y conversemos sobre{" "}
               <em>lo que buscas.</em>
@@ -53,7 +53,7 @@ export default function Footer() {
 
           {/* Procedimientos */}
           <nav aria-label="Procedimientos" className="lg:col-span-3 lg:col-start-7">
-            <p className="label !text-crema/60">Procedimientos</p>
+            <p className="label !text-crema/75">Procedimientos</p>
             <ul className="mt-6 space-y-3 text-sm text-crema/85">
               {procedimientos.map((p) => (
                 <li key={p.id}>
@@ -68,7 +68,7 @@ export default function Footer() {
           {/* Ubicaciones y legal */}
           <div className="grid grid-cols-2 gap-10 lg:col-span-3 lg:grid-cols-1">
             <nav aria-label="Ubicaciones">
-              <p className="label !text-crema/60">Ubicaciones</p>
+              <p className="label !text-crema/75">Ubicaciones</p>
               <ul className="mt-6 space-y-3 text-sm text-crema/85">
                 {ubicaciones.map((u) => (
                   <li key={u.id}>
@@ -80,7 +80,7 @@ export default function Footer() {
               </ul>
             </nav>
             <nav aria-label="Información legal">
-              <p className="label !text-crema/60">Legal</p>
+              <p className="label !text-crema/75">Legal</p>
               <ul className="mt-6 space-y-3 text-sm text-crema/85">
                 <li>
                   <Link href="/terminos-y-condiciones" className="link-editorial">
@@ -102,7 +102,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 border-t border-crema/15 pt-8 text-xs leading-relaxed text-crema/60 lg:flex lg:justify-between lg:gap-10">
+        <div className="mt-16 border-t border-crema/15 pt-8 text-xs leading-relaxed text-crema/75 lg:flex lg:justify-between lg:gap-10">
           <p className="max-w-2xl">
             Médico cirujano plástico colegiado · Atención previa cita. La
             información de este sitio es de carácter informativo y no sustituye

@@ -18,14 +18,14 @@ export default function Manifiesto() {
     spans.forEach((s) => {
       gsap.fromTo(
         s,
-        { color: "#8f857b" },
+        { color: "#7a7066" },
         {
           color: s.dataset.dorada ? "#1f7fb0" : "#1c1a19",
           ease: "none",
           scrollTrigger: {
             trigger: s,
-            start: "top 82%",
-            end: "top 52%",
+            start: "top 95%",
+            end: "top 68%",
             scrub: true,
           },
         }

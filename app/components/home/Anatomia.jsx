@@ -95,7 +95,7 @@ export default function Anatomia() {
             <h2 className="display max-w-[14ch] text-[clamp(2.4rem,5vw,4.25rem)]">
               Dónde se trabaja en Lipo HD y <em>BBL.</em>
             </h2>
-            <p className="mt-6 max-w-sm text-[0.98rem] leading-relaxed text-tinta-suave">
+            <p className="mt-6 max-w-sm text-[1.05rem] leading-relaxed text-tinta-suave">
               Una guía para entender las zonas. En consulta se define cuáles
               aplican a tu caso.
             </p>
@@ -120,8 +120,8 @@ export default function Anatomia() {
                 <li
                   key={a.zona}
                   data-etiqueta={a.zona}
-                  className={`border-t border-linea py-10 transition-opacity duration-500 lg:py-16 ${
-                    activa === a.zona ? "lg:opacity-100" : "lg:opacity-40"
+                  className={`border-t-2 py-10 transition-colors duration-500 lg:py-16 ${
+                    activa === a.zona ? "border-marca" : "border-linea"
                   }`}
                 >
                   <span className="label !text-marca-hondo">{a.procedimiento}</span>

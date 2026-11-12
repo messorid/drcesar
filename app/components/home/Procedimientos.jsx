@@ -77,7 +77,7 @@ export default function Procedimientos() {
           <h2 className="display max-w-[14ch] text-[clamp(2.4rem,6vw,4.75rem)]">
             Áreas de <em>especialidad</em>
           </h2>
-          <p className="mt-6 max-w-sm text-[0.98rem] leading-relaxed text-tinta-suave lg:mt-0">
+          <p className="mt-6 max-w-sm text-[1.05rem] leading-relaxed text-tinta-suave lg:mt-0">
             Cada plan quirúrgico parte de una evaluación individual. Conoce en
             qué consiste cada procedimiento.
           </p>
@@ -94,7 +94,7 @@ export default function Procedimientos() {
                   onFocus={() => setActivo(p.id)}
                   onBlur={() => setActivo(null)}
                   className={`group grid grid-cols-12 items-baseline gap-6 py-9 transition-opacity duration-500 ${
-                    activo && activo !== p.id ? "opacity-35" : ""
+                    activo && activo !== p.id ? "opacity-50" : ""
                   }`}
                 >
                   <span className="display col-span-8 text-[clamp(3rem,6.2vw,6rem)] transition-transform duration-700 ease-[var(--ease-editorial)] group-hover:translate-x-4">

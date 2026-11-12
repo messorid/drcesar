@@ -150,7 +150,7 @@ export function CtaWhatsapp({ titulo, texto, whatsappHref, contentName }) {
   return (
     <section className="bg-tinta py-20 text-crema lg:py-32">
       <Reveal className="contenedor">
-        <p data-reveal className="label !text-crema/70">
+        <p data-reveal className="label !text-crema/80">
           Agenda tu evaluación
         </p>
         <h2
@@ -175,7 +175,7 @@ export function CtaWhatsapp({ titulo, texto, whatsappHref, contentName }) {
             Escribir por WhatsApp
           </WhatsappLink>
         </div>
-        <p data-reveal className="mt-8 text-sm text-crema/60">
+        <p data-reveal className="mt-8 text-sm text-crema/75">
           Cada caso requiere una evaluación médica individual. Los resultados
           varían en cada paciente.
         </p>

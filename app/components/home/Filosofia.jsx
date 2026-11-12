@@ -141,7 +141,7 @@ export default function Filosofia() {
               <h3 className="display mt-8 text-[clamp(2.2rem,3.8vw,3.25rem)]">
                 {p.titulo}
               </h3>
-              <p className="mt-5 max-w-sm text-[0.98rem] leading-relaxed text-tinta-suave">
+              <p className="mt-5 max-w-sm text-[1.05rem] leading-relaxed text-tinta-suave">
                 {p.texto}
               </p>
             </article>
